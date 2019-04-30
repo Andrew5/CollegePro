@@ -1,0 +1,94 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - BaiduMapKit (4.3.2)
+  - CocoaSecurity (1.2.4)
+  - IQKeyboardManager (6.2.1)
+  - JCore (2.0.0)
+  - JPush (3.2.0):
+    - JCore (< 3.0.0, >= 2.0.0)
+  - Masonry (1.1.0)
+  - MBProgressHUD (0.9.2)
+  - "MBProgressHUD+JDragon (0.0.4)":
+    - MBProgressHUD (~> 0.9.2)
+  - MJExtension (3.0.17)
+  - MJRefresh (3.1.16)
+  - SDAutoLayout (2.2.1)
+  - SDWebImage (5.0.2):
+    - SDWebImage/Core (= 5.0.2)
+  - SDWebImage/Core (5.0.2)
+  - SVProgressHUD (2.2.5)
+  - TZImagePickerController (3.2.0)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
+
+DEPENDENCIES:
+  - AFNetworking
+  - BaiduMapKit
+  - CocoaSecurity
+  - IQKeyboardManager
+  - JPush
+  - Masonry
+  - "MBProgressHUD+JDragon"
+  - MJExtension
+  - MJRefresh
+  - SDAutoLayout
+  - SDWebImage
+  - SVProgressHUD
+  - TZImagePickerController
+  - YYKit
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - BaiduMapKit
+    - CocoaSecurity
+    - IQKeyboardManager
+    - JCore
+    - JPush
+    - Masonry
+    - MBProgressHUD
+    - "MBProgressHUD+JDragon"
+    - MJExtension
+    - MJRefresh
+    - SDAutoLayout
+    - SDWebImage
+    - SVProgressHUD
+    - TZImagePickerController
+    - YYKit
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  BaiduMapKit: a5d9580553355d39a91b24c5eb91ebf298c64038
+  CocoaSecurity: d288a6f87e0f363823d2cb83e753814a6944f71a
+  IQKeyboardManager: 964638372b4a61892cc74fdfa6fd26de8c9464a2
+  JCore: b962a2a1a61dc911ce5e79ba3ff21a95edaf5d23
+  JPush: 8459e7a709ad86f95884fcb49cbd57a6da24744e
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  "MBProgressHUD+JDragon": 51958736b3a9f97adc176371544ffa257a0ba058
+  MJExtension: 74ec83124a68891619fb7ba9c5c811bbf1691076
+  MJRefresh: 7798e16e53a5ef7f332dd05b27664db4e29530fd
+  SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
+  SDWebImage: 6764b5fa0f73c203728052955dbefa2bf1f33282
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  TZImagePickerController: 7850b158d025065b162a1a963d445040b828abc9
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+
+PODFILE CHECKSUM: df4b92b07034d79b984e6931778e71d23cb805b2
+
+COCOAPODS: 1.5.3
