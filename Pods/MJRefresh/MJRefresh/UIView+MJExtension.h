@@ -9,8 +9,11 @@
 
 #import <UIKit/UIKit.h>
 
+<<<<<<< HEAD
 NS_ASSUME_NONNULL_BEGIN
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @interface UIView (MJExtension)
 @property (assign, nonatomic) CGFloat mj_x;
 @property (assign, nonatomic) CGFloat mj_y;
@@ -19,5 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic) CGSize mj_size;
 @property (assign, nonatomic) CGPoint mj_origin;
 @end
+<<<<<<< HEAD
 
 NS_ASSUME_NONNULL_END
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28

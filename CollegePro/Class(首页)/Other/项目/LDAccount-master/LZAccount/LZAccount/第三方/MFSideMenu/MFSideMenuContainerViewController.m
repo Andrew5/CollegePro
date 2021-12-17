@@ -748,7 +748,11 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
         duration = animationPositionDelta / ABS(self.panGestureVelocity);
     } else {
         // no swipe was used, user tapped the bar button item
+<<<<<<< HEAD
         ///TODO: full animation duration hard to calculate with two menu widths
+=======
+        // TODO: full animation duration hard to calculate with two menu widths
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         CGFloat menuWidth = MAX(_leftMenuWidth, _rightMenuWidth);
         CGFloat animationPerecent = (animationPositionDelta == 0) ? 0 : menuWidth / animationPositionDelta;
         duration = self.menuAnimationDefaultDuration * animationPerecent;

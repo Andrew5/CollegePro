@@ -15,6 +15,10 @@
 //  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 
 #import "SGImageButton.h"
+<<<<<<< HEAD
+=======
+#import "UIView+SGExtension.h"
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 @implementation SGImageButton
 
@@ -35,6 +39,7 @@
     [super layoutSubviews];
     
     // 调整图片
+<<<<<<< HEAD
     self.imageView.y = 5;
     self.imageView.centerX = self.width * 0.5;
     
@@ -43,6 +48,16 @@
     self.titleLabel.y = self.imageView.bottom + 5;
     self.titleLabel.height = self.height - self.titleLabel.y - self.imageView.y;
     self.titleLabel.width = self.width;
+=======
+    self.imageView.SG_y = 5;
+    self.imageView.SG_centerX = self.SG_width * 0.5;
+    
+    // 调整文字
+    self.titleLabel.SG_x = 0;
+    self.titleLabel.SG_y = self.imageView.SG_bottom + 5;
+    self.titleLabel.SG_height = self.SG_height - self.titleLabel.SG_y - self.imageView.SG_y;
+    self.titleLabel.SG_width = self.SG_width;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 
 

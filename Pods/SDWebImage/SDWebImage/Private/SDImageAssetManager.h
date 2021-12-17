@@ -9,8 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "SDWebImageCompat.h"
 
+<<<<<<< HEAD
 /// A Image-Asset manager to work like UIKit/AppKit's image cache behavior
 /// Apple parse the Asset Catalog compiled file(`Assets.car`) by CoreUI.framework, however it's a private framework and there are no other ways to directly get the data. So we just process the normal bundle files :)
+=======
+// Apple parse the Asset Catalog compiled file(`Assets.car`) by CoreUI.framework, however it's a private framework and there are no other ways to directly get the data. So we just process the normal bundle files :)
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @interface SDImageAssetManager : NSObject
 
 @property (nonatomic, strong, nonnull) NSMapTable<NSString *, UIImage *> *imageTable;

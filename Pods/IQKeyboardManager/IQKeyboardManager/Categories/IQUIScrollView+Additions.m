@@ -38,6 +38,7 @@
     return [shouldIgnoreScrollingAdjustment boolValue];
 }
 
+<<<<<<< HEAD
 -(void)setShouldIgnoreContentInsetAdjustment:(BOOL)shouldIgnoreContentInsetAdjustment
 {
     objc_setAssociatedObject(self, @selector(shouldIgnoreContentInsetAdjustment), @(shouldIgnoreContentInsetAdjustment), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -50,6 +51,8 @@
     return [shouldIgnoreContentInsetAdjustment boolValue];
 }
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 -(void)setShouldRestoreScrollViewContentOffset:(BOOL)shouldRestoreScrollViewContentOffset
 {
     objc_setAssociatedObject(self, @selector(shouldRestoreScrollViewContentOffset), @(shouldRestoreScrollViewContentOffset), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -63,6 +66,7 @@
 }
 
 @end
+<<<<<<< HEAD
 
 @implementation UITableView (PreviousNextIndexPath)
 
@@ -159,3 +163,5 @@
 //}
 
 @end
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28

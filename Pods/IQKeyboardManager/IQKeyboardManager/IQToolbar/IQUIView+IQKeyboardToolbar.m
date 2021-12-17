@@ -28,11 +28,16 @@
 
 #import <objc/runtime.h>
 
+<<<<<<< HEAD
 #import <Foundation/NSData.h>
 
 #import <UIKit/UIImage.h>
 #import <UIKit/UILabel.h>
 #import <UIKit/UIScreen.h>
+=======
+#import <UIKit/UIImage.h>
+#import <UIKit/UILabel.h>
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 #import <UIKit/UIAccessibility.h>
 
 @implementation IQBarButtonItemConfiguration
@@ -71,6 +76,7 @@
 
 @implementation UIImage (IQKeyboardToolbarNextPreviousImage)
 
+<<<<<<< HEAD
 +(UIImage*)keyboardLeftImage
 {
     static UIImage *keyboardLeftImage = nil;
@@ -161,10 +167,147 @@
     }
     
     return keyboardDownImage;
+=======
++(UIImage*)keyboardPreviousiOS9Image
+{
+    static UIImage *keyboardPreviousiOS9Image = nil;
+    
+    if (keyboardPreviousiOS9Image == nil)
+    {
+        // Get the top level "bundle" which may actually be the framework
+        NSBundle *mainBundle = [NSBundle bundleForClass:[IQKeyboardManager class]];
+        
+        // Check to see if the resource bundle exists inside the top level bundle
+        NSBundle *resourcesBundle = [NSBundle bundleWithPath:[mainBundle pathForResource:@"IQKeyboardManager" ofType:@"bundle"]];
+        
+        if (resourcesBundle == nil) {
+            resourcesBundle = mainBundle;
+        }
+        
+        keyboardPreviousiOS9Image = [UIImage imageNamed:@"IQButtonBarArrowLeft" inBundle:resourcesBundle compatibleWithTraitCollection:nil];;
+        
+        //Support for RTL languages like Arabic, Persia etc... (Bug ID: #448)
+#ifdef __IPHONE_11_0
+        if (@available(iOS 9.0, *)) {
+#endif
+            if ([UIImage instancesRespondToSelector:@selector(imageFlippedForRightToLeftLayoutDirection)])
+            {
+                keyboardPreviousiOS9Image = [keyboardPreviousiOS9Image imageFlippedForRightToLeftLayoutDirection];
+            }
+#ifdef __IPHONE_11_0
+        }
+#endif
+    }
+    
+    return keyboardPreviousiOS9Image;
+}
+
++(UIImage*)keyboardNextiOS9Image
+{
+    static UIImage *keyboardNextiOS9Image = nil;
+    
+    if (keyboardNextiOS9Image == nil)
+    {
+        // Get the top level "bundle" which may actually be the framework
+        NSBundle *mainBundle = [NSBundle bundleForClass:[IQKeyboardManager class]];
+        
+        // Check to see if the resource bundle exists inside the top level bundle
+        NSBundle *resourcesBundle = [NSBundle bundleWithPath:[mainBundle pathForResource:@"IQKeyboardManager" ofType:@"bundle"]];
+        
+        if (resourcesBundle == nil) {
+            resourcesBundle = mainBundle;
+        }
+        
+        keyboardNextiOS9Image = [UIImage imageNamed:@"IQButtonBarArrowRight" inBundle:resourcesBundle compatibleWithTraitCollection:nil];
+        
+        //Support for RTL languages like Arabic, Persia etc... (Bug ID: #448)
+#ifdef __IPHONE_11_0
+        if (@available(iOS 9.0, *)) {
+#endif
+            if ([UIImage instancesRespondToSelector:@selector(imageFlippedForRightToLeftLayoutDirection)])
+            {
+                keyboardNextiOS9Image = [keyboardNextiOS9Image imageFlippedForRightToLeftLayoutDirection];
+            }
+#ifdef __IPHONE_11_0
+        }
+#endif
+    }
+    
+    return keyboardNextiOS9Image;
+}
+
++(UIImage*)keyboardPreviousiOS10Image
+{
+    static UIImage *keyboardPreviousiOS10Image = nil;
+    
+    if (keyboardPreviousiOS10Image == nil)
+    {
+        // Get the top level "bundle" which may actually be the framework
+        NSBundle *mainBundle = [NSBundle bundleForClass:[IQKeyboardManager class]];
+        
+        // Check to see if the resource bundle exists inside the top level bundle
+        NSBundle *resourcesBundle = [NSBundle bundleWithPath:[mainBundle pathForResource:@"IQKeyboardManager" ofType:@"bundle"]];
+        
+        if (resourcesBundle == nil) {
+            resourcesBundle = mainBundle;
+        }
+        
+        keyboardPreviousiOS10Image = [UIImage imageNamed:@"IQButtonBarArrowUp" inBundle:resourcesBundle compatibleWithTraitCollection:nil];
+        
+        //Support for RTL languages like Arabic, Persia etc... (Bug ID: #448)
+#ifdef __IPHONE_11_0
+        if (@available(iOS 9.0, *)) {
+#endif
+            if ([UIImage instancesRespondToSelector:@selector(imageFlippedForRightToLeftLayoutDirection)])
+            {
+                keyboardPreviousiOS10Image = [keyboardPreviousiOS10Image imageFlippedForRightToLeftLayoutDirection];
+            }
+#ifdef __IPHONE_11_0
+        }
+#endif
+    }
+    
+    return keyboardPreviousiOS10Image;
+}
+
++(UIImage*)keyboardNextiOS10Image
+{
+    static UIImage *keyboardNextiOS10Image = nil;
+    
+    if (keyboardNextiOS10Image == nil)
+    {
+        // Get the top level "bundle" which may actually be the framework
+        NSBundle *mainBundle = [NSBundle bundleForClass:[IQKeyboardManager class]];
+        
+        // Check to see if the resource bundle exists inside the top level bundle
+        NSBundle *resourcesBundle = [NSBundle bundleWithPath:[mainBundle pathForResource:@"IQKeyboardManager" ofType:@"bundle"]];
+        
+        if (resourcesBundle == nil) {
+            resourcesBundle = mainBundle;
+        }
+        
+        keyboardNextiOS10Image = [UIImage imageNamed:@"IQButtonBarArrowDown" inBundle:resourcesBundle compatibleWithTraitCollection:nil];
+        
+        //Support for RTL languages like Arabic, Persia etc... (Bug ID: #448)
+#ifdef __IPHONE_11_0
+        if (@available(iOS 9.0, *)) {
+#endif
+            if ([UIImage instancesRespondToSelector:@selector(imageFlippedForRightToLeftLayoutDirection)])
+            {
+                keyboardNextiOS10Image = [keyboardNextiOS10Image imageFlippedForRightToLeftLayoutDirection];
+            }
+#ifdef __IPHONE_11_0
+        }
+#endif
+    }
+    
+    return keyboardNextiOS10Image;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 
 +(UIImage*)keyboardPreviousImage
 {
+<<<<<<< HEAD
     if (@available(iOS 10.0, *))
     {
         return [UIImage keyboardUpImage];
@@ -172,11 +315,25 @@
     else
     {
         return [UIImage keyboardLeftImage];
+=======
+#ifdef __IPHONE_11_0
+    if (@available(iOS 10.0, *))
+#else
+    if (IQ_IS_IOS10_OR_GREATER)
+#endif
+    {
+        return [UIImage keyboardPreviousiOS10Image];
+    }
+    else
+    {
+        return [UIImage keyboardPreviousiOS9Image];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     }
 }
 
 +(UIImage*)keyboardNextImage
 {
+<<<<<<< HEAD
     if (@available(iOS 10.0, *))
     {
         return [UIImage keyboardDownImage];
@@ -184,6 +341,19 @@
     else
     {
         return [UIImage keyboardRightImage];
+=======
+#ifdef __IPHONE_11_0
+    if (@available(iOS 10.0, *))
+#else
+    if (IQ_IS_IOS10_OR_GREATER)
+#endif
+    {
+        return [UIImage keyboardNextiOS10Image];
+    }
+    else
+    {
+        return [UIImage keyboardNextiOS9Image];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     }
 }
 
@@ -206,9 +376,13 @@
         
         if (keyboardToolbar == nil)
         {
+<<<<<<< HEAD
             CGRect frame = CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, 44);
 
             keyboardToolbar = [[IQToolbar alloc] initWithFrame:frame];
+=======
+            keyboardToolbar = [[IQToolbar alloc] init];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
             
             objc_setAssociatedObject(self, @selector(keyboardToolbar), keyboardToolbar, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         }
@@ -296,7 +470,10 @@
         if (prev.isSystemItem == NO && (previousBarButtonConfiguration.image || previousBarButtonConfiguration.title))
         {
             prev.title = previousBarButtonConfiguration.title;
+<<<<<<< HEAD
             prev.accessibilityLabel = previousBarButtonConfiguration.accessibilityLabel;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
             prev.image = previousBarButtonConfiguration.image;
             prev.target = target;
             prev.action = previousBarButtonConfiguration.action;
@@ -305,27 +482,39 @@
         {
             prev = [[IQBarButtonItem alloc] initWithImage:previousBarButtonConfiguration.image style:UIBarButtonItemStylePlain target:target action:previousBarButtonConfiguration.action];
             prev.invocation = toolbar.previousBarButton.invocation;
+<<<<<<< HEAD
             prev.accessibilityLabel = previousBarButtonConfiguration.accessibilityLabel;
             prev.enabled = toolbar.previousBarButton.enabled;
             prev.tag = toolbar.previousBarButton.tag;
+=======
+            prev.accessibilityLabel = toolbar.previousBarButton.accessibilityLabel;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
             toolbar.previousBarButton = prev;
         }
         else if (previousBarButtonConfiguration.title)
         {
             prev = [[IQBarButtonItem alloc] initWithTitle:previousBarButtonConfiguration.title style:UIBarButtonItemStylePlain target:target action:previousBarButtonConfiguration.action];
             prev.invocation = toolbar.previousBarButton.invocation;
+<<<<<<< HEAD
             prev.accessibilityLabel = previousBarButtonConfiguration.accessibilityLabel;
             prev.enabled = toolbar.previousBarButton.enabled;
             prev.tag = toolbar.previousBarButton.tag;
+=======
+            prev.accessibilityLabel = toolbar.previousBarButton.accessibilityLabel;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
             toolbar.previousBarButton = prev;
         }
         else
         {
             prev = [[IQBarButtonItem alloc] initWithBarButtonSystemItem:previousBarButtonConfiguration.barButtonSystemItem target:target action:previousBarButtonConfiguration.action];
             prev.invocation = toolbar.previousBarButton.invocation;
+<<<<<<< HEAD
             prev.accessibilityLabel = previousBarButtonConfiguration.accessibilityLabel;
             prev.enabled = toolbar.previousBarButton.enabled;
             prev.tag = toolbar.previousBarButton.tag;
+=======
+            prev.accessibilityLabel = toolbar.previousBarButton.accessibilityLabel;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
             toolbar.previousBarButton = prev;
         }
         
@@ -344,7 +533,10 @@
         if (next.isSystemItem == NO && (nextBarButtonConfiguration.image || nextBarButtonConfiguration.title))
         {
             next.title = nextBarButtonConfiguration.title;
+<<<<<<< HEAD
             next.accessibilityLabel = nextBarButtonConfiguration.accessibilityLabel;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
             next.image = nextBarButtonConfiguration.image;
             next.target = target;
             next.action = nextBarButtonConfiguration.action;
@@ -353,27 +545,39 @@
         {
             next = [[IQBarButtonItem alloc] initWithImage:nextBarButtonConfiguration.image style:UIBarButtonItemStylePlain target:target action:nextBarButtonConfiguration.action];
             next.invocation = toolbar.nextBarButton.invocation;
+<<<<<<< HEAD
             next.accessibilityLabel = nextBarButtonConfiguration.accessibilityLabel;
             next.enabled = toolbar.nextBarButton.enabled;
             next.tag = toolbar.nextBarButton.tag;
+=======
+            next.accessibilityLabel = toolbar.nextBarButton.accessibilityLabel;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
             toolbar.nextBarButton = next;
         }
         else if (nextBarButtonConfiguration.title)
         {
             next = [[IQBarButtonItem alloc] initWithTitle:nextBarButtonConfiguration.title style:UIBarButtonItemStylePlain target:target action:nextBarButtonConfiguration.action];
             next.invocation = toolbar.nextBarButton.invocation;
+<<<<<<< HEAD
             next.accessibilityLabel = nextBarButtonConfiguration.accessibilityLabel;
             next.enabled = toolbar.nextBarButton.enabled;
             next.tag = toolbar.nextBarButton.tag;
+=======
+            next.accessibilityLabel = toolbar.nextBarButton.accessibilityLabel;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
             toolbar.nextBarButton = next;
         }
         else
         {
             next = [[IQBarButtonItem alloc] initWithBarButtonSystemItem:nextBarButtonConfiguration.barButtonSystemItem target:target action:nextBarButtonConfiguration.action];
             next.invocation = toolbar.nextBarButton.invocation;
+<<<<<<< HEAD
             next.accessibilityLabel = nextBarButtonConfiguration.accessibilityLabel;
             next.enabled = toolbar.nextBarButton.enabled;
             next.tag = toolbar.nextBarButton.tag;
+=======
+            next.accessibilityLabel = toolbar.nextBarButton.accessibilityLabel;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
             toolbar.nextBarButton = next;
         }
         
@@ -387,8 +591,15 @@
         
         //Title button
         toolbar.titleBarButton.title = titleText;
+<<<<<<< HEAD
         if (@available(iOS 11.0, *)) {}
         else
+=======
+#ifdef __IPHONE_11_0
+        if (@available(iOS 11.0, *)) {}
+        else
+#endif
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         {
             toolbar.titleBarButton.customView.frame = CGRectZero;
         }
@@ -405,7 +616,10 @@
         if (done.isSystemItem == NO && (rightBarButtonConfiguration.image || rightBarButtonConfiguration.title))
         {
             done.title = rightBarButtonConfiguration.title;
+<<<<<<< HEAD
             done.accessibilityLabel = rightBarButtonConfiguration.accessibilityLabel;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
             done.image = rightBarButtonConfiguration.image;
             done.target = target;
             done.action = rightBarButtonConfiguration.action;
@@ -414,27 +628,39 @@
         {
             done = [[IQBarButtonItem alloc] initWithImage:rightBarButtonConfiguration.image style:UIBarButtonItemStylePlain target:target action:rightBarButtonConfiguration.action];
             done.invocation = toolbar.doneBarButton.invocation;
+<<<<<<< HEAD
             done.accessibilityLabel = rightBarButtonConfiguration.accessibilityLabel;
             done.enabled = toolbar.doneBarButton.enabled;
             done.tag = toolbar.doneBarButton.tag;
+=======
+            done.accessibilityLabel = toolbar.doneBarButton.accessibilityLabel;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
             toolbar.doneBarButton = done;
         }
         else if (rightBarButtonConfiguration.title)
         {
             done = [[IQBarButtonItem alloc] initWithTitle:rightBarButtonConfiguration.title style:UIBarButtonItemStylePlain target:target action:rightBarButtonConfiguration.action];
             done.invocation = toolbar.doneBarButton.invocation;
+<<<<<<< HEAD
             done.accessibilityLabel = rightBarButtonConfiguration.accessibilityLabel;
             done.enabled = toolbar.doneBarButton.enabled;
             done.tag = toolbar.doneBarButton.tag;
+=======
+            done.accessibilityLabel = toolbar.doneBarButton.accessibilityLabel;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
             toolbar.doneBarButton = done;
         }
         else
         {
             done = [[IQBarButtonItem alloc] initWithBarButtonSystemItem:rightBarButtonConfiguration.barButtonSystemItem target:target action:rightBarButtonConfiguration.action];
             done.invocation = toolbar.doneBarButton.invocation;
+<<<<<<< HEAD
             done.accessibilityLabel = rightBarButtonConfiguration.accessibilityLabel;
             done.enabled = toolbar.doneBarButton.enabled;
             done.tag = toolbar.doneBarButton.tag;
+=======
+            done.accessibilityLabel = toolbar.doneBarButton.accessibilityLabel;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
             toolbar.doneBarButton = done;
         }
         

@@ -17,6 +17,7 @@
 #define SD_UNLOCK(lock) dispatch_semaphore_signal(lock);
 #endif
 
+<<<<<<< HEAD
 #ifndef SD_OPTIONS_CONTAINS
 #define SD_OPTIONS_CONTAINS(options, value) (((options) & (value)) == (value))
 #endif
@@ -33,6 +34,8 @@
 #define SD_SEL_SPI(name) NSSelectorFromString([NSString stringWithFormat:@"_%@", SD_NSSTRING(name)])
 #endif
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 #ifndef weakify
 #define weakify(...) \
 sd_keywordify \

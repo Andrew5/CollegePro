@@ -534,7 +534,11 @@ typedef enum {
 @property (nonatomic, retain) NSString *		shop_name;//店铺名称
 @property (nonatomic, retain) NSString *		sub_title1;//标题1
 @property (nonatomic, retain) NSString *		sub_title2;//标题2
+<<<<<<< HEAD
 @property (nonatomic, assign) BOOL isEditing; ///TODO:
+=======
+@property (nonatomic, assign) BOOL isEditing; // TODO:
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @end
 
 @interface SHOP_ITEM: NSObject

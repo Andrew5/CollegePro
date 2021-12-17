@@ -7,7 +7,10 @@
 //
 
 #import "GZBaseViewController.h"
+<<<<<<< HEAD
 #import "HWSlider.h"
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 @interface GZBaseViewController ()
 
@@ -48,11 +51,15 @@
     _Label.backgroundColor = [UIColor redColor];
     [self.view addSubview:_Label];
     
+<<<<<<< HEAD
     //滑动条
     HWSlider *slider = [[HWSlider alloc] initWithFrame:CGRectMake(50, 100, 300, 75)];
     slider.layer.borderColor = [UIColor greenColor].CGColor;
     slider.layer.borderWidth = 1.0;
     [self.view addSubview:slider];
+=======
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     // Do any additional setup after loading the view.
 }
 //// slider变动时改变label值
@@ -64,7 +71,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+<<<<<<< HEAD
 //3Dtouch会自动调用 预览页面 底部Action Items
+=======
+//3Dtouch会自动调用
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 - (NSArray<id<UIPreviewActionItem>> *)previewActionItems {
     //
     UIPreviewAction *action1 = [UIPreviewAction actionWithTitle:@"删除" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {

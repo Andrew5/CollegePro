@@ -99,10 +99,17 @@
     } else {
         self.gifView.contentMode = UIViewContentModeRight;
         
+<<<<<<< HEAD
         CGFloat stateWidth = self.stateLabel.mj_textWidth;
         CGFloat timeWidth = 0.0;
         if (!self.lastUpdatedTimeLabel.hidden) {
             timeWidth = self.lastUpdatedTimeLabel.mj_textWidth;
+=======
+        CGFloat stateWidth = self.stateLabel.mj_textWith;
+        CGFloat timeWidth = 0.0;
+        if (!self.lastUpdatedTimeLabel.hidden) {
+            timeWidth = self.lastUpdatedTimeLabel.mj_textWith;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         }
         CGFloat textWidth = MAX(stateWidth, timeWidth);
         self.gifView.mj_w = self.mj_w * 0.5 - textWidth * 0.5 - self.labelLeftInset;

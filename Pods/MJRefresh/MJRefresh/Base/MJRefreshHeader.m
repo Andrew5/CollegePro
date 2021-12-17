@@ -9,16 +9,24 @@
 
 #import "MJRefreshHeader.h"
 
+<<<<<<< HEAD
 NSString * const MJRefreshHeaderRefreshing2IdleBoundsKey = @"MJRefreshHeaderRefreshing2IdleBounds";
 NSString * const MJRefreshHeaderRefreshingBoundsKey = @"MJRefreshHeaderRefreshingBounds";
 
 @interface MJRefreshHeader() <CAAnimationDelegate>
+=======
+@interface MJRefreshHeader()
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @property (assign, nonatomic) CGFloat insetTDelta;
 @end
 
 @implementation MJRefreshHeader
 #pragma mark - 构造方法
+<<<<<<< HEAD
 + (instancetype)headerWithRefreshingBlock:(MJRefreshComponentAction)refreshingBlock
+=======
++ (instancetype)headerWithRefreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 {
     MJRefreshHeader *cmp = [[self alloc] init];
     cmp.refreshingBlock = refreshingBlock;
@@ -51,6 +59,7 @@ NSString * const MJRefreshHeaderRefreshingBoundsKey = @"MJRefreshHeaderRefreshin
     self.mj_y = - self.mj_h - self.ignoredScrollViewContentInsetTop;
 }
 
+<<<<<<< HEAD
 - (void)resetInset {
     if (@available(iOS 11.0, *)) {
     } else {
@@ -68,13 +77,27 @@ NSString * const MJRefreshHeaderRefreshingBoundsKey = @"MJRefreshHeaderRefreshin
     }
 }
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 - (void)scrollViewContentOffsetDidChange:(NSDictionary *)change
 {
     [super scrollViewContentOffsetDidChange:change];
     
     // 在刷新的refreshing状态
     if (self.state == MJRefreshStateRefreshing) {
+<<<<<<< HEAD
         [self resetInset];
+=======
+        // 暂时保留
+        if (self.window == nil) return;
+        
+        // sectionheader停留解决
+        CGFloat insetT = - self.scrollView.mj_offsetY > _scrollViewOriginalInset.top ? - self.scrollView.mj_offsetY : _scrollViewOriginalInset.top;
+        insetT = insetT > self.mj_h + _scrollViewOriginalInset.top ? self.mj_h + _scrollViewOriginalInset.top : insetT;
+        self.scrollView.mj_insetT = insetT;
+        
+        self.insetTDelta = _scrollViewOriginalInset.top - insetT;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         return;
     }
     
@@ -119,6 +142,7 @@ NSString * const MJRefreshHeaderRefreshingBoundsKey = @"MJRefreshHeaderRefreshin
     if (state == MJRefreshStateIdle) {
         if (oldState != MJRefreshStateRefreshing) return;
         
+<<<<<<< HEAD
         [self headerEndingAction];
     } else if (state == MJRefreshStateRefreshing) {
         [self headerRefreshingAction];
@@ -132,13 +156,22 @@ NSString * const MJRefreshHeaderRefreshingBoundsKey = @"MJRefreshHeaderRefreshin
     
     // 默认使用 UIViewAnimation 动画
     if (!self.isCollectionViewAnimationBug) {
+=======
+        // 保存刷新时间
+        [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:self.lastUpdatedTimeKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         // 恢复inset和offset
         [UIView animateWithDuration:MJRefreshSlowAnimationDuration animations:^{
             self.scrollView.mj_insetT += self.insetTDelta;
             
+<<<<<<< HEAD
             if (self.endRefreshingAnimationBeginAction) {
                 self.endRefreshingAnimationBeginAction();
             }
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
             // 自动调整透明度
             if (self.isAutomaticallyChangeAlpha) self.alpha = 0.0;
         } completion:^(BOOL finished) {
@@ -148,6 +181,7 @@ NSString * const MJRefreshHeaderRefreshingBoundsKey = @"MJRefreshHeaderRefreshin
                 self.endRefreshingCompletionBlock();
             }
         }];
+<<<<<<< HEAD
         
         return;
     }
@@ -201,6 +235,9 @@ NSString * const MJRefreshHeaderRefreshingBoundsKey = @"MJRefreshHeaderRefreshin
 - (void)headerRefreshingAction {
     // 默认使用 UIViewAnimation 动画
     if (!self.isCollectionViewAnimationBug) {
+=======
+    } else if (state == MJRefreshStateRefreshing) {
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         MJRefreshDispatchAsyncOnMainQueue({
             [UIView animateWithDuration:MJRefreshFastAnimationDuration animations:^{
                 if (self.scrollView.panGestureRecognizer.state != UIGestureRecognizerStateCancelled) {
@@ -216,6 +253,7 @@ NSString * const MJRefreshHeaderRefreshingBoundsKey = @"MJRefreshHeaderRefreshin
                 [self executeRefreshingCallback];
             }];
         })
+<<<<<<< HEAD
         return;
     }
     
@@ -272,6 +310,8 @@ NSString * const MJRefreshHeaderRefreshingBoundsKey = @"MJRefreshHeaderRefreshin
     
     if ([self.scrollView.layer animationForKey:MJRefreshHeaderRefreshingBoundsKey]) {
         [self.scrollView.layer removeAnimationForKey:MJRefreshHeaderRefreshingBoundsKey];
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     }
 }
 

@@ -8,8 +8,11 @@
 
 #import "MJRefreshAutoFooter.h"
 
+<<<<<<< HEAD
 NS_ASSUME_NONNULL_BEGIN
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @interface MJRefreshAutoStateFooter : MJRefreshAutoFooter
 /** 文字距离圈圈、箭头的距离 */
 @property (assign, nonatomic) CGFloat labelLeftInset;
@@ -22,5 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** 隐藏刷新状态的文字 */
 @property (assign, nonatomic, getter=isRefreshingTitleHidden) BOOL refreshingTitleHidden;
 @end
+<<<<<<< HEAD
 
 NS_ASSUME_NONNULL_END
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28

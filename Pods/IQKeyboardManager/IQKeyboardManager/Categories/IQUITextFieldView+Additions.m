@@ -53,6 +53,7 @@
     return [ignoreSwitchingByNextPrevious boolValue];
 }
 
+<<<<<<< HEAD
 -(void)setEnableMode:(IQEnableMode)enableMode
 {
     objc_setAssociatedObject(self, @selector(enableMode), @(enableMode), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -64,6 +65,19 @@
     
     return [enableMode unsignedIntegerValue];
 }
+=======
+//-(void)setEnableMode:(IQEnableMode)enableMode
+//{
+//    objc_setAssociatedObject(self, @selector(enableMode), @(enableMode), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//}
+//
+//-(IQEnableMode)enableMode
+//{
+//    NSNumber *enableMode = objc_getAssociatedObject(self, @selector(enableMode));
+//    
+//    return [enableMode unsignedIntegerValue];
+//}
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 -(void)setShouldResignOnTouchOutsideMode:(IQEnableMode)shouldResignOnTouchOutsideMode
 {

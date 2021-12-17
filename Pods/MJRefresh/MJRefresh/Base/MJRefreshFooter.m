@@ -16,7 +16,11 @@
 
 @implementation MJRefreshFooter
 #pragma mark - 构造方法
+<<<<<<< HEAD
 + (instancetype)footerWithRefreshingBlock:(MJRefreshComponentAction)refreshingBlock
+=======
++ (instancetype)footerWithRefreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 {
     MJRefreshFooter *cmp = [[self alloc] init];
     cmp.refreshingBlock = refreshingBlock;
@@ -41,6 +45,25 @@
 //    self.automaticallyHidden = NO;
 }
 
+<<<<<<< HEAD
+=======
+//- (void)willMoveToSuperview:(UIView *)newSuperview
+//{
+//    [super willMoveToSuperview:newSuperview];
+//
+//    if (newSuperview) {
+//        // 监听scrollView数据的变化
+//        if ([self.scrollView isKindOfClass:[UITableView class]] || [self.scrollView isKindOfClass:[UICollectionView class]]) {
+//            [self.scrollView setMj_reloadDataBlock:^(NSInteger totalDataCount) {
+//                if (self.isAutomaticallyHidden) {
+//                    self.hidden = (totalDataCount == 0);
+//                }
+//            }];
+//        }
+//    }
+//}
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 #pragma mark - 公共方法
 - (void)endRefreshingWithNoMoreData
 {

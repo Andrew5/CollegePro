@@ -15,7 +15,10 @@
 #import "MJRefreshComponent.h"
 #import "MJRefreshFooter.h"
 #import "MJRefreshHeader.h"
+<<<<<<< HEAD
 #import "MJRefreshTrailer.h"
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 #import "MJRefreshAutoGifFooter.h"
 #import "MJRefreshAutoNormalFooter.h"
 #import "MJRefreshAutoStateFooter.h"
@@ -25,10 +28,14 @@
 #import "MJRefreshGifHeader.h"
 #import "MJRefreshNormalHeader.h"
 #import "MJRefreshStateHeader.h"
+<<<<<<< HEAD
 #import "MJRefreshNormalTrailer.h"
 #import "MJRefreshStateTrailer.h"
 #import "MJRefresh.h"
 #import "MJRefreshConfig.h"
+=======
+#import "MJRefresh.h"
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 #import "MJRefreshConst.h"
 #import "NSBundle+MJRefresh.h"
 #import "UIScrollView+MJExtension.h"

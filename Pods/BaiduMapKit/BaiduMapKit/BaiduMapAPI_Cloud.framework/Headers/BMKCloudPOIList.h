@@ -33,15 +33,23 @@
 /// 云检索结果信息类
 @interface BMKCloudPOIInfo : NSObject {
     int             _uid;
+<<<<<<< HEAD
     NSString        *_poiId;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     int             _geotableId;
     NSString        *_title;
     NSString        *_address;
     NSString        *_province;
     NSString        *_city;
     NSString        *_district;
+<<<<<<< HEAD
     double          _latitude;
     double          _longitude;
+=======
+    float           _latitude;
+    float           _longitude;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     NSString        *_tags;
     float           _distance;
     float           _weight;
@@ -52,10 +60,15 @@
     
 
 }
+<<<<<<< HEAD
 ///poi数据id，废弃
 @property (nonatomic, assign) int             uid __deprecated_msg("自4.4.0开始废弃");
 ///poi数据id
 @property (nonatomic, strong) NSString        *poiId;
+=======
+///poi数据id
+@property (nonatomic, assign) int             uid;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 ///所属table的id
 @property (nonatomic, assign) int             geotableId;
 ///poi名称
@@ -69,9 +82,15 @@
 ///poi所属区县
 @property (nonatomic, strong) NSString        *district;
 ///poi所处位置的纬度
+<<<<<<< HEAD
 @property (nonatomic, assign) double           latitude;
 ///poi所处位置的经度
 @property (nonatomic, assign) double           longitude;
+=======
+@property (nonatomic, assign) float           latitude;
+///poi所处位置的经度
+@property (nonatomic, assign) float           longitude;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 ///poi标签
 @property (nonatomic, strong) NSString        *tags;
 ///poi距离

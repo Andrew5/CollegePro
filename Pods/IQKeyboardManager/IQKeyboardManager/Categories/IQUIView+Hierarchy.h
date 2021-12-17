@@ -57,6 +57,7 @@
 
 /**
  Returns the superView of provided class type.
+<<<<<<< HEAD
 
  @param classType class type of the object which is to be search in above hierarchy and return
 
@@ -64,6 +65,10 @@
  */
 -(nullable __kindof UIView*)superviewOfClassType:(nonnull Class)classType belowView:(nullable UIView*)belowView;
 -(nullable __kindof UIView*)superviewOfClassType:(nonnull Class)classType;
+=======
+ */
+-(nullable UIView*)superviewOfClassType:(nonnull Class)classType;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 /**
  Returns all siblings of the receiver which canBecomeFirstResponder.
@@ -120,6 +125,15 @@
 @end
 
 
+<<<<<<< HEAD
+=======
+@interface UIViewController (IQ_UIView_Hierarchy)
+
+-(nullable UIViewController*)parentIQContainerViewController;
+
+@end
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 /**
  NSObject category to used for logging purposes
  */

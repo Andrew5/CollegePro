@@ -7,8 +7,15 @@
  一个支持多选、选原图和视频的图片选择器，同时有预览功能，支持iOS6+。
  
  ## 重要提示1：提issue前，请先对照Demo、常见问题自查！Demo正常说明你可以升级下新版试试。          
+<<<<<<< HEAD
  
  ## 重要提示2：3.4.2版本适配了iOS14，修复2个严重问题，强烈建议尽快更新            
+=======
+   
+ ## 重要提示2：1.9.0版本后移除了"prefs:root="的调用，这个API已经被列为私有API，请大家尽快升级。
+ 
+ ## 重要提示3：3.0.7版本适配了iPhoneXR、XS、XS Max，建议大家尽快更新            
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
  
      关于升级iOS10和Xcdoe8的提示:    
  在Xcode8环境下将项目运行在iOS10的设备/模拟器中，访问相册和相机需要额外配置info.plist文件。分别是Privacy - Photo Library Usage Description和Privacy - Camera Usage Description字段，详见Demo中info.plist中的设置。
@@ -35,7 +42,11 @@
     
     // You can get the photos by block, the same as by delegate.
     // 你可以通过block或者代理，来得到用户选择的照片.
+<<<<<<< HEAD
     [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+=======
+    [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets) {
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     
     }];
     [self presentViewController:imagePickerVc animated:YES completion:nil];
@@ -52,7 +63,10 @@
    TZImagePickerController uses Camera、Location、Microphone、Photo Library，you need add these properties to info.plist like Demo：       
    TZImagePickerController使用了相机、定位、麦克风、相册，请参考Demo添加下列属性到info.plist文件：        
    	`Privacy - Camera Usage Description`     
+<<<<<<< HEAD
         `Privacy - Location Usage Description`
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 	`Privacy - Location When In Use Usage Description`    
  	`Privacy - Microphone Usage Description`   
  	`Privacy - Photo Library Usage Description`   
@@ -61,7 +75,11 @@
 
   If you find a bug, please create a issue.  
   Welcome to pull requests.  
+<<<<<<< HEAD
   More information please view code.  
+=======
+  More infomation please view code.  
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
   如果你发现了bug，请提一个issue。 
   欢迎给我提pull requests。  
   更多信息详见代码，也可查看我的博客: [我的博客](http://www.jianshu.com/p/1975411a31bb "半尺尘 - 简书")
@@ -111,7 +129,11 @@ A：是否有集成WRNavigationBar？如有，参考其readme调一下它的wr_s
 A：是否有集成GKNavigationBarViewController？需要升级到2.0.4及以上版本，详见issue：[https://github.com/QuintGao/GKNavigationBarViewController/issues/7](https://github.com/QuintGao/GKNavigationBarViewController/issues/7)。       
 
 **Q：有的视频导出失败？**            
+<<<<<<< HEAD
 A：升级到2.2.6及以上版本试试，发现是修正视频转向导致的，2.2.6开始默认不再主动修正。如需打开，可设置needFixComposition为YES，但有几率导致安卓拍的视频导出失败。此外也可参考这个issue：https://github.com/banchichen/TZImagePickerController/issues/1073       
+=======
+A：升级到2.2.6及以上版本试试，发现是修正视频转向导致的，2.2.6开始默认不再主动修正。如需打开，可设置needFixComposition为YES，但有几率导致安卓拍的视频导出失败。       
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 **Q：视频导出慢？**            
 A：视频导出分两步，第一步是通过PHAsset获取AVURLAsset，如是iCloud视频则涉及到网络请求，耗时容易不可控，第二步是通过AVURLAsset把视频保存到沙盒，耗时不算多。但第一步耗时不可控，你可以拷贝我源码出来拿到第一步的进度给用户一个进度提示...     
@@ -123,15 +145,22 @@ A：不要去拿PHImageFileURLKey，没用的，只有通过Photos框架才能�
 
 ## 六. Release Notes 最近更新     
 
+<<<<<<< HEAD
 **3.4.2 适配iOS14，若干问题修复**                  
 3.3.2 适配iOS13，若干问题修复                 
 3.2.1 新增裁剪用scaleAspectFillCrop属性，设置为YES后，照片尺寸小于裁剪框时会自动放大撑满                
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 3.2.0 加入用NSOperationQueue控制获取原图并发数降低内存的示例          
 3.1.8 批量获取图片时加入队列控制，尝试优化大批量选择图片时CPU和内存占用过高的问题（仍然危险，maxImagesCount谨慎设置过大...）             
 3.1.5 相册内无照片时给出提示，修复快速滑动时内存一直增加的问题           
 3.1.3 适配阿拉伯等语言下从右往左布局的特性         
 3.0.8 新增gifImagePlayBlock允许使用FLAnimatedImage等替换内部的GIF播放方案         
+<<<<<<< HEAD
 3.0.7 适配iPhoneXR、XS、XS Max           
+=======
+**3.0.7 适配iPhoneXR、XS、XS Max，建议大家尽快更新**           
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 3.0.6 优化保存照片、视频的方法        
 3.0.1 新增对[TZImagePreviewController](https://github.com/banchichen/TZImagePreviewController)库的支持，允许预览UIImage、NSURL、PHAsset对象       
 **3.0.0 去除iOS6和7的适配代码，更轻量，最低支持iOS8**      
@@ -146,6 +175,10 @@ A：不要去拿PHImageFileURLKey，没用的，只有通过Photos框架才能�
 2.0.0.2 新增繁体语言，可设置首选语言，国际化支持更强大；优化一些细节     
 1.9.8  支持Carthage，优化一些细节    
 1.9.6  优化视频预览和gif预览页toolbar在iPhoneX上的样式      
+<<<<<<< HEAD
+=======
+1.9.0  移除"prefs:root="的调用，这个API已经被列为私有API，请大家尽快升级     
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 ...   
 1.8.4  加入横竖屏适配；支持视频/gif多选；支持视频和照片一起选    
 1.8.1  新增2个代理方法，支持由上层来决定相册/照片的显示与否     

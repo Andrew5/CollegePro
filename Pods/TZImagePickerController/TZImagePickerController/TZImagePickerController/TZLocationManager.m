@@ -52,10 +52,13 @@
     _failureBlock = failureBlock;
 }
 
+<<<<<<< HEAD
 - (void)stopUpdatingLocation {
     [self.locationManager stopUpdatingLocation];
 }
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 #pragma mark - CLLocationManagerDelegate
 
 /// 地理位置发生改变时触发

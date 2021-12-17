@@ -10,3 +10,17 @@
 #endif
 #endif
 
+<<<<<<< HEAD
+=======
+#ifndef TARGET_OS_IOS
+  #define TARGET_OS_IOS TARGET_OS_IPHONE
+#endif
+
+#ifndef TARGET_OS_WATCH
+  #define TARGET_OS_WATCH 0
+#endif
+
+#ifndef TARGET_OS_TV
+  #define TARGET_OS_TV 0
+#endif
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28

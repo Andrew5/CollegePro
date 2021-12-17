@@ -5,11 +5,16 @@
 //
 //  Created by MJ Lee on 15/3/4.
 //  Copyright (c) 2015年 小码哥. All rights reserved.
+<<<<<<< HEAD
 //  给ScrollView增加下拉刷新、上拉刷新、 左滑刷新的功能
+=======
+//  给ScrollView增加下拉刷新、上拉刷新的功能
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 #import <UIKit/UIKit.h>
 #import "MJRefreshConst.h"
 
+<<<<<<< HEAD
 @class MJRefreshHeader, MJRefreshFooter, MJRefreshTrailer;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -31,3 +36,19 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+=======
+@class MJRefreshHeader, MJRefreshFooter;
+
+@interface UIScrollView (MJRefresh)
+/** 下拉刷新控件 */
+@property (strong, nonatomic) MJRefreshHeader *mj_header;
+@property (strong, nonatomic) MJRefreshHeader *header MJRefreshDeprecated("使用mj_header");
+/** 上拉刷新控件 */
+@property (strong, nonatomic) MJRefreshFooter *mj_footer;
+@property (strong, nonatomic) MJRefreshFooter *footer MJRefreshDeprecated("使用mj_footer");
+
+#pragma mark - other
+- (NSInteger)mj_totalDataCount;
+//@property (copy, nonatomic) void (^mj_reloadDataBlock)(NSInteger totalDataCount);
+@end
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28

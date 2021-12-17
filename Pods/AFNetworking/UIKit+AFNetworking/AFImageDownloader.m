@@ -28,8 +28,13 @@
 
 @interface AFImageDownloaderResponseHandler : NSObject
 @property (nonatomic, strong) NSUUID *uuid;
+<<<<<<< HEAD
 @property (nonatomic, copy) void (^successBlock)(NSURLRequest *, NSHTTPURLResponse *, UIImage *);
 @property (nonatomic, copy) void (^failureBlock)(NSURLRequest *, NSHTTPURLResponse *, NSError *);
+=======
+@property (nonatomic, copy) void (^successBlock)(NSURLRequest*, NSHTTPURLResponse*, UIImage*);
+@property (nonatomic, copy) void (^failureBlock)(NSURLRequest*, NSHTTPURLResponse*, NSError*);
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @end
 
 @implementation AFImageDownloaderResponseHandler
@@ -71,11 +76,19 @@
     return self;
 }
 
+<<<<<<< HEAD
 - (void)addResponseHandler:(AFImageDownloaderResponseHandler *)handler {
     [self.responseHandlers addObject:handler];
 }
 
 - (void)removeResponseHandler:(AFImageDownloaderResponseHandler *)handler {
+=======
+- (void)addResponseHandler:(AFImageDownloaderResponseHandler*)handler {
+    [self.responseHandlers addObject:handler];
+}
+
+- (void)removeResponseHandler:(AFImageDownloaderResponseHandler*)handler {
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     [self.responseHandlers removeObject:handler];
 }
 
@@ -109,6 +122,7 @@
 @implementation AFImageDownloader
 
 + (NSURLCache *)defaultURLCache {
+<<<<<<< HEAD
     NSUInteger memoryCapacity = 20 * 1024 * 1024; // 20MB
     NSUInteger diskCapacity = 150 * 1024 * 1024; // 150MB
     NSURL *cacheURL = [[[NSFileManager defaultManager] URLForDirectory:NSCachesDirectory
@@ -127,6 +141,22 @@
                                          diskCapacity:diskCapacity
                                              diskPath:[cacheURL path]];
 #endif
+=======
+    
+    // It's been discovered that a crash will occur on certain versions
+    // of iOS if you customize the cache.
+    //
+    // More info can be found here: https://devforums.apple.com/message/1102182#1102182
+    //
+    // When iOS 7 support is dropped, this should be modified to use
+    // NSProcessInfo methods instead.
+    if ([[[UIDevice currentDevice] systemVersion] compare:@"8.2" options:NSNumericSearch] == NSOrderedAscending) {
+        return [NSURLCache sharedURLCache];
+    }
+    return [[NSURLCache alloc] initWithMemoryCapacity:20 * 1024 * 1024
+                                         diskCapacity:150 * 1024 * 1024
+                                             diskPath:@"com.alamofire.imagedownloader"];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 
 + (NSURLSessionConfiguration *)defaultURLSessionConfiguration {
@@ -167,7 +197,11 @@
     if (self = [super init]) {
         self.sessionManager = sessionManager;
 
+<<<<<<< HEAD
         self.downloadPrioritization = downloadPrioritization;
+=======
+        self.downloadPrioritizaton = downloadPrioritization;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         self.maximumActiveDownloads = maximumActiveDownloads;
         self.imageCache = imageCache;
 
@@ -258,14 +292,22 @@
                        completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
                            dispatch_async(self.responseQueue, ^{
                                __strong __typeof__(weakSelf) strongSelf = weakSelf;
+<<<<<<< HEAD
                                AFImageDownloaderMergedTask *mergedTask = [strongSelf safelyGetMergedTask:URLIdentifier];
+=======
+                               AFImageDownloaderMergedTask *mergedTask = strongSelf.mergedTasks[URLIdentifier];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
                                if ([mergedTask.identifier isEqual:mergedTaskIdentifier]) {
                                    mergedTask = [strongSelf safelyRemoveMergedTaskWithURLIdentifier:URLIdentifier];
                                    if (error) {
                                        for (AFImageDownloaderResponseHandler *handler in mergedTask.responseHandlers) {
                                            if (handler.failureBlock) {
                                                dispatch_async(dispatch_get_main_queue(), ^{
+<<<<<<< HEAD
                                                    handler.failureBlock(request, (NSHTTPURLResponse *)response, error);
+=======
+                                                   handler.failureBlock(request, (NSHTTPURLResponse*)response, error);
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
                                                });
                                            }
                                        }
@@ -277,7 +319,11 @@
                                        for (AFImageDownloaderResponseHandler *handler in mergedTask.responseHandlers) {
                                            if (handler.successBlock) {
                                                dispatch_async(dispatch_get_main_queue(), ^{
+<<<<<<< HEAD
                                                    handler.successBlock(request, (NSHTTPURLResponse *)response, responseObject);
+=======
+                                                   handler.successBlock(request, (NSHTTPURLResponse*)response, responseObject);
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
                                                });
                                            }
                                        }
@@ -337,14 +383,22 @@
             }
         }
 
+<<<<<<< HEAD
         if (mergedTask.responseHandlers.count == 0) {
+=======
+        if (mergedTask.responseHandlers.count == 0 && mergedTask.task.state == NSURLSessionTaskStateSuspended) {
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
             [mergedTask.task cancel];
             [self removeMergedTaskWithURLIdentifier:URLIdentifier];
         }
     });
 }
 
+<<<<<<< HEAD
 - (AFImageDownloaderMergedTask *)safelyRemoveMergedTaskWithURLIdentifier:(NSString *)URLIdentifier {
+=======
+- (AFImageDownloaderMergedTask*)safelyRemoveMergedTaskWithURLIdentifier:(NSString *)URLIdentifier {
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     __block AFImageDownloaderMergedTask *mergedTask = nil;
     dispatch_sync(self.synchronizationQueue, ^{
         mergedTask = [self removeMergedTaskWithURLIdentifier:URLIdentifier];
@@ -387,7 +441,11 @@
 }
 
 - (void)enqueueMergedTask:(AFImageDownloaderMergedTask *)mergedTask {
+<<<<<<< HEAD
     switch (self.downloadPrioritization) {
+=======
+    switch (self.downloadPrioritizaton) {
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         case AFImageDownloadPrioritizationFIFO:
             [self.queuedMergedTasks addObject:mergedTask];
             break;
@@ -408,6 +466,7 @@
     return self.activeRequestCount < self.maximumActiveDownloads;
 }
 
+<<<<<<< HEAD
 - (AFImageDownloaderMergedTask *)safelyGetMergedTask:(NSString *)URLIdentifier {
     __block AFImageDownloaderMergedTask *mergedTask;
     dispatch_sync(self.synchronizationQueue, ^(){
@@ -416,6 +475,8 @@
     return mergedTask;
 }
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @end
 
 #endif

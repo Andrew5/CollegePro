@@ -235,7 +235,11 @@
 //#pragma mark - BLKAppSensorDelegate
 //-(void)sensorReady
 //{
+<<<<<<< HEAD
     ///TODO: it seems useless right now.
+=======
+//    //TODO: it seems useless right now.
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 //}
 //
 //-(void) scanDeviceCallBack:(CBPeripheral *)peripheral RSSI:(int)level

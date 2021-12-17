@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## MJRefresh
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ![podversion](https://img.shields.io/cocoapods/v/MJRefresh.svg)
@@ -5,6 +6,18 @@
 * An easy way to use pull-to-refresh
 
 [📜✍🏻**Release Notes**: more details](https://github.com/CoderMJLee/MJRefresh/releases)
+=======
+## 寻求志同道合的小伙伴
+* 因本人工作忙，没有太多时间去维护MJRefresh，在此向广大框架使用者说声：非常抱歉！😞
+* 现寻求志同道合的小伙伴一起维护此框架，有兴趣的小伙伴可以[发邮件](mailto:richermj123go@vip.qq.com)给我，非常感谢😊
+* 如果一切OK，我将开放框架维护权限（github、pod等）
+* MJExtension已经找到一位小伙伴(＾－＾)V
+
+![(logo)](http://images.cnitblog.com/blog2015/497279/201505/051004492043385.png)
+
+## MJRefresh
+* An easy way to use pull-to-refresh
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 ## Contents
 * Getting Started
@@ -36,11 +49,19 @@
     * [The pull to refresh 09-DIY the control of refresh(Automatic refresh)](#The_pull_to_refresh_09-DIY_the_control_of_refresh(Automatic_refresh))
     * [The pull to refresh 10-DIY the control of refresh(Automatic back)](#The_pull_to_refresh_10-DIY_the_control_of_refresh(Automatic_back))
     * [UICollectionView01-The pull and drop-down refresh](#UICollectionView01-The_pull_and_drop-down_refresh)
+<<<<<<< HEAD
     * [WKWebView01-The drop-down refresh](#WKWebView01-The_drop-down_refresh)
 * [Hope](#Hope)
 
 ## <a id="Support_what_kinds_of_controls_to_refresh"></a>Support what kinds of controls to refresh
 * `UIScrollView`、`UITableView`、`UICollectionView`、`WKWebView`
+=======
+    * [UIWebView01-The drop-down refresh](#UIWebView01-The_drop-down_refresh)
+* [Hope](#Hope)
+
+## <a id="Support_what_kinds_of_controls_to_refresh"></a>Support what kinds of controls to refresh
+* `UIScrollView`、`UITableView`、`UICollectionView`、`UIWebView`
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 ## <a id="How_to_use_MJRefresh"></a>How to use MJRefresh
 * Installation with CocoaPods：`pod 'MJRefresh'`
@@ -334,7 +355,11 @@ self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingB
 ```
 ![(UICollectionView01-上下拉刷新)](http://images0.cnblogs.com/blog2015/497279/201506/141206021603758.gif)
 
+<<<<<<< HEAD
 ## <a id="WKWebView01-The_drop-down_refresh"></a>WKWebView01-The drop-down refresh
+=======
+## <a id="UIWebView01-The_drop-down_refresh"></a>UIWebView01-The drop-down refresh
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 ```objc
 //Add the control of The drop-down refresh
 self.webView.scrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -345,6 +370,7 @@ self.webView.scrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingB
 
 ## Remind
 * ARC
+<<<<<<< HEAD
 * iOS>=8.0
 * iPhone \ iPad screen anyway
 
@@ -354,3 +380,22 @@ self.webView.scrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingB
 - 现寻求志同道合的小伙伴一起维护此框架，有兴趣的小伙伴可以[发邮件](mailto:richermj123go@vip.qq.com)给我，非常感谢😊
 - 如果一切OK，我将开放框架维护权限（github、pod等）
 - 目前已经找到3位小伙伴(＾－＾)V
+=======
+* iOS>=6.0
+* iPhone \ iPad screen anyway
+
+## <a id="Hope"></a>Hope
+* If you find bug when used，Hope you can Issues me，Thank you or try to download the latest code of this framework to see the BUG has been fixed or not）
+* If you find the function is not enough when used，Hope you can Issues me，I very much to add more useful function to this framework ，Thank you !
+* If you want to contribute code for MJRefresh，please Pull Requests me
+*  If you use MJRefresh in your develop app，Hope you can go to[CocoaControls](https://www.cocoacontrols.com/controls/mjrefresh)to add the iTunes path
+ of you app，I Will install your app，and according to the usage of many app，to be a better design and improve to MJRefresh，Thank you !
+   * StepO1（WeChat is just an Example，Explore“Your app name itunes”）
+![(step01)](http://ww4.sinaimg.cn/mw1024/800cdf9ctw1eq0viiv5rsj20sm0ea41t.jpg)
+   * StepO2
+![(step02)](http://ww2.sinaimg.cn/mw1024/800cdf9ctw1eq0vilejxlj20tu0me7a0.jpg)
+   * StepO3
+![(step03)](http://ww1.sinaimg.cn/mw1024/800cdf9ctw1eq0viocpo5j20wc0dc0un.jpg)
+   * StepO4
+![(step04)](http://ww3.sinaimg.cn/mw1024/800cdf9ctw1eq0vir137xj20si0gewgu.jpg)
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28

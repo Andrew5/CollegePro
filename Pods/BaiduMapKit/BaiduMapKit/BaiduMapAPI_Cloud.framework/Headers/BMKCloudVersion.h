@@ -20,12 +20,20 @@
  *获取当前地图API cloud组件 的版本号
  *return  返回当前API cloud组件 的版本号
  */
+<<<<<<< HEAD
 UIKIT_EXTERN NSString* BMKGetMapApiCloudComponentVersion(void);
+=======
+UIKIT_EXTERN NSString* BMKGetMapApiCloudComponentVersion();
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 /**
  *检查cloud组件的版本号是否和base组件的版本号一致
  *return    版本号一致返回YES
  */
+<<<<<<< HEAD
 UIKIT_EXTERN BOOL BMKCheckCloudComponentIsLegal(void);
+=======
+UIKIT_EXTERN BOOL BMKCheckCloudComponentIsLegal();
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 #endif /* BMKCloudVersion_h */

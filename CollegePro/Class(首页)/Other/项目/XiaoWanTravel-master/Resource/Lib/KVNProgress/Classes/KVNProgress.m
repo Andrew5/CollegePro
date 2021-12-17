@@ -429,7 +429,11 @@ static KVNProgressConfiguration *configuration;
 			[KVNBlockSelf animateAppearance];
 		}];
 		
+<<<<<<< HEAD
 		///FIXME: find a way to wait for the views to be added to the window before launching the animations
+=======
+		// FIXME: find a way to wait for the views to be added to the window before launching the animations
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 		// (Fix to make the animations work fine)
 		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 			if (![KVNBlockSelf.queue.operations containsObject:KVNBlockSelf.animateAppearanceOperation] &&

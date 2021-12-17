@@ -99,6 +99,10 @@ const static CGFloat kDefaultHeaderHeight       = 60;
         //默认的
         [self defaultStyle];
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     CGFloat width = (kDefaultAlertWidth - (self.titles.count - 1) * kDefaultLineHeightOrWidth)/self.titles.count;
     for (NSInteger index = 0; index < self.titles.count; index++) {
         NSString *title = self.titles[index];
@@ -110,6 +114,10 @@ const static CGFloat kDefaultHeaderHeight       = 60;
         button.titleLabel.font = [UIFont systemFontOfSize:18.];
         [self.buttonView addSubview:button];
         button.frame = CGRectMake(width * index, 0, width, kDefaultButtonHeight);
+<<<<<<< HEAD
+=======
+        
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         if ((index >= 1) && (index != [self.titles count])) {
             UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(index * (width+kDefaultLineHeightOrWidth), button.frame.origin.y, kDefaultLineHeightOrWidth, button.bounds.size.height)];
             lineView.backgroundColor = lineColor;
@@ -163,6 +171,10 @@ const static CGFloat kDefaultHeaderHeight       = 60;
 - (CGSize)screenSize
 {
     if (self.lastOrientation == UIInterfaceOrientationPortrait || self.lastOrientation == UIInterfaceOrientationUnknown) {
+<<<<<<< HEAD
+=======
+        
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         return CGSizeMake(SCREEN_W,SCREEN_H);
     } else {
      return CGSizeMake(SCREEN_H,SCREEN_W);
@@ -298,10 +310,19 @@ const static CGFloat kDefaultHeaderHeight       = 60;
         }
         else if (acceleration.x <= -0.75) {
             orientation = UIInterfaceOrientationLandscapeRight;
+<<<<<<< HEAD
             }
         else if (acceleration.y <= -0.75) {
             orientation = UIInterfaceOrientationPortrait;
             }
+=======
+            
+        }
+        else if (acceleration.y <= -0.75) {
+            orientation = UIInterfaceOrientationPortrait;
+            
+        }
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         else if (acceleration.y >= 0.75) {
             orientation = UIInterfaceOrientationPortraitUpsideDown;
             return ;
@@ -310,11 +331,19 @@ const static CGFloat kDefaultHeaderHeight       = 60;
             // Consider same as last time
             return;
         }
+<<<<<<< HEAD
+=======
+        
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         if (orientation != weakSelf.lastOrientation) {
             [weakSelf configHUDOrientation:orientation];
             weakSelf.lastOrientation = orientation;
             NSLog(@"%tu=-------%tu",orientation,weakSelf.lastOrientation);
         }
+<<<<<<< HEAD
+=======
+        
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     }];
 }
 
@@ -326,6 +355,7 @@ const static CGFloat kDefaultHeaderHeight       = 60;
     }];
 }
 
+<<<<<<< HEAD
 - (CGFloat)calculateTransformAngle:(UIInterfaceOrientation )orientation
 {
     CGFloat angle = 0.0;
@@ -383,6 +413,44 @@ const static CGFloat kDefaultHeaderHeight       = 60;
                 angle = M_PI;
                 break;
 
+=======
+
+- (CGFloat)calculateTransformAngle:(UIInterfaceOrientation )orientation
+{
+    CGFloat angle;
+    if (self.lastOrientation == UIInterfaceOrientationPortrait) {
+        switch (orientation) {
+            case UIInterfaceOrientationLandscapeRight:
+                angle = M_PI_2;
+                break;
+            case UIInterfaceOrientationLandscapeLeft:
+                angle = -M_PI_2;
+                break;
+            default:
+                break;
+        }
+    } else if (self.lastOrientation == UIInterfaceOrientationLandscapeRight) {
+        switch (orientation) {
+            case UIInterfaceOrientationPortrait:
+                angle = -M_PI_2;
+                break;
+            case UIInterfaceOrientationLandscapeLeft:
+                angle = M_PI;
+                break;
+            default:
+                break;
+        }
+    } else if (self.lastOrientation == UIInterfaceOrientationLandscapeLeft) {
+        switch (orientation) {
+            case UIInterfaceOrientationPortrait:
+                angle = M_PI_2;
+                break;
+            case UIInterfaceOrientationLandscapeRight:
+                angle = M_PI;
+                break;
+            default:
+                break;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         }
     }
     return angle;
@@ -394,6 +462,10 @@ const static CGFloat kDefaultHeaderHeight       = 60;
     if (_motionManager == nil) {
         _motionManager = [[CMMotionManager alloc] init];
         _motionManager.accelerometerUpdateInterval = 1./15.;
+<<<<<<< HEAD
+=======
+        
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     }
     return _motionManager;
 }

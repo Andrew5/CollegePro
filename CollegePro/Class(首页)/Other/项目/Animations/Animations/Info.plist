@@ -4,8 +4,11 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+<<<<<<< HEAD
 	<key>CFBundleDisplayName</key>
 	<string>开发者动画</string>
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIcons</key>
@@ -25,6 +28,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
+<<<<<<< HEAD
 	<string>7</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
@@ -48,6 +52,20 @@
 	<string>"动画工具"需要访问您的相册</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>"动画工具"需要您的同意才能读取媒体资料库</string>
+=======
+	<string>1</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string></string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string></string>
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 	<key>UIAppFonts</key>
 	<array>
 		<string>HYQiHei-25JF.otf</string>

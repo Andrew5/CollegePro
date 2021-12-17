@@ -26,7 +26,10 @@
 
 @property (nonatomic, assign) BOOL allowCrop;
 @property (nonatomic, assign) CGRect cropRect;
+<<<<<<< HEAD
 @property (nonatomic, assign) BOOL scaleAspectFillCrop;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 - (void)recoverSubviews;
 
@@ -38,6 +41,7 @@
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIView *imageContainerView;
 @property (nonatomic, strong) TZProgressView *progressView;
+<<<<<<< HEAD
 @property (nonatomic, strong) UIImageView *iCloudErrorIcon;
 @property (nonatomic, strong) UILabel *iCloudErrorLabel;
 @property (nonatomic, copy) void (^iCloudSyncFailedHandle)(id asset, BOOL isSyncFailed);
@@ -46,6 +50,12 @@
 @property (nonatomic, assign) BOOL allowCrop;
 @property (nonatomic, assign) CGRect cropRect;
 @property (nonatomic, assign) BOOL scaleAspectFillCrop;
+=======
+
+@property (nonatomic, assign) BOOL allowCrop;
+@property (nonatomic, assign) CGRect cropRect;
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @property (nonatomic, strong) TZAssetModel *model;
 @property (nonatomic, strong) id asset;
 @property (nonatomic, copy) void (^singleTapGestureBlock)(void);
@@ -64,9 +74,12 @@
 @property (strong, nonatomic) UIButton *playButton;
 @property (strong, nonatomic) UIImage *cover;
 @property (nonatomic, strong) NSURL *videoURL;
+<<<<<<< HEAD
 @property (nonatomic, strong) UIImageView *iCloudErrorIcon;
 @property (nonatomic, strong) UILabel *iCloudErrorLabel;
 @property (nonatomic, copy) void (^iCloudSyncFailedHandle)(id asset, BOOL isSyncFailed);
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 - (void)pausePlayerAndShowNaviBar;
 @end
 

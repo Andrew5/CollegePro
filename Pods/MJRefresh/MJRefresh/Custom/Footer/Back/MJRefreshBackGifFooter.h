@@ -8,8 +8,11 @@
 
 #import "MJRefreshBackStateFooter.h"
 
+<<<<<<< HEAD
 NS_ASSUME_NONNULL_BEGIN
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @interface MJRefreshBackGifFooter : MJRefreshBackStateFooter
 @property (weak, nonatomic, readonly) UIImageView *gifView;
 
@@ -17,5 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setImages:(NSArray *)images duration:(NSTimeInterval)duration forState:(MJRefreshState)state;
 - (void)setImages:(NSArray *)images forState:(MJRefreshState)state;
 @end
+<<<<<<< HEAD
 
 NS_ASSUME_NONNULL_END
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28

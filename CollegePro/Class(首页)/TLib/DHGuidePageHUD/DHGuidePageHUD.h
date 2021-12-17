@@ -20,7 +20,11 @@
  *  DHGuidePageHUD(图片引导页 | 可自动识别动态图片和静态图片)
  *
  *  @param frame      位置大小
+<<<<<<< HEAD
  *  @param imageNameArray 引导页图片数组(NSString)
+=======
+ *  @param imageArray 引导页图片数组(NSString)
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
  *  @param isHidden   开始体验按钮是否隐藏(YES:隐藏-引导页完成自动进入APP首页; NO:不隐藏-引导页完成点击开始体验按钮进入APP主页)
  *
  *  @return DHGuidePageHUD对象

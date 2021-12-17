@@ -28,7 +28,11 @@
 @interface AFCachedImage : NSObject
 
 @property (nonatomic, strong) UIImage *image;
+<<<<<<< HEAD
 @property (nonatomic, copy) NSString *identifier;
+=======
+@property (nonatomic, strong) NSString *identifier;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @property (nonatomic, assign) UInt64 totalBytes;
 @property (nonatomic, strong) NSDate *lastAccessDate;
 @property (nonatomic, assign) UInt64 currentMemoryUsage;
@@ -37,7 +41,11 @@
 
 @implementation AFCachedImage
 
+<<<<<<< HEAD
 - (instancetype)initWithImage:(UIImage *)image identifier:(NSString *)identifier {
+=======
+-(instancetype)initWithImage:(UIImage *)image identifier:(NSString *)identifier {
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     if (self = [self init]) {
         self.image = image;
         self.identifier = identifier;
@@ -51,7 +59,11 @@
     return self;
 }
 
+<<<<<<< HEAD
 - (UIImage *)accessImage {
+=======
+- (UIImage*)accessImage {
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     self.lastAccessDate = [NSDate date];
     return self.image;
 }
@@ -134,7 +146,11 @@
                 [self.cachedImages removeObjectForKey:cachedImage.identifier];
                 bytesPurged += cachedImage.totalBytes;
                 if (bytesPurged >= bytesToPurge) {
+<<<<<<< HEAD
                     break;
+=======
+                    break ;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
                 }
             }
             self.currentMemoryUsage -= bytesPurged;

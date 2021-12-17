@@ -4,6 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+<<<<<<< HEAD
 		<key>CollageProExtensionTool.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -41,6 +42,12 @@
 		<dict>
 			<key>primary</key>
 			<true/>
+=======
+		<key>CollegePro.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 		</dict>
 	</dict>
 </dict>

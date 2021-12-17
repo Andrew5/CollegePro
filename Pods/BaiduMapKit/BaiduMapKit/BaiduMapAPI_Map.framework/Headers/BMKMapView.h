@@ -14,7 +14,10 @@
 #import "BMKLocationViewDisplayParam.h"
 #import "BMKHeatMap.h"
 #import "BMKBaseIndoorMapInfo.h"
+<<<<<<< HEAD
 #import "BMKCustomMapStyleOption.h"
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 @protocol BMKMapViewDelegate;
 
@@ -95,9 +98,12 @@ typedef enum {
 
 /// 地图俯视角度，在手机上当前可使用的范围为－45～0度
 @property (nonatomic) int overlooking;
+<<<<<<< HEAD
 /// 地图俯视角度最小值（即角度最大值），在手机上当前可设置的范围为-79～0度
 @property (nonatomic) int minOverlooking;
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 ///设定地图是否现显示3D楼块效果
 @property(nonatomic, getter=isBuildingsEnabled) BOOL buildingsEnabled;
 ///设定地图是否显示底图poi标注(不包含室内图标注)，默认YES
@@ -168,6 +174,7 @@ typedef enum {
  *注：必须在BMKMapView对象初始化之前调用
  *@param customMapStyleJsonFilePath 自定义样式文件所在路径，包含文件名
  */
+<<<<<<< HEAD
 + (void)customMapStyle:(NSString *)customMapStyleJsonFilePath __deprecated_msg("Please use - (void)setCustomMapStyleEnable:(BOOL)enable");
 
 /**
@@ -220,6 +227,14 @@ typedef enum {
                             preLoad:(void (^)(NSString *path))preLoad
                             success:(void (^)(NSString *path))success
                             failure:(void (^)(NSError *error, NSString *path))failure;
+=======
++ (void)customMapStyle:(NSString*) customMapStyleJsonFilePath;
+/**
+ * 自定义地图样式开关，影响所有BMKMapView对象
+ *@param enable 自定义地图样式是否生效
+ */
++ (void)enableCustomMapStyle:(BOOL) enable;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 /**
  自定义路况颜色。注意：如果需要自定义路况颜色，必须4种路况全都设置。4个参数全部合法时，自定义颜色才有效；否则全部使用默认的。
@@ -455,6 +470,7 @@ typedef enum {
  */
 - (BOOL)isSurpportBaiduHeatMap;
 
+<<<<<<< HEAD
 /**
  获取OpenGL映射矩阵
  V5.0.0版本新增，用于3D绘制场景
@@ -471,6 +487,8 @@ typedef enum {
  */
 - (float *)getViewMatrix;
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @end
 
 @interface BMKMapView (IndoorMapAPI)
@@ -688,6 +706,7 @@ typedef enum {
 - (void)mapViewDidFinishLoading:(BMKMapView *)mapView;
 
 /**
+<<<<<<< HEAD
  *地图绘制出有效数据时调用此接口
  *@param mapView 地图View
  *@param error 错误码
@@ -695,6 +714,8 @@ typedef enum {
 - (void)mapViewDidRenderValidData:(BMKMapView *)mapView withError:(NSError *)error;
 
 /**
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
  *地图渲染完毕后会调用此接口
  *@param mapView 地图View
  */
@@ -753,6 +774,7 @@ typedef enum {
 - (void)mapView:(BMKMapView *)mapView didAddAnnotationViews:(NSArray *)views;
 
 /**
+<<<<<<< HEAD
  *当点击一个annotation view时，调用此接口
  *每次点击BMKAnnotationView都会回调此接口。
  *@param mapView 地图View
@@ -761,6 +783,8 @@ typedef enum {
 - (void)mapView:(BMKMapView *)mapView clickAnnotationView:(BMKAnnotationView *)view;
 
 /**
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
  *当选中一个annotation views时，调用此接口
  *当BMKAnnotation的title为nil，BMKAnnotationView的canShowCallout为NO时，不显示气泡，点击BMKAnnotationView会回调此接口。
  *当气泡已经弹出，点击BMKAnnotationView不会继续回调此接口。

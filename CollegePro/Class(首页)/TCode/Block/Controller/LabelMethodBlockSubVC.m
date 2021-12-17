@@ -7,6 +7,7 @@
 //
 
 #import "LabelMethodBlockSubVC.h"
+<<<<<<< HEAD
 #include <pthread.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -96,10 +97,16 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 @property (nonatomic, strong) dispatch_source_t timer;
 // 使用 id 类型可以避免编译器警告
 @property (nonatomic,strong) id observerManager;
+=======
+
+@interface LabelMethodBlockSubVC ()
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @end
 
 @implementation LabelMethodBlockSubVC
 
+<<<<<<< HEAD
 /*
  1. + (id)alloc 分配内存；
  
@@ -2775,6 +2782,30 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 }
 
 
+=======
+- (void)viewDidLoad {
+    [super viewDidLoad];
+	self.view.backgroundColor = [UIColor whiteColor];
+
+	UIButton *pushNillButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	[pushNillButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+	[pushNillButton setFrame:CGRectMake(10.0 ,80.0 ,120.0 ,20.0)];
+	pushNillButton.backgroundColor = [UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:0.00];       //背景颜
+	[pushNillButton setTitle:@"回去" forState:(UIControlStateNormal)];
+	[pushNillButton addTarget:self action:@selector(backBlockNilMetnod) forControlEvents:(UIControlEventTouchUpInside)];
+	[self.view addSubview:pushNillButton];
+	
+	
+    // Do any additional setup after loading the view.
+}
+- (void)viewWillDisappear:(BOOL)animated {
+	
+	if (self.returnTextBlock != nil) {
+		self.returnTextBlock(@"backBlockNilMetnod");
+	}
+}
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 - (void)backBlockNilMetnod{
 	self.returnTextBlock(@"backBlockNilMetnod");
 	[self dismissViewControllerAnimated:YES completion:nil];
@@ -2783,6 +2814,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 - (void)returnText:(ReturnTextBlock)block {
 	self.returnTextBlock = block;
 }
+<<<<<<< HEAD
 - (void)other{
     
 }
@@ -2825,6 +2857,8 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     //    [_p fof_removeObserver:self forKeyPath:@"sex" context:nil];
     NSLog(@"释放了");
 }
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -65,7 +65,11 @@
  ### `NSURLSessionDownloadDelegate`
 
  - `URLSession:downloadTask:didFinishDownloadingToURL:`
+<<<<<<< HEAD
  - `URLSession:downloadTask:didWriteData:totalBytesWritten:totalBytesExpectedToWrite:`
+=======
+ - `URLSession:downloadTask:didWriteData:totalBytesWritten:totalBytesWritten:totalBytesExpectedToWrite:`
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
  - `URLSession:downloadTask:didResumeAtOffset:expectedTotalBytes:`
 
  If any of these methods are overridden in a subclass, they _must_ call the `super` implementation first.
@@ -165,6 +169,22 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong, nullable) dispatch_group_t completionGroup;
 
+<<<<<<< HEAD
+=======
+///---------------------------------
+/// @name Working Around System Bugs
+///---------------------------------
+
+/**
+ Whether to attempt to retry creation of upload tasks for background sessions when initial call returns `nil`. `NO` by default.
+
+ @bug As of iOS 7.0, there is a bug where upload tasks created for background tasks are sometimes `nil`. As a workaround, if this property is `YES`, AFNetworking will follow Apple's recommendation to try creating the task again.
+
+ @see https://github.com/AFNetworking/AFNetworking/issues/1675
+ */
+@property (nonatomic, assign) BOOL attemptsToRecreateUploadTasksForBackgroundSessions;
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 ///---------------------
 /// @name Initialization
 ///---------------------
@@ -179,12 +199,20 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithSessionConfiguration:(nullable NSURLSessionConfiguration *)configuration NS_DESIGNATED_INITIALIZER;
 
 /**
+<<<<<<< HEAD
  Invalidates the managed session, optionally canceling pending tasks and optionally resets given session.
  
  @param cancelPendingTasks  Whether or not to cancel pending tasks.
  @param resetSession        Whether or not to reset the session of the manager.
  */
 - (void)invalidateSessionCancelingTasks:(BOOL)cancelPendingTasks resetSession:(BOOL)resetSession;
+=======
+ Invalidates the managed session, optionally canceling pending tasks.
+
+ @param cancelPendingTasks Whether or not to cancel pending tasks.
+ */
+- (void)invalidateSessionCancelingTasks:(BOOL)cancelPendingTasks;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 ///-------------------------
 /// @name Running Data Tasks
@@ -194,6 +222,18 @@ NS_ASSUME_NONNULL_BEGIN
  Creates an `NSURLSessionDataTask` with the specified request.
 
  @param request The HTTP request for the request.
+<<<<<<< HEAD
+=======
+ @param completionHandler A block object to be executed when the task finishes. This block has no return value and takes three arguments: the server response, the response object created by that serializer, and the error that occurred, if any.
+ */
+- (NSURLSessionDataTask *)dataTaskWithRequest:(NSURLRequest *)request
+                            completionHandler:(nullable void (^)(NSURLResponse *response, id _Nullable responseObject,  NSError * _Nullable error))completionHandler DEPRECATED_ATTRIBUTE;
+
+/**
+ Creates an `NSURLSessionDataTask` with the specified request.
+
+ @param request The HTTP request for the request.
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
  @param uploadProgressBlock A block object to be executed when the upload progress is updated. Note this block is called on the session queue, not the main queue.
  @param downloadProgressBlock A block object to be executed when the download progress is updated. Note this block is called on the session queue, not the main queue.
  @param completionHandler A block object to be executed when the task finishes. This block has no return value and takes three arguments: the server response, the response object created by that serializer, and the error that occurred, if any.
@@ -315,11 +355,14 @@ NS_ASSUME_NONNULL_BEGIN
  Sets a block to be executed when a connection level authentication challenge has occurred, as handled by the `NSURLSessionDelegate` method `URLSession:didReceiveChallenge:completionHandler:`.
 
  @param block A block object to be executed when a connection level authentication challenge has occurred. The block returns the disposition of the authentication challenge, and takes three arguments: the session, the authentication challenge, and a pointer to the credential that should be used to resolve the challenge.
+<<<<<<< HEAD
 
  @warning Implementing a session authentication challenge handler yourself totally bypasses AFNetworking's security policy defined in `AFSecurityPolicy`. Make sure you fully understand the implications before implementing a custom session authentication challenge handler. If you do not want to bypass AFNetworking's security policy, use `setTaskDidReceiveAuthenticationChallengeBlock:` instead.
 
  @see -securityPolicy
  @see -setTaskDidReceiveAuthenticationChallengeBlock:
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
  */
 - (void)setSessionDidReceiveAuthenticationChallengeBlock:(nullable NSURLSessionAuthChallengeDisposition (^)(NSURLSession *session, NSURLAuthenticationChallenge *challenge, NSURLCredential * _Nullable __autoreleasing * _Nullable credential))block;
 
@@ -343,6 +386,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Sets a block to be executed when a session task has received a request specific authentication challenge, as handled by the `NSURLSessionTaskDelegate` method `URLSession:task:didReceiveChallenge:completionHandler:`.
+<<<<<<< HEAD
  
  @param authenticationChallengeHandler A block object to be executed when a session task has received a request specific authentication challenge.
  
@@ -360,6 +404,12 @@ NS_ASSUME_NONNULL_BEGIN
  @see -securityPolicy
  */
 - (void)setAuthenticationChallengeHandler:(id (^)(NSURLSession *session, NSURLSessionTask *task, NSURLAuthenticationChallenge *challenge, void (^completionHandler)(NSURLSessionAuthChallengeDisposition , NSURLCredential * _Nullable)))authenticationChallengeHandler;
+=======
+
+ @param block A block object to be executed when a session task has received a request specific authentication challenge. The block returns the disposition of the authentication challenge, and takes four arguments: the session, the task, the authentication challenge, and a pointer to the credential that should be used to resolve the challenge.
+ */
+- (void)setTaskDidReceiveAuthenticationChallengeBlock:(nullable NSURLSessionAuthChallengeDisposition (^)(NSURLSession *session, NSURLSessionTask *task, NSURLAuthenticationChallenge *challenge, NSURLCredential * _Nullable __autoreleasing * _Nullable credential))block;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 /**
  Sets a block to be executed periodically to track upload progress, as handled by the `NSURLSessionTaskDelegate` method `URLSession:task:didSendBodyData:totalBytesSent:totalBytesExpectedToSend:`.
@@ -375,6 +425,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)setTaskDidCompleteBlock:(nullable void (^)(NSURLSession *session, NSURLSessionTask *task, NSError * _Nullable error))block;
 
+<<<<<<< HEAD
 /**
  Sets a block to be executed when metrics are finalized related to a specific task, as handled by the `NSURLSessionTaskDelegate` method `URLSession:task:didFinishCollectingMetrics:`.
 
@@ -383,6 +434,8 @@ NS_ASSUME_NONNULL_BEGIN
 #if AF_CAN_INCLUDE_SESSION_TASK_METRICS
 - (void)setTaskDidFinishCollectingMetricsBlock:(nullable void (^)(NSURLSession *session, NSURLSessionTask *task, NSURLSessionTaskMetrics * _Nullable metrics))block AF_API_AVAILABLE(ios(10), macosx(10.12), watchos(3), tvos(10));
 #endif
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 ///-------------------------------------------
 /// @name Setting Data Task Delegate Callbacks
 ///-------------------------------------------
@@ -434,7 +487,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setDownloadTaskDidFinishDownloadingBlock:(nullable NSURL * _Nullable  (^)(NSURLSession *session, NSURLSessionDownloadTask *downloadTask, NSURL *location))block;
 
 /**
+<<<<<<< HEAD
  Sets a block to be executed periodically to track download progress, as handled by the `NSURLSessionDownloadDelegate` method `URLSession:downloadTask:didWriteData:totalBytesWritten:totalBytesExpectedToWrite:`.
+=======
+ Sets a block to be executed periodically to track download progress, as handled by the `NSURLSessionDownloadDelegate` method `URLSession:downloadTask:didWriteData:totalBytesWritten:totalBytesWritten:totalBytesExpectedToWrite:`.
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
  @param block A block object to be called when an undetermined number of bytes have been downloaded from the server. This block has no return value and takes five arguments: the session, the download task, the number of bytes read since the last time the download progress block was called, the total bytes read, and the total bytes expected to be read during the request, as initially determined by the expected content size of the `NSHTTPURLResponse` object. This block may be called multiple times, and will execute on the session manager operation queue.
  */
@@ -474,11 +531,14 @@ FOUNDATION_EXPORT NSString * const AFNetworkingTaskDidSuspendNotification;
 FOUNDATION_EXPORT NSString * const AFURLSessionDidInvalidateNotification;
 
 /**
+<<<<<<< HEAD
  Posted when a session download task finished moving the temporary download file to a specified destination successfully.
  */
 FOUNDATION_EXPORT NSString * const AFURLSessionDownloadTaskDidMoveFileSuccessfullyNotification;
 
 /**
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
  Posted when a session download task encountered an error when moving the temporary download file to a specified destination.
  */
 FOUNDATION_EXPORT NSString * const AFURLSessionDownloadTaskDidFailToMoveFileNotification;
@@ -508,9 +568,12 @@ FOUNDATION_EXPORT NSString * const AFNetworkingTaskDidCompleteAssetPathKey;
  */
 FOUNDATION_EXPORT NSString * const AFNetworkingTaskDidCompleteErrorKey;
 
+<<<<<<< HEAD
 /**
  The session task metrics taken from the download task. Included in the userInfo dictionary of the `AFNetworkingTaskDidCompleteSessionTaskMetrics`
  */
 FOUNDATION_EXPORT NSString * const AFNetworkingTaskDidCompleteSessionTaskMetrics;
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 NS_ASSUME_NONNULL_END

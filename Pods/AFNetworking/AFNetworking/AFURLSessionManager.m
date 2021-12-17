@@ -22,6 +22,36 @@
 #import "AFURLSessionManager.h"
 #import <objc/runtime.h>
 
+<<<<<<< HEAD
+=======
+#ifndef NSFoundationVersionNumber_iOS_8_0
+#define NSFoundationVersionNumber_With_Fixed_5871104061079552_bug 1140.11
+#else
+#define NSFoundationVersionNumber_With_Fixed_5871104061079552_bug NSFoundationVersionNumber_iOS_8_0
+#endif
+
+static dispatch_queue_t url_session_manager_creation_queue() {
+    static dispatch_queue_t af_url_session_manager_creation_queue;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        af_url_session_manager_creation_queue = dispatch_queue_create("com.alamofire.networking.session.manager.creation", DISPATCH_QUEUE_SERIAL);
+    });
+
+    return af_url_session_manager_creation_queue;
+}
+
+static void url_session_manager_create_task_safely(dispatch_block_t block) {
+    if (NSFoundationVersionNumber < NSFoundationVersionNumber_With_Fixed_5871104061079552_bug) {
+        // Fix of bug
+        // Open Radar:http://openradar.appspot.com/radar?id=5871104061079552 (status: Fixed in iOS8)
+        // Issue about:https://github.com/AFNetworking/AFNetworking/issues/2093
+        dispatch_sync(url_session_manager_creation_queue(), block);
+    } else {
+        block();
+    }
+}
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 static dispatch_queue_t url_session_manager_processing_queue() {
     static dispatch_queue_t af_url_session_manager_processing_queue;
     static dispatch_once_t onceToken;
@@ -46,7 +76,10 @@ NSString * const AFNetworkingTaskDidResumeNotification = @"com.alamofire.network
 NSString * const AFNetworkingTaskDidCompleteNotification = @"com.alamofire.networking.task.complete";
 NSString * const AFNetworkingTaskDidSuspendNotification = @"com.alamofire.networking.task.suspend";
 NSString * const AFURLSessionDidInvalidateNotification = @"com.alamofire.networking.session.invalidate";
+<<<<<<< HEAD
 NSString * const AFURLSessionDownloadTaskDidMoveFileSuccessfullyNotification = @"com.alamofire.networking.session.download.file-manager-succeed";
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 NSString * const AFURLSessionDownloadTaskDidFailToMoveFileNotification = @"com.alamofire.networking.session.download.file-manager-error";
 
 NSString * const AFNetworkingTaskDidCompleteSerializedResponseKey = @"com.alamofire.networking.task.complete.serializedresponse";
@@ -54,24 +87,38 @@ NSString * const AFNetworkingTaskDidCompleteResponseSerializerKey = @"com.alamof
 NSString * const AFNetworkingTaskDidCompleteResponseDataKey = @"com.alamofire.networking.complete.finish.responsedata";
 NSString * const AFNetworkingTaskDidCompleteErrorKey = @"com.alamofire.networking.task.complete.error";
 NSString * const AFNetworkingTaskDidCompleteAssetPathKey = @"com.alamofire.networking.task.complete.assetpath";
+<<<<<<< HEAD
 NSString * const AFNetworkingTaskDidCompleteSessionTaskMetrics = @"com.alamofire.networking.complete.sessiontaskmetrics";
 
 static NSString * const AFURLSessionManagerLockName = @"com.alamofire.networking.session.manager.lock";
 
+=======
+
+static NSString * const AFURLSessionManagerLockName = @"com.alamofire.networking.session.manager.lock";
+
+static NSUInteger const AFMaximumNumberOfAttemptsToRecreateBackgroundSessionUploadTask = 3;
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 typedef void (^AFURLSessionDidBecomeInvalidBlock)(NSURLSession *session, NSError *error);
 typedef NSURLSessionAuthChallengeDisposition (^AFURLSessionDidReceiveAuthenticationChallengeBlock)(NSURLSession *session, NSURLAuthenticationChallenge *challenge, NSURLCredential * __autoreleasing *credential);
 
 typedef NSURLRequest * (^AFURLSessionTaskWillPerformHTTPRedirectionBlock)(NSURLSession *session, NSURLSessionTask *task, NSURLResponse *response, NSURLRequest *request);
 typedef NSURLSessionAuthChallengeDisposition (^AFURLSessionTaskDidReceiveAuthenticationChallengeBlock)(NSURLSession *session, NSURLSessionTask *task, NSURLAuthenticationChallenge *challenge, NSURLCredential * __autoreleasing *credential);
+<<<<<<< HEAD
 typedef id (^AFURLSessionTaskAuthenticationChallengeBlock)(NSURLSession *session, NSURLSessionTask *task, NSURLAuthenticationChallenge *challenge, void (^completionHandler)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential));
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 typedef void (^AFURLSessionDidFinishEventsForBackgroundURLSessionBlock)(NSURLSession *session);
 
 typedef NSInputStream * (^AFURLSessionTaskNeedNewBodyStreamBlock)(NSURLSession *session, NSURLSessionTask *task);
 typedef void (^AFURLSessionTaskDidSendBodyDataBlock)(NSURLSession *session, NSURLSessionTask *task, int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend);
 typedef void (^AFURLSessionTaskDidCompleteBlock)(NSURLSession *session, NSURLSessionTask *task, NSError *error);
+<<<<<<< HEAD
 #if AF_CAN_INCLUDE_SESSION_TASK_METRICS
 typedef void (^AFURLSessionTaskDidFinishCollectingMetricsBlock)(NSURLSession *session, NSURLSessionTask *task, NSURLSessionTaskMetrics * metrics) AF_API_AVAILABLE(ios(10), macosx(10.12), watchos(3), tvos(10));
 #endif
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 typedef NSURLSessionResponseDisposition (^AFURLSessionDataTaskDidReceiveResponseBlock)(NSURLSession *session, NSURLSessionDataTask *dataTask, NSURLResponse *response);
 typedef void (^AFURLSessionDataTaskDidBecomeDownloadTaskBlock)(NSURLSession *session, NSURLSessionDataTask *dataTask, NSURLSessionDownloadTask *downloadTask);
@@ -85,6 +132,10 @@ typedef void (^AFURLSessionTaskProgressBlock)(NSProgress *);
 
 typedef void (^AFURLSessionTaskCompletionHandler)(NSURLResponse *response, id responseObject, NSError *error);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 #pragma mark -
 
 @interface AFURLSessionManagerTaskDelegate : NSObject <NSURLSessionTaskDelegate, NSURLSessionDataDelegate, NSURLSessionDownloadDelegate>
@@ -94,9 +145,12 @@ typedef void (^AFURLSessionTaskCompletionHandler)(NSURLResponse *response, id re
 @property (nonatomic, strong) NSProgress *uploadProgress;
 @property (nonatomic, strong) NSProgress *downloadProgress;
 @property (nonatomic, copy) NSURL *downloadFileURL;
+<<<<<<< HEAD
 #if AF_CAN_INCLUDE_SESSION_TASK_METRICS
 @property (nonatomic, strong) NSURLSessionTaskMetrics *sessionTaskMetrics AF_API_AVAILABLE(ios(10), macosx(10.12), watchos(3), tvos(10));
 #endif
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @property (nonatomic, copy) AFURLSessionDownloadTaskDidFinishDownloadingBlock downloadTaskDidFinishDownloading;
 @property (nonatomic, copy) AFURLSessionTaskProgressBlock uploadProgressBlock;
 @property (nonatomic, copy) AFURLSessionTaskProgressBlock downloadProgressBlock;
@@ -128,7 +182,11 @@ typedef void (^AFURLSessionTaskCompletionHandler)(NSURLResponse *response, id re
             [weakTask suspend];
         };
 #if AF_CAN_USE_AT_AVAILABLE
+<<<<<<< HEAD
         if (@available(macOS 10.11, *))
+=======
+        if (@available(iOS 9, macOS 10.11, *))
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 #else
         if ([progress respondsToSelector:@selector(setResumingHandler:)])
 #endif
@@ -166,20 +224,30 @@ typedef void (^AFURLSessionTaskCompletionHandler)(NSURLResponse *response, id re
     }
 }
 
+<<<<<<< HEAD
 static const void * const AuthenticationChallengeErrorKey = &AuthenticationChallengeErrorKey;
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 #pragma mark - NSURLSessionTaskDelegate
 
 - (void)URLSession:(__unused NSURLSession *)session
               task:(NSURLSessionTask *)task
 didCompleteWithError:(NSError *)error
 {
+<<<<<<< HEAD
     error = objc_getAssociatedObject(task, AuthenticationChallengeErrorKey) ?: error;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     __strong AFURLSessionManager *manager = self.manager;
 
     __block id responseObject = nil;
 
+<<<<<<< HEAD
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+=======
+    __block NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     userInfo[AFNetworkingTaskDidCompleteResponseSerializerKey] = manager.responseSerializer;
 
     //Performance Improvement from #2672
@@ -190,6 +258,7 @@ didCompleteWithError:(NSError *)error
         self.mutableData = nil;
     }
 
+<<<<<<< HEAD
 #if AF_CAN_USE_AT_AVAILABLE && AF_CAN_INCLUDE_SESSION_TASK_METRICS
     if (@available(iOS 10, macOS 10.12, watchOS 3, tvOS 10, *)) {
         if (self.sessionTaskMetrics) {
@@ -198,6 +267,8 @@ didCompleteWithError:(NSError *)error
     }
 #endif
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     if (self.downloadFileURL) {
         userInfo[AFNetworkingTaskDidCompleteAssetPathKey] = self.downloadFileURL;
     } else if (data) {
@@ -246,6 +317,7 @@ didCompleteWithError:(NSError *)error
     }
 }
 
+<<<<<<< HEAD
 #if AF_CAN_INCLUDE_SESSION_TASK_METRICS
 - (void)URLSession:(NSURLSession *)session
               task:(NSURLSessionTask *)task
@@ -254,6 +326,8 @@ didFinishCollectingMetrics:(NSURLSessionTaskMetrics *)metrics AF_API_AVAILABLE(i
 }
 #endif
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 #pragma mark - NSURLSessionDataDelegate
 
 - (void)URLSession:(__unused NSURLSession *)session
@@ -307,8 +381,11 @@ didFinishDownloadingToURL:(NSURL *)location
 
             if (![[NSFileManager defaultManager] moveItemAtURL:location toURL:self.downloadFileURL error:&fileManagerError]) {
                 [[NSNotificationCenter defaultCenter] postNotificationName:AFURLSessionDownloadTaskDidFailToMoveFileNotification object:downloadTask userInfo:fileManagerError.userInfo];
+<<<<<<< HEAD
             } else {
                 [[NSNotificationCenter defaultCenter] postNotificationName:AFURLSessionDownloadTaskDidMoveFileSuccessfullyNotification object:downloadTask userInfo:nil];
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
             }
         }
     }
@@ -380,7 +457,11 @@ static NSString * const AFNSURLSessionTaskDidSuspendNotification = @"com.alamofi
             8) Set the current class to the super class, and repeat steps 3-8
          */
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+<<<<<<< HEAD
         NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+=======
+        NSURLSession * session = [NSURLSession sessionWithConfiguration:configuration];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wnonnull"
         NSURLSessionDataTask *localDataTask = [session dataTaskWithURL:nil];
@@ -456,6 +537,7 @@ static NSString * const AFNSURLSessionTaskDidSuspendNotification = @"com.alamofi
 @property (readwrite, nonatomic, copy) AFURLSessionDidReceiveAuthenticationChallengeBlock sessionDidReceiveAuthenticationChallenge;
 @property (readwrite, nonatomic, copy) AFURLSessionDidFinishEventsForBackgroundURLSessionBlock didFinishEventsForBackgroundURLSession AF_API_UNAVAILABLE(macos);
 @property (readwrite, nonatomic, copy) AFURLSessionTaskWillPerformHTTPRedirectionBlock taskWillPerformHTTPRedirection;
+<<<<<<< HEAD
 @property (readwrite, nonatomic, copy) AFURLSessionTaskAuthenticationChallengeBlock authenticationChallengeHandler;
 @property (readwrite, nonatomic, copy) AFURLSessionTaskNeedNewBodyStreamBlock taskNeedNewBodyStream;
 @property (readwrite, nonatomic, copy) AFURLSessionTaskDidSendBodyDataBlock taskDidSendBodyData;
@@ -463,6 +545,12 @@ static NSString * const AFNSURLSessionTaskDidSuspendNotification = @"com.alamofi
 #if AF_CAN_INCLUDE_SESSION_TASK_METRICS
 @property (readwrite, nonatomic, copy) AFURLSessionTaskDidFinishCollectingMetricsBlock taskDidFinishCollectingMetrics AF_API_AVAILABLE(ios(10), macosx(10.12), watchos(3), tvos(10));
 #endif
+=======
+@property (readwrite, nonatomic, copy) AFURLSessionTaskDidReceiveAuthenticationChallengeBlock taskDidReceiveAuthenticationChallenge;
+@property (readwrite, nonatomic, copy) AFURLSessionTaskNeedNewBodyStreamBlock taskNeedNewBodyStream;
+@property (readwrite, nonatomic, copy) AFURLSessionTaskDidSendBodyDataBlock taskDidSendBodyData;
+@property (readwrite, nonatomic, copy) AFURLSessionTaskDidCompleteBlock taskDidComplete;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @property (readwrite, nonatomic, copy) AFURLSessionDataTaskDidReceiveResponseBlock dataTaskDidReceiveResponse;
 @property (readwrite, nonatomic, copy) AFURLSessionDataTaskDidBecomeDownloadTaskBlock dataTaskDidBecomeDownloadTask;
 @property (readwrite, nonatomic, copy) AFURLSessionDataTaskDidReceiveDataBlock dataTaskDidReceiveData;
@@ -493,6 +581,11 @@ static NSString * const AFNSURLSessionTaskDidSuspendNotification = @"com.alamofi
     self.operationQueue = [[NSOperationQueue alloc] init];
     self.operationQueue.maxConcurrentOperationCount = 1;
 
+<<<<<<< HEAD
+=======
+    self.session = [NSURLSession sessionWithConfiguration:self.sessionConfiguration delegate:self delegateQueue:self.operationQueue];
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     self.responseSerializer = [AFJSONResponseSerializer serializer];
 
     self.securityPolicy = [AFSecurityPolicy defaultPolicy];
@@ -529,6 +622,7 @@ static NSString * const AFNSURLSessionTaskDidSuspendNotification = @"com.alamofi
 
 #pragma mark -
 
+<<<<<<< HEAD
 - (NSURLSession *)session {
     
     @synchronized (self) {
@@ -542,6 +636,8 @@ static NSString * const AFNSURLSessionTaskDidSuspendNotification = @"com.alamofi
 #pragma mark -
 
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 - (NSString *)taskDescriptionForSessionTasks {
     return [NSString stringWithFormat:@"%p", self];
 }
@@ -697,15 +793,22 @@ static NSString * const AFNSURLSessionTaskDidSuspendNotification = @"com.alamofi
 
 #pragma mark -
 
+<<<<<<< HEAD
 - (void)invalidateSessionCancelingTasks:(BOOL)cancelPendingTasks resetSession:(BOOL)resetSession {
+=======
+- (void)invalidateSessionCancelingTasks:(BOOL)cancelPendingTasks {
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     if (cancelPendingTasks) {
         [self.session invalidateAndCancel];
     } else {
         [self.session finishTasksAndInvalidate];
     }
+<<<<<<< HEAD
     if (resetSession) {
         self.session = nil;
     }
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 
 #pragma mark -
@@ -730,11 +833,27 @@ static NSString * const AFNSURLSessionTaskDidSuspendNotification = @"com.alamofi
 #pragma mark -
 
 - (NSURLSessionDataTask *)dataTaskWithRequest:(NSURLRequest *)request
+<<<<<<< HEAD
+=======
+                            completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler
+{
+    return [self dataTaskWithRequest:request uploadProgress:nil downloadProgress:nil completionHandler:completionHandler];
+}
+
+- (NSURLSessionDataTask *)dataTaskWithRequest:(NSURLRequest *)request
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
                                uploadProgress:(nullable void (^)(NSProgress *uploadProgress)) uploadProgressBlock
                              downloadProgress:(nullable void (^)(NSProgress *downloadProgress)) downloadProgressBlock
                             completionHandler:(nullable void (^)(NSURLResponse *response, id _Nullable responseObject,  NSError * _Nullable error))completionHandler {
 
+<<<<<<< HEAD
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:request];
+=======
+    __block NSURLSessionDataTask *dataTask = nil;
+    url_session_manager_create_task_safely(^{
+        dataTask = [self.session dataTaskWithRequest:request];
+    });
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
     [self addDelegateForDataTask:dataTask uploadProgress:uploadProgressBlock downloadProgress:downloadProgressBlock completionHandler:completionHandler];
 
@@ -748,7 +867,21 @@ static NSString * const AFNSURLSessionTaskDidSuspendNotification = @"com.alamofi
                                          progress:(void (^)(NSProgress *uploadProgress)) uploadProgressBlock
                                 completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler
 {
+<<<<<<< HEAD
     NSURLSessionUploadTask *uploadTask = [self.session uploadTaskWithRequest:request fromFile:fileURL];
+=======
+    __block NSURLSessionUploadTask *uploadTask = nil;
+    url_session_manager_create_task_safely(^{
+        uploadTask = [self.session uploadTaskWithRequest:request fromFile:fileURL];
+        
+        // uploadTask may be nil on iOS7 because uploadTaskWithRequest:fromFile: may return nil despite being documented as nonnull (https://devforums.apple.com/message/926113#926113)
+        if (!uploadTask && self.attemptsToRecreateUploadTasksForBackgroundSessions && self.session.configuration.identifier) {
+            for (NSUInteger attempts = 0; !uploadTask && attempts < AFMaximumNumberOfAttemptsToRecreateBackgroundSessionUploadTask; attempts++) {
+                uploadTask = [self.session uploadTaskWithRequest:request fromFile:fileURL];
+            }
+        }
+    });
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     
     if (uploadTask) {
         [self addDelegateForUploadTask:uploadTask
@@ -764,8 +897,16 @@ static NSString * const AFNSURLSessionTaskDidSuspendNotification = @"com.alamofi
                                          progress:(void (^)(NSProgress *uploadProgress)) uploadProgressBlock
                                 completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler
 {
+<<<<<<< HEAD
     NSURLSessionUploadTask *uploadTask = [self.session uploadTaskWithRequest:request fromData:bodyData];
     
+=======
+    __block NSURLSessionUploadTask *uploadTask = nil;
+    url_session_manager_create_task_safely(^{
+        uploadTask = [self.session uploadTaskWithRequest:request fromData:bodyData];
+    });
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     [self addDelegateForUploadTask:uploadTask progress:uploadProgressBlock completionHandler:completionHandler];
 
     return uploadTask;
@@ -775,7 +916,14 @@ static NSString * const AFNSURLSessionTaskDidSuspendNotification = @"com.alamofi
                                                  progress:(void (^)(NSProgress *uploadProgress)) uploadProgressBlock
                                         completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler
 {
+<<<<<<< HEAD
     NSURLSessionUploadTask *uploadTask = [self.session uploadTaskWithStreamedRequest:request];
+=======
+    __block NSURLSessionUploadTask *uploadTask = nil;
+    url_session_manager_create_task_safely(^{
+        uploadTask = [self.session uploadTaskWithStreamedRequest:request];
+    });
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
     [self addDelegateForUploadTask:uploadTask progress:uploadProgressBlock completionHandler:completionHandler];
 
@@ -789,8 +937,16 @@ static NSString * const AFNSURLSessionTaskDidSuspendNotification = @"com.alamofi
                                           destination:(NSURL * (^)(NSURL *targetPath, NSURLResponse *response))destination
                                     completionHandler:(void (^)(NSURLResponse *response, NSURL *filePath, NSError *error))completionHandler
 {
+<<<<<<< HEAD
     NSURLSessionDownloadTask *downloadTask = [self.session downloadTaskWithRequest:request];
     
+=======
+    __block NSURLSessionDownloadTask *downloadTask = nil;
+    url_session_manager_create_task_safely(^{
+        downloadTask = [self.session downloadTaskWithRequest:request];
+    });
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     [self addDelegateForDownloadTask:downloadTask progress:downloadProgressBlock destination:destination completionHandler:completionHandler];
 
     return downloadTask;
@@ -801,7 +957,14 @@ static NSString * const AFNSURLSessionTaskDidSuspendNotification = @"com.alamofi
                                              destination:(NSURL * (^)(NSURL *targetPath, NSURLResponse *response))destination
                                        completionHandler:(void (^)(NSURLResponse *response, NSURL *filePath, NSError *error))completionHandler
 {
+<<<<<<< HEAD
     NSURLSessionDownloadTask *downloadTask = [self.session downloadTaskWithResumeData:resumeData];
+=======
+    __block NSURLSessionDownloadTask *downloadTask = nil;
+    url_session_manager_create_task_safely(^{
+        downloadTask = [self.session downloadTaskWithResumeData:resumeData];
+    });
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
     [self addDelegateForDownloadTask:downloadTask progress:downloadProgressBlock destination:destination completionHandler:completionHandler];
 
@@ -843,6 +1006,13 @@ static NSString * const AFNSURLSessionTaskDidSuspendNotification = @"com.alamofi
     self.taskWillPerformHTTPRedirection = block;
 }
 
+<<<<<<< HEAD
+=======
+- (void)setTaskDidReceiveAuthenticationChallengeBlock:(NSURLSessionAuthChallengeDisposition (^)(NSURLSession *session, NSURLSessionTask *task, NSURLAuthenticationChallenge *challenge, NSURLCredential * __autoreleasing *credential))block {
+    self.taskDidReceiveAuthenticationChallenge = block;
+}
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 - (void)setTaskDidSendBodyDataBlock:(void (^)(NSURLSession *session, NSURLSessionTask *task, int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend))block {
     self.taskDidSendBodyData = block;
 }
@@ -851,12 +1021,15 @@ static NSString * const AFNSURLSessionTaskDidSuspendNotification = @"com.alamofi
     self.taskDidComplete = block;
 }
 
+<<<<<<< HEAD
 #if AF_CAN_INCLUDE_SESSION_TASK_METRICS
 - (void)setTaskDidFinishCollectingMetricsBlock:(void (^)(NSURLSession * _Nonnull, NSURLSessionTask * _Nonnull, NSURLSessionTaskMetrics * _Nullable))block AF_API_AVAILABLE(ios(10), macosx(10.12), watchos(3), tvos(10)) {
     self.taskDidFinishCollectingMetrics = block;
 }
 #endif
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 #pragma mark -
 
 - (void)setDataTaskDidReceiveResponseBlock:(NSURLSessionResponseDisposition (^)(NSURLSession *session, NSURLSessionDataTask *dataTask, NSURLResponse *response))block {
@@ -896,9 +1069,13 @@ static NSString * const AFNSURLSessionTaskDidSuspendNotification = @"com.alamofi
 }
 
 - (BOOL)respondsToSelector:(SEL)selector {
+<<<<<<< HEAD
     if (selector == @selector(URLSession:didReceiveChallenge:completionHandler:)) {
         return self.sessionDidReceiveAuthenticationChallenge != nil;
     } else if (selector == @selector(URLSession:task:willPerformHTTPRedirection:newRequest:completionHandler:)) {
+=======
+    if (selector == @selector(URLSession:task:willPerformHTTPRedirection:newRequest:completionHandler:)) {
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         return self.taskWillPerformHTTPRedirection != nil;
     } else if (selector == @selector(URLSession:dataTask:didReceiveResponse:completionHandler:)) {
         return self.dataTaskDidReceiveResponse != nil;
@@ -930,10 +1107,34 @@ didBecomeInvalidWithError:(NSError *)error
 didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
  completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential))completionHandler
 {
+<<<<<<< HEAD
     NSAssert(self.sessionDidReceiveAuthenticationChallenge != nil, @"`respondsToSelector:` implementation forces `URLSession:didReceiveChallenge:completionHandler:` to be called only if `self.sessionDidReceiveAuthenticationChallenge` is not nil");
 
     NSURLCredential *credential = nil;
     NSURLSessionAuthChallengeDisposition disposition = self.sessionDidReceiveAuthenticationChallenge(session, challenge, &credential);
+=======
+    NSURLSessionAuthChallengeDisposition disposition = NSURLSessionAuthChallengePerformDefaultHandling;
+    __block NSURLCredential *credential = nil;
+
+    if (self.sessionDidReceiveAuthenticationChallenge) {
+        disposition = self.sessionDidReceiveAuthenticationChallenge(session, challenge, &credential);
+    } else {
+        if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
+            if ([self.securityPolicy evaluateServerTrust:challenge.protectionSpace.serverTrust forDomain:challenge.protectionSpace.host]) {
+                credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+                if (credential) {
+                    disposition = NSURLSessionAuthChallengeUseCredential;
+                } else {
+                    disposition = NSURLSessionAuthChallengePerformDefaultHandling;
+                }
+            } else {
+                disposition = NSURLSessionAuthChallengeCancelAuthenticationChallenge;
+            }
+        } else {
+            disposition = NSURLSessionAuthChallengePerformDefaultHandling;
+        }
+    }
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
     if (completionHandler) {
         completionHandler(disposition, credential);
@@ -964,6 +1165,7 @@ willPerformHTTPRedirection:(NSHTTPURLResponse *)response
 didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
  completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential))completionHandler
 {
+<<<<<<< HEAD
     BOOL evaluateServerTrust = NO;
     NSURLSessionAuthChallengeDisposition disposition = NSURLSessionAuthChallengePerformDefaultHandling;
     NSURLCredential *credential = nil;
@@ -998,6 +1200,23 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
                                      [self serverTrustErrorForServerTrust:challenge.protectionSpace.serverTrust url:task.currentRequest.URL],
                                      OBJC_ASSOCIATION_RETAIN);
             disposition = NSURLSessionAuthChallengeCancelAuthenticationChallenge;
+=======
+    NSURLSessionAuthChallengeDisposition disposition = NSURLSessionAuthChallengePerformDefaultHandling;
+    __block NSURLCredential *credential = nil;
+
+    if (self.taskDidReceiveAuthenticationChallenge) {
+        disposition = self.taskDidReceiveAuthenticationChallenge(session, task, challenge, &credential);
+    } else {
+        if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
+            if ([self.securityPolicy evaluateServerTrust:challenge.protectionSpace.serverTrust forDomain:challenge.protectionSpace.host]) {
+                disposition = NSURLSessionAuthChallengeUseCredential;
+                credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+            } else {
+                disposition = NSURLSessionAuthChallengeCancelAuthenticationChallenge;
+            }
+        } else {
+            disposition = NSURLSessionAuthChallengePerformDefaultHandling;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         }
     }
 
@@ -1006,6 +1225,7 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
     }
 }
 
+<<<<<<< HEAD
 - (nonnull NSError *)serverTrustErrorForServerTrust:(nullable SecTrustRef)serverTrust url:(nullable NSURL *)url
 {
     NSBundle *CFNetworkBundle = [NSBundle bundleWithIdentifier:@"com.apple.CFNetwork"];
@@ -1031,6 +1251,8 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
     return [NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorServerCertificateUntrusted userInfo:userInfo];
 }
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 - (void)URLSession:(NSURLSession *)session
               task:(NSURLSessionTask *)task
  needNewBodyStream:(void (^)(NSInputStream *bodyStream))completionHandler
@@ -1056,9 +1278,15 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
 {
 
     int64_t totalUnitCount = totalBytesExpectedToSend;
+<<<<<<< HEAD
     if (totalUnitCount == NSURLSessionTransferSizeUnknown) {
         NSString *contentLength = [task.originalRequest valueForHTTPHeaderField:@"Content-Length"];
         if (contentLength) {
+=======
+    if(totalUnitCount == NSURLSessionTransferSizeUnknown) {
+        NSString *contentLength = [task.originalRequest valueForHTTPHeaderField:@"Content-Length"];
+        if(contentLength) {
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
             totalUnitCount = (int64_t) [contentLength longLongValue];
         }
     }
@@ -1092,6 +1320,7 @@ didCompleteWithError:(NSError *)error
     }
 }
 
+<<<<<<< HEAD
 #if AF_CAN_INCLUDE_SESSION_TASK_METRICS
 - (void)URLSession:(NSURLSession *)session
               task:(NSURLSessionTask *)task
@@ -1109,6 +1338,8 @@ didFinishCollectingMetrics:(NSURLSessionTaskMetrics *)metrics AF_API_AVAILABLE(i
 }
 #endif
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 #pragma mark - NSURLSessionDataDelegate
 
 - (void)URLSession:(NSURLSession *)session
@@ -1196,8 +1427,11 @@ didFinishDownloadingToURL:(NSURL *)location
             
             if (![[NSFileManager defaultManager] moveItemAtURL:location toURL:fileURL error:&error]) {
                 [[NSNotificationCenter defaultCenter] postNotificationName:AFURLSessionDownloadTaskDidFailToMoveFileNotification object:downloadTask userInfo:error.userInfo];
+<<<<<<< HEAD
             } else {
                 [[NSNotificationCenter defaultCenter] postNotificationName:AFURLSessionDownloadTaskDidMoveFileSuccessfullyNotification object:downloadTask userInfo:nil];
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
             }
 
             return;

@@ -11,6 +11,10 @@
 
 
 #import "LXWaveProgressView.h"
+<<<<<<< HEAD
+=======
+#import "YYWeakProxy.h"
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 @interface LXWaveProgressView ()
 @property (nonatomic,assign)CGFloat yHeight;
@@ -63,7 +67,11 @@
 #pragma mark -- 开始波动动画
 - (void)startWaveAnimation
 {
+<<<<<<< HEAD
     self.timer = [CADisplayLink displayLinkWithTarget:self selector:@selector(waveAnimation)];
+=======
+    self.timer = [CADisplayLink displayLinkWithTarget:[YYWeakProxy proxyWithTarget:self] selector:@selector(waveAnimation)];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     [self.timer addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
    
 }

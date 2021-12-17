@@ -86,7 +86,11 @@ static const BMKFeatureDisplayPriority BMKFeatureDisplayPriorityDefaultLow = 250
 ///默认为YES,当为NO时view忽略触摸事件
 @property (nonatomic, getter=isEnabled) BOOL enabled;
 
+<<<<<<< HEAD
 ///默认为NO,初始化时设置为YES时会默认弹出气泡。V5.2.0以后版本可以直接设置该值来控制隐藏和弹出气泡，无需调用强制刷新
+=======
+///默认为NO,当view被点中时被设为YES,用户不要直接设置这个属性.若设置，需要在设置后调用BMKMapView的- (void)mapForceRefresh; 方法刷新地图
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @property (nonatomic, getter=isSelected) BOOL selected;
 
 /**
@@ -112,13 +116,21 @@ static const BMKFeatureDisplayPriority BMKFeatureDisplayPriorityDefaultLow = 250
 ///当前view的拖动状态, iOS 3.2以后支持
 @property (nonatomic) BMKAnnotationViewDragState dragState __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_3_2);
 
+<<<<<<< HEAD
 ///当发生单击地图事件时，当前的annotation的泡泡是否隐藏，默认值为YES，V4.2.1以后支持
+=======
+///当发生单击地图事件时，当前的annotation的泡泡是否隐藏，默认值为NO，V4.2.1以后支持
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @property (nonatomic, assign) BOOL hidePaopaoWhenSingleTapOnMap;
 ///当发生双击地图事件时，当前的annotation的泡泡是否隐藏，默认值为NO，V4.2.1以后支持
 @property (nonatomic, assign) BOOL hidePaopaoWhenDoubleTapOnMap;
 ///当发生两个手指点击地图（缩小地图）事件时，当前的annotation的泡泡是否隐藏，默认值为NO，V4.2.1以后支持
 @property (nonatomic, assign) BOOL hidePaopaoWhenTwoFingersTapOnMap;
+<<<<<<< HEAD
 ///当选中其他annotation时，当前annotation的泡泡是否隐藏，默认值为YES，V4.2.1以后支持
+=======
+///当选中其他annotation时，当前annotation的泡泡是否隐藏，默认值为NO，V4.2.1以后支持
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @property (nonatomic, assign) BOOL hidePaopaoWhenSelectOthers;
 ///当拖拽当前的annotation时，当前annotation的泡泡是否隐藏，默认值为NO，V4.2.1以后支持
 @property (nonatomic, assign) BOOL hidePaopaoWhenDrag;

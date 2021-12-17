@@ -10,7 +10,10 @@
 #import "MJFoundation.h"
 #import "MJExtensionConst.h"
 #import <objc/message.h>
+<<<<<<< HEAD
 #include "TargetConditionals.h"
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 @interface MJProperty()
 @property (strong, nonatomic) NSMutableDictionary *propertyKeysDict;
@@ -74,6 +77,7 @@
 - (id)valueForObject:(id)object
 {
     if (self.type.KVCDisabled) return [NSNull null];
+<<<<<<< HEAD
     
     id value = [object valueForKey:self.name];
     
@@ -87,6 +91,9 @@
 #endif
     
     return value;
+=======
+    return [object valueForKey:self.name];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 
 /**
@@ -147,7 +154,11 @@
     if ([originKey isKindOfClass:[NSString class]]) { // 字符串类型的key
         NSArray *propertyKeys = [self propertyKeysWithStringKey:originKey];
         if (propertyKeys.count) {
+<<<<<<< HEAD
             [self setPropertyKeys:@[propertyKeys] forClass:c];
+=======
+            [self setPorpertyKeys:@[propertyKeys] forClass:c];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         }
     } else if ([originKey isKindOfClass:[NSArray class]]) {
         NSMutableArray *keyses = [NSMutableArray array];
@@ -158,13 +169,21 @@
             }
         }
         if (keyses.count) {
+<<<<<<< HEAD
             [self setPropertyKeys:keyses forClass:c];
+=======
+            [self setPorpertyKeys:keyses forClass:c];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         }
     }
 }
 
 /** 对应着字典中的多级key */
+<<<<<<< HEAD
 - (void)setPropertyKeys:(NSArray *)propertyKeys forClass:(Class)c
+=======
+- (void)setPorpertyKeys:(NSArray *)propertyKeys forClass:(Class)c
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 {
     if (propertyKeys.count == 0) return;
     NSString *key = NSStringFromClass(c);

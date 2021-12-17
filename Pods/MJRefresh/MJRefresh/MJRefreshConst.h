@@ -14,7 +14,11 @@
 #endif
 
 // 过期提醒
+<<<<<<< HEAD
 #define MJRefreshDeprecated(DESCRIPTION) __attribute__((deprecated(DESCRIPTION)))
+=======
+#define MJRefreshDeprecated(instead) NS_DEPRECATED(2_0, 2_0, 2_0, 2_0, instead)
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 // 运行时objc_msgSend
 #define MJRefreshMsgSend(...) ((void (*)(void *, SEL, UIView *))objc_msgSend)(__VA_ARGS__)
@@ -33,7 +37,10 @@
 UIKIT_EXTERN const CGFloat MJRefreshLabelLeftInset;
 UIKIT_EXTERN const CGFloat MJRefreshHeaderHeight;
 UIKIT_EXTERN const CGFloat MJRefreshFooterHeight;
+<<<<<<< HEAD
 UIKIT_EXTERN const CGFloat MJRefreshTrailWidth;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 UIKIT_EXTERN const CGFloat MJRefreshFastAnimationDuration;
 UIKIT_EXTERN const CGFloat MJRefreshSlowAnimationDuration;
 
@@ -48,9 +55,12 @@ UIKIT_EXTERN NSString *const MJRefreshHeaderIdleText;
 UIKIT_EXTERN NSString *const MJRefreshHeaderPullingText;
 UIKIT_EXTERN NSString *const MJRefreshHeaderRefreshingText;
 
+<<<<<<< HEAD
 UIKIT_EXTERN NSString *const MJRefreshTrailerIdleText;
 UIKIT_EXTERN NSString *const MJRefreshTrailerPullingText;
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 UIKIT_EXTERN NSString *const MJRefreshAutoFooterIdleText;
 UIKIT_EXTERN NSString *const MJRefreshAutoFooterRefreshingText;
 UIKIT_EXTERN NSString *const MJRefreshAutoFooterNoMoreDataText;
@@ -77,3 +87,7 @@ dispatch_async(dispatch_get_main_queue(), ^{ \
 typeof(weakSelf) self = weakSelf; \
 {x} \
 });
+<<<<<<< HEAD
+=======
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28

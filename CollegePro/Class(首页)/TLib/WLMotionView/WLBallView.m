@@ -9,7 +9,10 @@
 #import "WLBallView.h"
 #import "WLBallTool.h"
 
+<<<<<<< HEAD
 API_AVAILABLE(ios(9.0))
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @interface WLBallView ()
 
 @property (nonatomic, assign) UIDynamicItemCollisionBoundsType collisionBoundsType;
@@ -29,11 +32,15 @@ API_AVAILABLE(ios(9.0))
         self.image = [UIImage imageNamed:imageName];
         self.layer.cornerRadius = frame.size.width * 0.5;
         self.layer.masksToBounds = YES;
+<<<<<<< HEAD
         if (@available(iOS 9.0, *)) {
             self.collisionBoundsType = UIDynamicItemCollisionBoundsTypeEllipse;
         } else {
             // Fallback on earlier versions
         }
+=======
+        self.collisionBoundsType = UIDynamicItemCollisionBoundsTypeEllipse;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     }
     
     return self;

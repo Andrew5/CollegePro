@@ -14,7 +14,11 @@
 		</dict>
 		<dict>
 			<key>FooterText</key>
+<<<<<<< HEAD
 			<string>Copyright (c) 2011-2020 Alamofire Software Foundation (http://alamofire.org/)
+=======
+			<string>Copyright (c) 2011-2016 Alamofire Software Foundation (http://alamofire.org/)
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -43,6 +47,7 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+<<<<<<< HEAD
 			<string>支付宝(中国)网络技术有限公司  版权所有.</string>
 			<key>License</key>
 			<string>Copyright</string>
@@ -56,6 +61,11 @@ THE SOFTWARE.
 			<string>MIT License
 
 Copyright (c) 2016 陈蕃坊
+=======
+			<string>The MIT License (MIT)
+
+Copyright (c) 2015 BaiduLBS
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -74,10 +84,15 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+<<<<<<< HEAD
+=======
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 </string>
 			<key>License</key>
 			<string>MIT</string>
 			<key>Title</key>
+<<<<<<< HEAD
 			<string>AvoidCrash</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
@@ -88,6 +103,8 @@ SOFTWARE.
 			<key>License</key>
 			<string>Copyright</string>
 			<key>Title</key>
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 			<string>BaiduMapKit</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
@@ -112,6 +129,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		</dict>
 		<dict>
 			<key>FooterText</key>
+<<<<<<< HEAD
 			<string>The MIT License (MIT)
 
 Copyright (c) 2015 Draveness
@@ -245,6 +263,8 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 			<string>MIT License
 
 Copyright (c) 2013-2017 Iftekhar Qurashi
@@ -413,6 +433,7 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+<<<<<<< HEAD
 			<string>Copyright (c) 2016 Zeposhe &lt;zeposhe@163.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -442,6 +463,8 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 			<string>Copyright (c) 2011-2012 Masonry Team - https://github.com/Masonry
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -470,6 +493,7 @@ THE SOFTWARE.</string>
 		</dict>
 		<dict>
 			<key>FooterText</key>
+<<<<<<< HEAD
 			<string>Copyright 2016-present, Max Howell; mxcl@me.com
 
 Permission is hereby granted, free of charge, to any person obtaining a
@@ -587,6 +611,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 			<string>The MIT License (MIT)
 
 Copyright (c) 2015 GSD_iOS
@@ -619,7 +645,11 @@ SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+<<<<<<< HEAD
 			<string>Copyright (c) 2009-2020 Olivier Poitrey rs@dailymotion.com
+=======
+			<string>Copyright (c) 2009-2018 Olivier Poitrey rs@dailymotion.com
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
  
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -680,6 +710,7 @@ SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+<<<<<<< HEAD
 			<string>
    Copyright 2012 Square Inc.
 
@@ -705,6 +736,8 @@ SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 			<string>The MIT License (MIT)
 
 Copyright (c) 2016 Zhen Tan
@@ -737,6 +770,7 @@ SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+<<<<<<< HEAD
 			<string>Copyright (c) 2012-2016 YTKNetwork https://github.com/yuantiku
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -767,6 +801,8 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 			<string>The MIT License (MIT)
 
 Copyright (c) 2015 ibireme &lt;ibireme@gmail.com&gt;
@@ -793,6 +829,7 @@ SOFTWARE.
 			<key>License</key>
 			<string>MIT</string>
 			<key>Title</key>
+<<<<<<< HEAD
 			<string>YYCache</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
@@ -834,6 +871,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 			<string>BSD</string>
 			<key>Title</key>
 			<string>pop</string>
+=======
+			<string>YYKit</string>
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

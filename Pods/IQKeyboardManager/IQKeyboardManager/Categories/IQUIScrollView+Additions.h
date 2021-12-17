@@ -21,8 +21,12 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+<<<<<<< HEAD
 #import <UIKit/UITableView.h>
 #import <UIKit/UICollectionView.h>
+=======
+#import <UIKit/UIScrollView.h>
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 
 @interface UIScrollView (Additions)
@@ -33,17 +37,21 @@
 @property(nonatomic, assign) BOOL shouldIgnoreScrollingAdjustment;
 
 /**
+<<<<<<< HEAD
  If YES, then scrollview will ignore content inset adjustment (simply not updating it) when keyboard is shown. Default is NO.
  */
 @property(nonatomic, assign) BOOL shouldIgnoreContentInsetAdjustment;
 
 /**
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
  Restore scrollViewContentOffset when resigning from scrollView. Default is NO.
  */
 @property(nonatomic, assign) BOOL shouldRestoreScrollViewContentOffset;
 
 
 @end
+<<<<<<< HEAD
 
 @interface UITableView (PreviousNextIndexPath)
 
@@ -58,3 +66,5 @@
 //-(nullable NSIndexPath*)nextIndexPathOfIndexPath:(nonnull NSIndexPath*)indexPath;
 
 @end
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28

@@ -20,11 +20,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+<<<<<<< HEAD
 #import <TargetConditionals.h>
+=======
+#if TARGET_OS_IOS || TARGET_OS_TV
+#import <UIKit/UIKit.h>
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 #ifndef _UIKIT_AFNETWORKING_
     #define _UIKIT_AFNETWORKING_
 
+<<<<<<< HEAD
 #if TARGET_OS_IOS || TARGET_OS_TV
     #import "AFAutoPurgingImageCache.h"
     #import "AFImageDownloader.h"
@@ -41,3 +47,19 @@
 #endif
 
 #endif /* _UIKIT_AFNETWORKING_ */
+=======
+#if TARGET_OS_IOS
+    #import "AFAutoPurgingImageCache.h"
+    #import "AFImageDownloader.h"
+    #import "AFNetworkActivityIndicatorManager.h"
+    #import "UIRefreshControl+AFNetworking.h"
+    #import "UIWebView+AFNetworking.h"
+#endif
+
+    #import "UIActivityIndicatorView+AFNetworking.h"
+    #import "UIButton+AFNetworking.h"
+    #import "UIImageView+AFNetworking.h"
+    #import "UIProgressView+AFNetworking.h"
+#endif /* _UIKIT_AFNETWORKING_ */
+#endif
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28

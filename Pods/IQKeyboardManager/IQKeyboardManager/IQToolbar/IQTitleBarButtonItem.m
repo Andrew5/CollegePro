@@ -30,8 +30,13 @@
 
 @interface IQTitleBarButtonItem ()
 
+<<<<<<< HEAD
 @property(nullable, nonatomic, strong) UIView *titleView;
 @property(nullable, nonatomic, strong) UIButton *titleButton;
+=======
+@property(nonnull, nonatomic, strong) UIView *titleView;
+@property(nonnull, nonatomic, strong) UIButton *titleButton;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 @end
 
@@ -48,6 +53,7 @@
         _titleButton = [UIButton buttonWithType:UIButtonTypeSystem];
         _titleButton.enabled = NO;
         _titleButton.titleLabel.numberOfLines = 3;
+<<<<<<< HEAD
         #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
         if (@available(iOS 13.0, *)) {
             [_titleButton setTitleColor:[UIColor systemBlueColor] forState:UIControlStateNormal];
@@ -58,6 +64,9 @@
             [_titleButton setTitleColor:[UIColor colorWithRed:0.0 green:0.5 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
         #endif
         }
+=======
+        [_titleButton setTitleColor:[UIColor colorWithRed:0.0 green:0.5 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         [_titleButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
         [_titleButton setBackgroundColor:[UIColor clearColor]];
         [_titleButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
@@ -65,6 +74,10 @@
         [self setTitleFont:[UIFont systemFontOfSize:13.0]];
         [_titleView addSubview:_titleButton];
         
+<<<<<<< HEAD
+=======
+#ifdef __IPHONE_11_0
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         if (@available(iOS 11.0, *))
         {
             CGFloat layoutDefaultLowPriority = UILayoutPriorityDefaultLow-1;
@@ -89,6 +102,10 @@
             [_titleView addConstraints:@[top,bottom,leading,trailing]];
         }
         else
+<<<<<<< HEAD
+=======
+#endif
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         {
             _titleView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
             _titleButton.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
@@ -128,6 +145,7 @@
 -(void)setSelectableTitleColor:(UIColor*)selectableTitleColor
 {
     _selectableTitleColor = selectableTitleColor;
+<<<<<<< HEAD
     #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
         [_titleButton setTitleColor:_selectableTitleColor?:[UIColor systemBlueColor] forState:UIControlStateNormal];
@@ -138,6 +156,9 @@
         [_titleButton setTitleColor:_selectableTitleColor?:[UIColor colorWithRed:0.0 green:0.5 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
     #endif
     }
+=======
+    [_titleButton setTitleColor:_selectableTitleColor?:[UIColor colorWithRed:0.0 green:0.5 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 
 -(void)setInvocation:(NSInvocation *)invocation

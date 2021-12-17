@@ -61,18 +61,40 @@ https://www.youtube.com/playlist?list=PL_csAAO9PQ8aTL87XnueOXi3RpWE2m_8v
 
 |                        | Language | Minimum iOS Target | Minimum Xcode Version |
 |------------------------|----------|--------------------|-----------------------|
+<<<<<<< HEAD
 | IQKeyboardManager      | Obj-C    | iOS 8.0            | Xcode 9           |
 | IQKeyboardManagerSwift | Swift    | iOS 8.0            | Xcode 9           |
 | Demo Project           |          |                    | Xcode 11             |
+=======
+| IQKeyboardManager      | Obj-C    | iOS 8.0            | Xcode 8.2.1           |
+| IQKeyboardManagerSwift | Swift    | iOS 8.0            | Xcode 8.2.1           |
+| Demo Project           |          |                    | Xcode 9.3             |
+
+**Note**
+- 3.3.7 is the last iOS 7 supported version.
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 #### Swift versions support
 
 | Swift             | Xcode | IQKeyboardManagerSwift |
 |-------------------|-------|------------------------|
+<<<<<<< HEAD
 | 5.1, 5.0, 4.2, 4.0, 3.2, 3.0| 11  | >= 6.5.0               |
 | 5.0,4.2, 4.0, 3.2, 3.0| 10.2  | >= 6.2.1               |
 | 4.2, 4.0, 3.2, 3.0| 10.0  | >= 6.0.4               |
 | 4.0, 3.2, 3.0     | 9.0   | 5.0.0                  |
+=======
+| 4.2, 4.0, 3.2, 3.0| 10.0  | >= 6.0.4               |
+| 4.0, 3.2, 3.0     | 9.0   | 5.0.0                  |
+| 3.1               | 8.3   | 4.0.10                 |
+| 3.0 (3.0.2)       | 8.2   | 4.0.8                  |
+| 2.2 or 2.3        | 7.3   | 4.0.5                  |
+| 2.1.1             | 7.2   | 4.0.0                  |
+| 2.1               | 7.2   | 3.3.7                  |
+| 2.0               | 7.0   | 3.3.3.1                |
+| 1.2               | 6.3   | 3.3.1                  |
+| 1.0               | 6.0   | 3.3.2                  |
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 Installation
 ==========================
@@ -86,12 +108,21 @@ it, simply add the following line to your Podfile: ([#9](https://github.com/hack
 
 ```ruby
 pod 'IQKeyboardManager' #iOS8 and later
+<<<<<<< HEAD
+=======
+
+pod 'IQKeyboardManager', '3.3.7' #iOS7
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 ```
 
 ***IQKeyboardManager (Swift):*** IQKeyboardManagerSwift is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile: ([#236](https://github.com/hackiftekhar/IQKeyboardManager/issues/236))
 
+<<<<<<< HEAD
 *Swift 5.1, 5.0, 4.2, 4.0, 3.2, 3.0 (Xcode 11)*
+=======
+*Swift 4.2, 4.0, 3.2, 3.0 (Xcode 9)*
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 ```ruby
 pod 'IQKeyboardManagerSwift'
@@ -100,7 +131,11 @@ pod 'IQKeyboardManagerSwift'
 *Or you can choose the version you need based on Swift support table from [Requirements](README.md#requirements)*
 
 ```ruby
+<<<<<<< HEAD
 pod 'IQKeyboardManagerSwift', '6.3.0'
+=======
+pod 'IQKeyboardManagerSwift', '5.0.0'
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 ```
 
 In AppDelegate.swift, just import IQKeyboardManagerSwift framework and enable IQKeyboardManager.
@@ -113,7 +148,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+<<<<<<< HEAD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+=======
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
       IQKeyboardManager.shared.enable = true
 
@@ -160,7 +199,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+<<<<<<< HEAD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+=======
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
       IQKeyboardManager.shared.enable = true
 
@@ -169,6 +212,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
+<<<<<<< HEAD
 #### Installation with Swift Package Manager
 
 [Swift Package Manager(SPM)](https://swift.org/package-manager/) is Apple's dependency manager tool. It is now supported in Xcode 11. So it can be used in all appleOS types of projects. It can be used alongside other tools like CocoaPods and Carthage as well. 
@@ -193,6 +237,8 @@ To install IQKeyboardManager package via Xcode
  * Then search for https://github.com/hackiftekhar/IQKeyboardManager.git
  * And choose the version you want
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 Migration Guide
 ==========================
 - [IQKeyboardManager 6.0.0 Migration Guide](https://github.com/hackiftekhar/IQKeyboardManager/wiki/IQKeyboardManager-6.0.0-Migration-Guide)

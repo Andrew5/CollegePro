@@ -11,6 +11,10 @@
 #import "MJRefreshBackNormalFooter.h"
 #import "MJRefreshBackGifFooter.h"
 #import "MJRefreshAutoNormalFooter.h"
+<<<<<<< HEAD
 #import "MJRefreshAutoGifFooter.h"
 
 #import "MJRefreshNormalTrailer.h"
+=======
+#import "MJRefreshAutoGifFooter.h"
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28

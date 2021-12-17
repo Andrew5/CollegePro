@@ -7,6 +7,7 @@
 //
 
 #import "LabelNilMethodBlockViewController.h"
+<<<<<<< HEAD
 #import "UIColor+expanded.h"
 #import <objc/message.h>
 
@@ -35,6 +36,19 @@
 	self.view.backgroundColor = [UIColor whiteColor];
 //    self.nameP = @"筛选数字";
     NSLog(@"self.nameP %@",_nameP);
+=======
+
+@interface LabelNilMethodBlockViewController ()
+
+@end
+
+@implementation LabelNilMethodBlockViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+	self.view.backgroundColor = [UIColor whiteColor];
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     // Do any additional setup after loading the view.
 	UIButton *pushNillButton = [UIButton buttonWithType:UIButtonTypeCustom];
 	[pushNillButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
@@ -43,6 +57,7 @@
 	[pushNillButton setTitle:@"回去" forState:(UIControlStateNormal)];
 	[pushNillButton addTarget:self action:@selector(backBlockNilMetnod) forControlEvents:(UIControlEventTouchUpInside)];
 	[self.view addSubview:pushNillButton];
+<<<<<<< HEAD
 //    (返回类型)(^块名称)(参数类型) = ^(参数列表) {代码实现};
     //    __weak typeof(self) _weakSelf = self;
     void(^DicBlock)(NSDictionary *dicdic) = ^(NSDictionary * inforDic){
@@ -146,6 +161,20 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((seconds) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         shouldPrevent = NO;
     });
+=======
+	
+	
+	// Do any additional setup after loading the view.
+}
+- (void)backBlockNilMetnod{
+	
+	self.myReturnTextBlock(@"backBlockNilMetnodshu");
+
+	[self dismissViewControllerAnimated:YES completion:nil];
+
+	
+	// Do any additional setup after loading the view.
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 
 

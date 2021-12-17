@@ -8,7 +8,10 @@
 
 #import "NSBundle+MJRefresh.h"
 #import "MJRefreshComponent.h"
+<<<<<<< HEAD
 #import "MJRefreshConfig.h"
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 @implementation NSBundle (MJRefresh)
 + (instancetype)mj_refreshBundle
@@ -30,6 +33,7 @@
     return arrowImage;
 }
 
+<<<<<<< HEAD
 + (UIImage *)mj_trailArrowImage {
     static UIImage *arrowImage = nil;
     if (arrowImage == nil) {
@@ -38,6 +42,8 @@
     return arrowImage;
 }
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 + (NSString *)mj_localizedStringForKey:(NSString *)key
 {
     return [self mj_localizedStringForKey:key value:nil];
@@ -47,6 +53,7 @@
 {
     static NSBundle *bundle = nil;
     if (bundle == nil) {
+<<<<<<< HEAD
         NSString *language = MJRefreshConfig.defaultConfig.languageCode;
         // 如果配置中没有配置语言
         if (!language) {
@@ -54,6 +61,10 @@
             language = [NSLocale preferredLanguages].firstObject;
         }
         
+=======
+        // （iOS获取的语言字符串比较不稳定）目前框架只处理en、zh-Hans、zh-Hant三种情况，其他按照系统默认处理
+        NSString *language = [NSLocale preferredLanguages].firstObject;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         if ([language hasPrefix:@"en"]) {
             language = @"en";
         } else if ([language hasPrefix:@"zh"]) {
@@ -62,12 +73,15 @@
             } else { // zh-Hant\zh-HK\zh-TW
                 language = @"zh-Hant"; // 繁體中文
             }
+<<<<<<< HEAD
         } else if ([language hasPrefix:@"ko"]) {
             language = @"ko";
         } else if ([language hasPrefix:@"ru"]) {
             language = @"ru";
         } else if ([language hasPrefix:@"uk"]) {
             language = @"uk";
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         } else {
             language = @"en";
         }

@@ -13,7 +13,11 @@
 
 @end
 @implementation JSTextView
+<<<<<<< HEAD
 - (instancetype)initWithFrame:(CGRect)frame{
+=======
+- (instancetype)initWithFrame:(CGRect)frame {
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     
     self = [super initWithFrame:frame];
     
@@ -70,7 +74,11 @@
 }
 //重写这个set方法保持font一致
 
+<<<<<<< HEAD
 - (void)setFont:(UIFont*)font{
+=======
+- (void)setFont:(UIFont*)font {
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     
     [super setFont:font];
     
@@ -88,7 +96,11 @@
     [self textDidChange]; //这里调用的就是 UITextViewTextDidChangeNotification 通知的回调
     
 }
+<<<<<<< HEAD
 - (void)setAttributedText:(NSAttributedString*)attributedText{
+=======
+- (void)setAttributedText:(NSAttributedString*)attributedText {
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     
     [super setAttributedText:attributedText];
     

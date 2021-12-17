@@ -43,12 +43,15 @@
     }
 }
 
+<<<<<<< HEAD
 - (void)refreshFetchResult {
     PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:self.collection options:self.options];
     self.count = fetchResult.count;
     [self setResult:fetchResult];
 }
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 - (void)setSelectedModels:(NSArray *)selectedModels {
     _selectedModels = selectedModels;
     if (_models) {
@@ -58,7 +61,11 @@
 
 - (void)checkSelectedModels {
     self.selectedCount = 0;
+<<<<<<< HEAD
     NSMutableSet *selectedAssets = [NSMutableSet setWithCapacity:_selectedModels.count];
+=======
+    NSMutableArray *selectedAssets = [NSMutableArray array];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     for (TZAssetModel *model in _selectedModels) {
         [selectedAssets addObject:model.asset];
     }

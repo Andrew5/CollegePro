@@ -4,9 +4,15 @@
 //
 //  Created by mj on 14-1-15.
 //  Copyright (c) 2014年 小码哥. All rights reserved.
+<<<<<<< HEAD
 //
 
 #import <Foundation/Foundation.h>
+=======
+//  代码地址:https://github.com/CoderMJLee/MJExtension
+//  代码地址:http://code4app.com/ios/%E5%AD%97%E5%85%B8-JSON-%E4%B8%8E%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%BD%AC%E6%8D%A2/5339992a933bf062608b4c57
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 #import "NSObject+MJCoding.h"
 #import "NSObject+MJProperty.h"
 #import "NSObject+MJClass.h"
@@ -15,6 +21,7 @@
 #import "MJExtensionConst.h"
 
 #import "MJFoundation.h"
+<<<<<<< HEAD
 
 //! Project version number for MJExtension.
 FOUNDATION_EXPORT double MJExtensionVersionNumber;
@@ -25,3 +32,5 @@ FOUNDATION_EXPORT const unsigned char MJExtensionVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <MJExtension/PublicHeader.h>
 
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28

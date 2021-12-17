@@ -48,11 +48,19 @@
 @implementation UIImageView (AFNetworking)
 
 + (AFImageDownloader *)sharedImageDownloader {
+<<<<<<< HEAD
     return objc_getAssociatedObject([UIImageView class], @selector(sharedImageDownloader)) ?: [AFImageDownloader defaultInstance];
 }
 
 + (void)setSharedImageDownloader:(AFImageDownloader *)imageDownloader {
     objc_setAssociatedObject([UIImageView class], @selector(sharedImageDownloader), imageDownloader, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+=======
+    return objc_getAssociatedObject(self, @selector(sharedImageDownloader)) ?: [AFImageDownloader defaultInstance];
+}
+
++ (void)setSharedImageDownloader:(AFImageDownloader *)imageDownloader {
+    objc_setAssociatedObject(self, @selector(sharedImageDownloader), imageDownloader, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 
 #pragma mark -
@@ -75,6 +83,10 @@
                        success:(void (^)(NSURLRequest *request, NSHTTPURLResponse * _Nullable response, UIImage *image))success
                        failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse * _Nullable response, NSError *error))failure
 {
+<<<<<<< HEAD
+=======
+    
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     if ([urlRequest URL] == nil) {
         self.image = placeholderImage;
         if (failure) {
@@ -84,7 +96,11 @@
         return;
     }
     
+<<<<<<< HEAD
     if ([self isActiveTaskURLEqualToURLRequest:urlRequest]) {
+=======
+    if ([self isActiveTaskURLEqualToURLRequest:urlRequest]){
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         return;
     }
     
@@ -118,7 +134,11 @@
                        if ([strongSelf.af_activeImageDownloadReceipt.receiptID isEqual:downloadID]) {
                            if (success) {
                                success(request, response, responseObject);
+<<<<<<< HEAD
                            } else if (responseObject) {
+=======
+                           } else if(responseObject) {
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
                                strongSelf.image = responseObject;
                            }
                            [strongSelf clearActiveDownloadInformation];

@@ -45,10 +45,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  The certificates used to evaluate server trust according to the SSL pinning mode. 
+<<<<<<< HEAD
  
  Note that if pinning is enabled, `evaluateServerTrust:forDomain:` will return true if any pinned certificate matches.
 
  @see policyWithPinningMode:withPinnedCertificates:
+=======
+
+  By default, this property is set to any (`.cer`) certificates included in the target compiling AFNetworking. Note that if you are using AFNetworking as embedded framework, no certificates will be pinned by default. Use `certificatesInBundle` to load certificates from your target, and then create a new policy by calling `policyWithPinningMode:withPinnedCertificates`.
+ 
+ Note that if pinning is enabled, `evaluateServerTrust:forDomain:` will return true if any pinned certificate matches.
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
  */
 @property (nonatomic, strong, nullable) NSSet <NSData *> *pinnedCertificates;
 
@@ -90,14 +97,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Creates and returns a security policy with the specified pinning mode.
+<<<<<<< HEAD
  
  Certificates with the `.cer` extension found in the main bundle will be pinned. If you want more control over which certificates are pinned, please use `policyWithPinningMode:withPinnedCertificates:` instead.
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
  @param pinningMode The SSL pinning mode.
 
  @return A new security policy.
+<<<<<<< HEAD
 
  @see -policyWithPinningMode:withPinnedCertificates:
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
  */
 + (instancetype)policyWithPinningMode:(AFSSLPinningMode)pinningMode;
 
@@ -108,10 +121,14 @@ NS_ASSUME_NONNULL_BEGIN
  @param pinnedCertificates The certificates to pin against.
 
  @return A new security policy.
+<<<<<<< HEAD
 
  @see +certificatesInBundle:
  @see -pinnedCertificates
 */
+=======
+ */
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 + (instancetype)policyWithPinningMode:(AFSSLPinningMode)pinningMode withPinnedCertificates:(NSSet <NSData *> *)pinnedCertificates;
 
 ///------------------------------

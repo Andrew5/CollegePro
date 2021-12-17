@@ -3,6 +3,7 @@ set -e
 set -u
 set -o pipefail
 
+<<<<<<< HEAD
 function on_error {
   echo "$(realpath -mq "${0}"):$1: error: Unexpected failure"
 }
@@ -12,6 +13,12 @@ if [ -z ${UNLOCALIZED_RESOURCES_FOLDER_PATH+x} ]; then
   # If UNLOCALIZED_RESOURCES_FOLDER_PATH is not set, then there's nowhere for us to copy
   # resources to, so exit 0 (signalling the script phase was successful).
   exit 0
+=======
+if [ -z ${UNLOCALIZED_RESOURCES_FOLDER_PATH+x} ]; then
+    # If UNLOCALIZED_RESOURCES_FOLDER_PATH is not set, then there's nowhere for us to copy
+    # resources to, so exit 0 (signalling the script phase was successful).
+    exit 0
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
@@ -114,7 +121,11 @@ rm -f "$RESOURCES_TO_COPY"
 if [[ -n "${WRAPPER_EXTENSION}" ]] && [ "`xcrun --find actool`" ] && [ -n "${XCASSET_FILES:-}" ]
 then
   # Find all other xcassets (this unfortunately includes those of path pods and other targets).
+<<<<<<< HEAD
   OTHER_XCASSETS=$(find -L "$PWD" -iname "*.xcassets" -type d)
+=======
+  OTHER_XCASSETS=$(find "$PWD" -iname "*.xcassets" -type d)
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
   while read line; do
     if [[ $line != "${PODS_ROOT}*" ]]; then
       XCASSET_FILES+=("$line")

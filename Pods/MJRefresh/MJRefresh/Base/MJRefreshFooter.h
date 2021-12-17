@@ -9,11 +9,17 @@
 
 #import "MJRefreshComponent.h"
 
+<<<<<<< HEAD
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MJRefreshFooter : MJRefreshComponent
 /** 创建footer */
 + (instancetype)footerWithRefreshingBlock:(MJRefreshComponentAction)refreshingBlock;
+=======
+@interface MJRefreshFooter : MJRefreshComponent
+/** 创建footer */
++ (instancetype)footerWithRefreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 /** 创建footer */
 + (instancetype)footerWithRefreshingTarget:(id)target refreshingAction:(SEL)action;
 
@@ -30,5 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** 自动根据有无数据来显示和隐藏（有数据就显示，没有数据隐藏。默认是NO） */
 @property (assign, nonatomic, getter=isAutomaticallyHidden) BOOL automaticallyHidden MJRefreshDeprecated("已废弃此属性，开发者请自行控制footer的显示和隐藏");
 @end
+<<<<<<< HEAD
 
 NS_ASSUME_NONNULL_END
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28

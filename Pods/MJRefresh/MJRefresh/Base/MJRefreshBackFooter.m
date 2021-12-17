@@ -89,11 +89,16 @@
         // 刷新完毕
         if (MJRefreshStateRefreshing == oldState) {
             [UIView animateWithDuration:MJRefreshSlowAnimationDuration animations:^{
+<<<<<<< HEAD
                 if (self.endRefreshingAnimationBeginAction) {
                     self.endRefreshingAnimationBeginAction();
                 }
                 
                 self.scrollView.mj_insetB -= self.lastBottomDelta;
+=======
+                self.scrollView.mj_insetB -= self.lastBottomDelta;
+                
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
                 // 自动调整透明度
                 if (self.isAutomaticallyChangeAlpha) self.alpha = 0.0;
             } completion:^(BOOL finished) {

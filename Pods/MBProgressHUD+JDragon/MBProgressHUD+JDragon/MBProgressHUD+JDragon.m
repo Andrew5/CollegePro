@@ -133,6 +133,7 @@
     }
     id nextResponder = nil;
     UIViewController *appRootVC = window.rootViewController;
+<<<<<<< HEAD
    if ([appRootVC isKindOfClass:[UITabBarController class]]) {
         nextResponder = appRootVC;
     }else
@@ -144,6 +145,12 @@
            nextResponder = appRootVC.childViewControllers[0];
     }else
     {
+=======
+    //1、通过present弹出VC，appRootVC.presentedViewController不为nil
+    if (appRootVC.presentedViewController) {
+        nextResponder = appRootVC.presentedViewController;
+    }else{
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         //2、通过navigationcontroller弹出VC
         //        NSLog(@"subviews == %@",[window subviews]);
         UIView *frontView = [[window subviews] objectAtIndex:0];
@@ -217,4 +224,7 @@
 }
 
 @end
+<<<<<<< HEAD
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28

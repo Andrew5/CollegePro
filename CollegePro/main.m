@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+<<<<<<< HEAD
 #import "DHSendRunObject.h"
 CFAbsoluteTime StartTime;
 int main(int argc, char * argv[]) {
@@ -104,3 +105,11 @@ int main(int argc, char * argv[]) {
 //    return count;
 //}
 
+=======
+
+int main(int argc, char * argv[]) {
+    @autoreleasepool {
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+    }
+}
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28

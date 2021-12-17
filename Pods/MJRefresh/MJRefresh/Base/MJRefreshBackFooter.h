@@ -8,6 +8,7 @@
 
 #import "MJRefreshFooter.h"
 
+<<<<<<< HEAD
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MJRefreshBackFooter : MJRefreshFooter
@@ -15,3 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+=======
+@interface MJRefreshBackFooter : MJRefreshFooter
+
+@end
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28

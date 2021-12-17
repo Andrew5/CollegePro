@@ -25,11 +25,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
+<<<<<<< HEAD
  Recursively removes `NSNull` values from a JSON object.
 */
 FOUNDATION_EXPORT id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingOptions readingOptions);
 
 /**
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
  The `AFURLResponseSerialization` protocol is adopted by an object that decodes data into a more useful object representation, according to details in the server response. Response serializers may additionally perform validation on the incoming response and data.
 
  For example, a JSON response serializer may check for an acceptable status code (`2XX` range) and content type (`application/json`), decoding a valid JSON response into an object.
@@ -62,6 +65,11 @@ FOUNDATION_EXPORT id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJ
 
 - (instancetype)init;
 
+<<<<<<< HEAD
+=======
+@property (nonatomic, assign) NSStringEncoding stringEncoding DEPRECATED_MSG_ATTRIBUTE("The string encoding is never used. AFHTTPResponseSerializer only validates status codes and content types but does not try to decode the received data in any way.");
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 /**
  Creates and returns a serializer with default configuration.
  */

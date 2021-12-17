@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+<<<<<<< HEAD
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSBundle (MJRefresh)
@@ -19,3 +20,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+=======
+@interface NSBundle (MJRefresh)
++ (instancetype)mj_refreshBundle;
++ (UIImage *)mj_arrowImage;
++ (NSString *)mj_localizedStringForKey:(NSString *)key value:(NSString *)value;
++ (NSString *)mj_localizedStringForKey:(NSString *)key;
+@end
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28

@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface BaseViewController : UIViewController
+<<<<<<< HEAD
 
 /**
  是否显示返回按钮
  */
 @property(nonatomic,assign) BOOL isShowleftBtn;
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 - (void)dh_setupUI;
 #pragma mark - ***** 网络类型判断
 /**设置返回按钮
@@ -54,5 +57,9 @@
 -(UIBarButtonItem *)dh_tBarIconButtonItemWithImage:(NSString *)text action:(SEL)selctor;
 -(UIBarButtonItem *)dh_tBarIconButtonItem:(NSString *)text action:(SEL)selctor;
 
+<<<<<<< HEAD
 - (void)closeCurruntPage;
+=======
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @end

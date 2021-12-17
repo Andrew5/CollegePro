@@ -8,8 +8,20 @@
 #import <BaiduMapAPI_Base/BMKTypes.h>
 #import <UIKit/UIKit.h>
 
+<<<<<<< HEAD
 
 #pragma mark -----坐标转换
+=======
+/**
+ *根据中心点和距离生成BMKCoordinateRegion
+ *@param centerCoordinate 中心点坐标
+ *@param latitudinalMeters 纬度方向的距离范围，单位：米
+ *@param longitudinalMeters 经度方向的距离范围，单位：米
+ *@return 根据中心点和距离生成BMKCoordinateRegion
+ */
+UIKIT_EXTERN BMKCoordinateRegion BMKCoordinateRegionMakeWithDistance(CLLocationCoordinate2D centerCoordinate, CLLocationDistance latitudinalMeters, CLLocationDistance longitudinalMeters);
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 /**
  *将经纬度坐标转换为投影后的直角地理坐标
  *@param coordinate 待转换的经纬度坐标
@@ -24,6 +36,7 @@ UIKIT_EXTERN BMKMapPoint BMKMapPointForCoordinate(CLLocationCoordinate2D coordin
  */
 UIKIT_EXTERN CLLocationCoordinate2D BMKCoordinateForMapPoint(BMKMapPoint mapPoint);
 
+<<<<<<< HEAD
 
 /**
  由百度经纬度坐标转换得到百度墨卡托坐标
@@ -60,6 +73,8 @@ UIKIT_EXTERN CLLocationCoordinate2D BMKCoordTrans(CLLocationCoordinate2D coordin
 UIKIT_EXTERN NSDictionary* BMKConvertBaiduCoorFrom(CLLocationCoordinate2D coordinate,BMK_COORD_TYPE type) __attribute__((deprecated("使用BMKCoordTrans方法代替")));
 
 #pragma mark -----几何计算
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 /**
  *计算在指定纬度下一个BMKMapPoint单位对应的米数
  *@param latitude 指定的纬度
@@ -111,6 +126,7 @@ UIKIT_STATIC_INLINE BOOL BMKMapPointEqualToPoint(BMKMapPoint point1, BMKMapPoint
 }
 
 /**
+<<<<<<< HEAD
  *获取折线外某点到这线上距离最近的点
  *@param point 待判断的经纬度点
  *@param polyline 目标折线的顶点数组
@@ -147,6 +163,8 @@ UIKIT_EXTERN BMKCoordinateRegion BMKCoordinateRegionMakeWithDistance(CLLocationC
 
 #pragma mark rect
 /**
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
  *判断两个矩形范围是否相等
  *@param size1 范围1
  *@param size2 范围2
@@ -177,7 +195,36 @@ UIKIT_STATIC_INLINE BOOL BMKMapRectIsEmpty(BMKMapRect rect) {
     return BMKMapRectIsNull(rect) || (rect.size.width == 0.0 && rect.size.height == 0.0);
 }
 
+<<<<<<< HEAD
 
+=======
+/**
+ *将BMKMapPoint格式化为字符串
+ *@param point 指定的标点
+ *@return 返回转换后的字符串
+ */
+UIKIT_STATIC_INLINE NSString *BMKStringFromMapPoint(BMKMapPoint point) {
+    return [NSString stringWithFormat:@"{%.1f, %.1f}", point.x, point.y];
+}
+
+/**
+ *将BMKMapSize格式化为字符串
+ *@param size 指定的size
+ *@return 返回转换后的字符串
+ */
+UIKIT_STATIC_INLINE NSString *BMKStringFromMapSize(BMKMapSize size) {
+    return [NSString stringWithFormat:@"{%.1f, %.1f}", size.width, size.height];
+}
+
+/**
+ *将BMKMapRect格式化为字符串
+ *@param rect 指定的rect
+ *@return 返回转换后的字符串
+ */
+UIKIT_STATIC_INLINE NSString *BMKStringFromMapRect(BMKMapRect rect) {
+    return [NSString stringWithFormat:@"{%@, %@}", BMKStringFromMapPoint(rect.origin), BMKStringFromMapSize(rect.size)];
+}
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 /**
  *计算两个矩形的并集
@@ -268,7 +315,10 @@ UIKIT_EXTERN BOOL BMKMapRectSpans180thMeridian(BMKMapRect rect);
  */
 UIKIT_EXTERN BMKMapRect BMKMapRectRemainder(BMKMapRect rect);
 
+<<<<<<< HEAD
 #pragma mark circle
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 /**
  *判断点是否在圆内
  *@param point 待判断的平面坐标点
@@ -286,8 +336,11 @@ UIKIT_EXTERN BOOL BMKCircleContainsPoint(BMKMapPoint point, BMKMapPoint center, 
  *@return 如果在内，返回YES，否则返回NO
  */
 UIKIT_EXTERN BOOL BMKCircleContainsCoordinate(CLLocationCoordinate2D point, CLLocationCoordinate2D center, double radius);
+<<<<<<< HEAD
 
 #pragma mark polygon
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 /**
  *判断点是否在多边形内
  *@param point 待判断的平面坐标点
@@ -306,7 +359,18 @@ UIKIT_EXTERN BOOL BMKPolygonContainsPoint(BMKMapPoint point, BMKMapPoint *polygo
  */
 UIKIT_EXTERN BOOL BMKPolygonContainsCoordinate(CLLocationCoordinate2D point, CLLocationCoordinate2D *polygon, NSUInteger count);
 
+<<<<<<< HEAD
 
+=======
+/**
+ *获取折线外某点到这线上距离最近的点
+ *@param point 待判断的经纬度点
+ *@param polyline 目标折线的顶点数组
+ *@param count 目标折线顶点数组元素个数
+ *@return 返回折线上的点（距离point最近）
+ */
+UIKIT_EXTERN BMKMapPoint BMKGetNearestMapPointFromPolyline(BMKMapPoint point, BMKMapPoint* polyline, NSUInteger count);
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 /**
  *计算地理矩形区域的面积
@@ -316,6 +380,7 @@ UIKIT_EXTERN BOOL BMKPolygonContainsCoordinate(CLLocationCoordinate2D point, CLL
  */
 UIKIT_EXTERN double BMKAreaBetweenCoordinates(CLLocationCoordinate2D leftTop, CLLocationCoordinate2D rightBottom);
 
+<<<<<<< HEAD
 
 /**
  *根据经纬度计算多边形面积，点与点之间按顺序尾部相连, 第一个点与最后一个点相连
@@ -369,6 +434,43 @@ UIKIT_STATIC_INLINE NSString *BMKStringFromMapSize(BMKMapSize size) {
 UIKIT_STATIC_INLINE NSString *BMKStringFromMapRect(BMKMapRect rect) {
     return [NSString stringWithFormat:@"{%@, %@}", BMKStringFromMapPoint(rect.origin), BMKStringFromMapSize(rect.size)];
 }
+=======
+/**
+ 由百度经纬度坐标转换得到百度墨卡托坐标
+
+ @param coordinate 百度经纬度坐标
+ @return 百度墨卡托坐标
+ */
+UIKIT_EXTERN CGPoint BMKConvertToBaiduMercatorFromBD09LL(CLLocationCoordinate2D bd09llCoordinate);
+
+/**
+ 由百度墨卡托坐标转换得到百度经纬度坐标
+
+ @param coordinate 百度墨卡托坐标
+ @return 百度经纬度坐标
+ */
+UIKIT_EXTERN CLLocationCoordinate2D BMKConvertToBD09LLFromBaiduMercator(CGPoint bdMCTCoordinate);
+
+/**
+ 经纬度坐标之间的坐标转换
+ 支持WGS84LL->BD09LL, GCJ02LL->BD09LL, BD09LL->GCJ02LL
+ 输入输出坐标为其他类型时，认为是非法输入，返回的坐标中经纬度均为0
+
+ @param coordinate 待转换的原始经纬度坐标
+ @param fromType 原始经纬度坐标的坐标类型
+ @param toType 目标的经纬度坐标类型
+ @return 转换后的经纬度坐标
+ */
+UIKIT_EXTERN CLLocationCoordinate2D BMKCoordTrans(CLLocationCoordinate2D coordinate, BMK_COORD_TYPE fromType, BMK_COORD_TYPE toType);
+
+/**
+ *坐标转换函数，从原始GPS坐标，mapbar坐标,google坐标，51地图坐标，mapabc坐标转换为百度坐标（51地图坐标需要显出10000）
+ *@param coordinate 待转换的坐标
+ *@param type 待转换的坐标系类型，GPS为原始GPS坐标，COMMON为google坐标，51地图坐标，mapabc坐标
+ *@return 返回的NSDictionry中包含“x”，“y”字段，各自对应经过base64加密之后的x，y坐标
+ */
+UIKIT_EXTERN NSDictionary* BMKConvertBaiduCoorFrom(CLLocationCoordinate2D coordinate,BMK_COORD_TYPE type) __attribute__((deprecated("使用BMKCoordTrans方法代替")));
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 /**
  *base64加密后的坐标字典解密函数
@@ -376,3 +478,7 @@ UIKIT_STATIC_INLINE NSString *BMKStringFromMapRect(BMKMapRect rect) {
  *@return 解密之后的坐标
  */
 UIKIT_EXTERN CLLocationCoordinate2D BMKCoorDictionaryDecode(NSDictionary* dictionary);
+<<<<<<< HEAD
+=======
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28

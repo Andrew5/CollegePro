@@ -8,6 +8,10 @@
 
 #import "AppDelegate.h"
 
+
+#import <UserNotifications/UserNotifications.h>
+#import "showView.h"
+#import "BaseTabBarViewController.h"
 #import "IQKeyboardManager.h"
 #import "AppDelegate+DHCategory.h"
 #import <AudioToolbox/AudioToolbox.h>
@@ -102,14 +106,15 @@ extern CFAbsoluteTime StartTime;
         IDFV = [UIDevice currentDevice].identifierForVendor.UUIDString;
         [LHKeyChain save:UUID_IDFA data:IDFV];
     }
+
     
     IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
     manager.enable = YES;//控制整个功能是否启用。
     manager.shouldResignOnTouchOutside = YES;//控制点击背景是否收起键盘。
     manager.shouldToolbarUsesTextFieldTintColor = YES;//控制键盘上的工具条文字颜色是否用户自定义。
     manager.enableAutoToolbar = NO;//控制是否显示键盘上的工具条。
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    /*分类实现*/
+
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     /*! 版本更新  */
     //    [self VersonUpdate];
     /*! 保存当前时间  */
@@ -171,9 +176,6 @@ extern CFAbsoluteTime StartTime;
     //        }
     //    }
 
-    
-/*
-
     //    接收通知参数
     UILocalNotification *notification=[launchOptions valueForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     NSDictionary *userInfo= notification.userInfo;
@@ -189,28 +191,33 @@ extern CFAbsoluteTime StartTime;
             //            //回调或者说是通知主线程刷新，
             //        });
         });
-    
-    
-    
-    
+    /*! 写入数据  */
+    //如果已经获得发送通知哦的授权则创建本地通知，否则请求授权（注意：如果不请求授权在设置中是没有对应的通知设置项的，也就是说如果从来没有发送过请求，即使通过设置也打不开消息允许设置）
     if ([[UIApplication sharedApplication] currentUserNotificationSettings].types != UIUserNotificationTypeNone) {
         //        [self addLocationForAlert];
     }else{
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound   categories:nil]];
     }
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(Alarm:) name:@"Alarm" object:nil];
     //关闭程序后再通过点击通知打开应用获取userInfo
     //接收通知参数
     UILocalNotification *notification=[launchOptions valueForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     NSDictionary *userInfo= notification.userInfo;
 
     NSLog(@"didFinishLaunchingWithOptions:The userInfo is %@.",userInfo);
-*/
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(Alarm:) name:@"Alarm" object:nil];
 
     [self getLaunchImage];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[DHGuidepageViewController alloc] init]];
+    
+    NSLog(@"didFinishLaunchingWithOptions:The userInfo is %@.",userInfo);
+    
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[DHGuidepageViewController alloc] init]];
+    
     [self.window makeKeyWindow];
     // Override point for customization after application launch.
     return YES;
@@ -370,6 +377,7 @@ extern CFAbsoluteTime StartTime;
 //在非本App界面时收到本地消息，下拉消息会有快捷回复的按钮，点击按钮后调用的方法，根据identifier来判断点击的哪个按钮，notification为消息内容
 //void (^ _Nonnull __strong)()' vs '
 - (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification completionHandler:(void (^ _Nonnull __strong)(void))completionHandler NS_AVAILABLE_IOS(8_0) __TVOS_PROHIBITED{
+
     NSLog(@"+++++++++++++++++++++++");
     if ([identifier isEqualToString:KNotificationActionIdentifileStar]) {
         [application cancelAllLocalNotifications];
@@ -392,6 +400,7 @@ extern CFAbsoluteTime StartTime;
     
     completionHandler();
 }
+
 // 宿主应用
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
     //  先加载菜单栏
@@ -741,6 +750,7 @@ extern CFAbsoluteTime StartTime;
     // Start the long-running task
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         while (true) {
+
             weakSelf.count++;
             //            dispatch_async(dispatch_get_main_queue(),^{
             //                [UIApplication sharedApplication].applicationIconBadgeNumber = _count;
@@ -813,6 +823,7 @@ extern CFAbsoluteTime StartTime;
     
 }
 - (void) timerMethod:(NSTimer *)paramSender{
+
 //
 //    _number  ++;
 //
@@ -896,6 +907,7 @@ extern CFAbsoluteTime StartTime;
 
 - (void)keepRunning {
     [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
+
     __weak typeof(self) weakSelf = self;
     if (@available(iOS 10.0, *)) {
         self.timer_alarm = [NSTimer timerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
@@ -908,6 +920,7 @@ extern CFAbsoluteTime StartTime;
     } else {
         // Fallback on earlier versions
     }
+
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
@@ -961,6 +974,7 @@ extern CFAbsoluteTime StartTime;
         [_timer_alarm setFireDate:[NSDate distantFuture]];
         
         [_player play];
+
 //        [self registerLocalNotification];
     }
 }
@@ -1022,6 +1036,7 @@ extern CFAbsoluteTime StartTime;
     return image;
     
 }
+
 ///MARK: ----------- 当前屏幕截屏 -----------
 + (UIImage *)screenShot {
     
@@ -1055,7 +1070,9 @@ extern CFAbsoluteTime StartTime;
     
     return img;
 }
+
 ///MARK: 后台模糊效果
+
 - (UIVisualEffectView *)visualEffectView{
     
     if (!_visualEffectView) {
@@ -1071,6 +1088,7 @@ extern CFAbsoluteTime StartTime;
     return _visualEffectView;
     
 }
+
 ///MARK: 崩溃日志收集
 - (void)dealwithCrashMessage:(NSNotification *)note {
     //注意:所有的信息都在userInfo中

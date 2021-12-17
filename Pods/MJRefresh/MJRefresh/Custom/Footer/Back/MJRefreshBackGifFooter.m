@@ -96,7 +96,11 @@
         self.gifView.contentMode = UIViewContentModeCenter;
     } else {
         self.gifView.contentMode = UIViewContentModeRight;
+<<<<<<< HEAD
         self.gifView.mj_w = self.mj_w * 0.5 - self.labelLeftInset - self.stateLabel.mj_textWidth * 0.5;
+=======
+        self.gifView.mj_w = self.mj_w * 0.5 - self.labelLeftInset - self.stateLabel.mj_textWith * 0.5;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     }
 }
 

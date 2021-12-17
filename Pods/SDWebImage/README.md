@@ -7,9 +7,13 @@
 [![Pod Version](http://img.shields.io/cocoapods/v/SDWebImage.svg?style=flat)](http://cocoadocs.org/docsets/SDWebImage/)
 [![Pod Platform](http://img.shields.io/cocoapods/p/SDWebImage.svg?style=flat)](http://cocoadocs.org/docsets/SDWebImage/)
 [![Pod License](http://img.shields.io/cocoapods/l/SDWebImage.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)
+<<<<<<< HEAD
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-brightgreen.svg)](https://github.com/SDWebImage/SDWebImage)
 [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
 [![Mac Catalyst compatible](https://img.shields.io/badge/Catalyst-compatible-brightgreen.svg)](https://developer.apple.com/documentation/xcode/creating_a_mac_version_of_your_ipad_app/)
+=======
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/SDWebImage/SDWebImage)
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 [![codecov](https://codecov.io/gh/SDWebImage/SDWebImage/branch/master/graph/badge.svg)](https://codecov.io/gh/SDWebImage/SDWebImage)
 
 This library provides an async image downloader with cache support. For convenience, we added categories for UI elements like `UIImageView`, `UIButton`, `MKAnnotationView`.
@@ -19,6 +23,7 @@ This library provides an async image downloader with cache support. For convenie
 - [x] Categories for `UIImageView`, `UIButton`, `MKAnnotationView` adding web image and cache management
 - [x] An asynchronous image downloader
 - [x] An asynchronous memory + disk image caching with automatic cache expiration handling
+<<<<<<< HEAD
 - [x] A background image decompression to avoid frame rate drop
 - [x] [Progressive image loading](https://github.com/SDWebImage/SDWebImage/wiki/Advanced-Usage#progressive-animation) (including animated image, like GIF showing in Web browser)
 - [x] [Thumbnail image decoding](https://github.com/SDWebImage/SDWebImage/wiki/Advanced-Usage#thumbnail-decoding-550) to save CPU && Memory for large images
@@ -42,10 +47,32 @@ This library provides an async image downloader with cache support. For convenie
 - Support extendable coder plugins for new image formats like BPG, AVIF. And vector format like PDF, SVG. See all the list in [Image coder plugin List](https://github.com/SDWebImage/SDWebImage/wiki/Coder-Plugin-List)
 
 ## Additional modules and Ecosystem
+=======
+- [x] A background image decompression
+- [x] Improved [support for animated images](https://github.com/SDWebImage/SDWebImage/wiki/Advanced-Usage#animated-image-50)
+- [x] [Customizable and composable transformations](https://github.com/SDWebImage/SDWebImage/wiki/Advanced-Usage#transformer-50) can be applied to the images right after download
+- [x] [Custom cache control](https://github.com/SDWebImage/SDWebImage/wiki/Advanced-Usage#custom-cache-50)
+- [x] Expand the image loading capabilites by adding your [own custom loaders](https://github.com/SDWebImage/SDWebImage/wiki/Advanced-Usage#custom-loader-50) or using prebuilt loaders like [FLAnimatedImage plugin](https://github.com/SDWebImage/SDWebImageFLPlugin) or [Photos Library plugin](https://github.com/SDWebImage/SDWebImagePhotosPlugin)
+- [x] [Loading indicators](https://github.com/SDWebImage/SDWebImage/wiki/How-to-use#use-view-indicator-50)
+- [x] A guarantee that the same URL won't be downloaded several times
+- [x] A guarantee that bogus URLs won't be retried again and again
+- [x] A guarantee that main thread will never be blocked
+- [x] Performances!
+- [x] Use GCD and ARC
+
+## Supported Image Formats
+
+- Image formats supported by UIImage (JPEG, PNG, ...), including GIF
+- WebP format, including animated WebP (use the [SDWebImageWebPCoder](https://github.com/SDWebImage/SDWebImageWebPCoder) project)
+- Support extendable coder plugins for new image formats. Like APNG, BPG, HFIF, SVG, etc. See all the list in [Image coder plugin List](https://github.com/SDWebImage/SDWebImage/wiki/Coder-Plugin-List)
+
+## Additional modules
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 In order to keep SDWebImage focused and limited to the core features, but also allow extensibility and custom behaviors, during the 5.0 refactoring we focused on modularizing the library.
 As such, we have moved/built new modules to [SDWebImage org](https://github.com/SDWebImage).
 
+<<<<<<< HEAD
 #### SwiftUI
 [SwiftUI](https://developer.apple.com/xcode/swiftui/) is an innovative UI framework written in Swift to build user interfaces across all Apple platforms.
 
@@ -82,22 +109,49 @@ The new framework introduce two View structs `WebImage` and `AnimatedImage` for 
 - [FirebaseUI](https://github.com/firebase/FirebaseUI-iOS) - Firebase Storage binding for query images, based on SDWebImage loader system
 - [react-native-fast-image](https://github.com/DylanVann/react-native-fast-image) - React Native fast image component, based on SDWebImage Animated Image solution
 - [flutter_image_compress](https://github.com/OpenFlutter/flutter_image_compress) - Flutter compresses image plugin, based on SDWebImage WebP coder plugin
+=======
+#### Coders for additional image formats
+- [SDWebImageWebPCoder](https://github.com/SDWebImage/SDWebImageWebPCoder) - coder for WebP image format. Based on [libwebp](https://chromium.googlesource.com/webm/libwebp)
+- [SDWebImageHEIFCoder](https://github.com/SDWebImage/SDWebImageHEIFCoder) - coder to support HEIF image without Apple's `Image/IO framework`, iOS 8+/macOS 10.10+ support.
+- [SDWebImageBPGCoder](https://github.com/SDWebImage/SDWebImageBPGCoder) - coder for BPG format
+- [SDWebImageFLIFCoder](https://github.com/SDWebImage/SDWebImageFLIFCoder) - coder for FLIF format
+- and more from community!
+
+#### Loaders
+- [SDWebImagePhotosPlugin](https://github.com/SDWebImage/SDWebImagePhotosPlugin) - plugin to support loading images from Photos (using `Photos.framework`) 
+
+#### Integration with 3rd party libraries
+- [SDWebImageFLPlugin](https://github.com/SDWebImage/SDWebImageFLPlugin) - plugin to support [FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage) as the engine for animated GIFs
+- [SDWebImageYYPlugin](https://github.com/SDWebImage/SDWebImageYYPlugin) - plugin to integrate [YYImage](https://github.com/ibireme/YYImage) & [YYCache](https://github.com/ibireme/YYCache) for image rendering & caching
+- [SDWebImageProgressiveJPEGDemo](https://github.com/SDWebImage/SDWebImageProgressiveJPEGDemo) - demo project for using `SDWebImage` + [Concorde library](https://github.com/contentful-labs/Concorde) for Progressive JPEG decoding
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 #### Make our lives easier
 - [libwebp-Xcode](https://github.com/SDWebImage/libwebp-Xcode) - A wrapper for [libwebp](https://chromium.googlesource.com/webm/libwebp) + an Xcode project.
 - [libheif-Xcode](https://github.com/SDWebImage/libheif-Xcode) - A wrapper for [libheif](https://github.com/strukturag/libheif) + an Xcode project.
+<<<<<<< HEAD
 - [libavif-Xcode](https://github.com/SDWebImage/libavif-Xcode) - A wrapper for [libavif](https://github.com/AOMediaCodec/libavif) + an Xcode project.
 - and more third-party C/C++ image codec libraries with CocoaPods/Carthage/SwiftPM support.
 
 You can use those directly, or create similar components of your own, by using the customizable architecture of SDWebImage.
+=======
+- and more third-party C/C++ image codec libraries with CocoaPods/Carthage support.
+
+You can use those directly, or create similar components of your own.
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 ## Requirements
 
 - iOS 8.0 or later
 - tvOS 9.0 or later
 - watchOS 2.0 or later
+<<<<<<< HEAD
 - macOS 10.10 or later (10.15 for Catalyst)
 - Xcode 10.0 or later
+=======
+- macOS 10.10 or later
+- Xcode 9.0 or later
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 #### Backwards compatibility
 
@@ -113,8 +167,13 @@ You can use those directly, or create similar components of your own, by using t
 - Read the [Latest Documentation](https://sdwebimage.github.io/) and [CocoaDocs for old version](http://cocoadocs.org/docsets/SDWebImage/)
 - Try the example by downloading the project from Github or even easier using CocoaPods try `pod try SDWebImage`
 - Read the [Installation Guide](https://github.com/SDWebImage/SDWebImage/wiki/Installation-Guide)
+<<<<<<< HEAD
 - Read the [SDWebImage 5.0 Migration Guide](https://github.com/SDWebImage/SDWebImage/blob/master/Docs/SDWebImage-5.0-Migration-guide.md) to get an idea of the changes from 4.x to 5.x
 - Read the [SDWebImage 4.0 Migration Guide](https://github.com/SDWebImage/SDWebImage/blob/master/Docs/SDWebImage-4.0-Migration-guide.md) to get an idea of the changes from 3.x to 4.x
+=======
+- Read the [SDWebImage 5.0 Migration Guide](https://raw.githubusercontent.com/SDWebImage/SDWebImage/master/Docs/SDWebImage-5.0-Migration-guide.md) to get an idea of the changes from 4.x to 5.x
+- Read the [SDWebImage 4.0 Migration Guide](https://raw.githubusercontent.com/SDWebImage/SDWebImage/master/Docs/SDWebImage-4.0-Migration-guide.md) to get an idea of the changes from 3.x to 4.x
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 - Read the [Common Problems](https://github.com/SDWebImage/SDWebImage/wiki/Common-Problems) to find the solution for common problems 
 - Go to the [Wiki Page](https://github.com/SDWebImage/SDWebImage/wiki) for more information such as [Advanced Usage](https://github.com/SDWebImage/SDWebImage/wiki/Advanced-Usage)
 
@@ -127,6 +186,7 @@ You can use those directly, or create similar components of your own, by using t
 - If you'd like to **ask a general question**, use [Stack Overflow](http://stackoverflow.com/questions/tagged/sdwebimage).
 - If you **found a bug**, open an issue.
 - If you **have a feature request**, open an issue.
+<<<<<<< HEAD
 - If you **need IRC channel**, use [Gitter](https://gitter.im/SDWebImage/community).
 
 ## Contribution
@@ -134,6 +194,9 @@ You can use those directly, or create similar components of your own, by using t
 - If you **want to contribute**, read the [Contributing Guide](https://github.com/SDWebImage/SDWebImage/blob/master/.github/CONTRIBUTING.md)
 - For **development contribution guide**, read the [How-To-Contribute](https://github.com/SDWebImage/SDWebImage/wiki/How-to-Contribute)
 - For **understanding code architecture**, read the [Code Architecture Analysis](https://github.com/SDWebImage/SDWebImage/wiki/5.6-Code-Architecture-Analysis)
+=======
+- If you **want to contribute**, read the [Contributing Guide](https://raw.githubusercontent.com/SDWebImage/SDWebImage/master/.github/CONTRIBUTING.md)
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 ## How To Use
 
@@ -154,11 +217,16 @@ import SDWebImage
 imageView.sd_setImage(with: URL(string: "http://www.domain.com/path/to/image.jpg"), placeholderImage: UIImage(named: "placeholder.png"))
 ```
 
+<<<<<<< HEAD
 - For details about how to use the library and clear examples, see [The detailed How to use](https://github.com/SDWebImage/SDWebImage/blob/master/Docs/HowToUse.md)
+=======
+- For details about how to use the library and clear examples, see [The detailed How to use](https://raw.githubusercontent.com/SDWebImage/SDWebImage/master/Docs/HowToUse.md)
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 ## Animated Images (GIF) support
 
 In 5.0, we introduced a brand new mechanism for supporting animated images. This includes animated image loading, rendering, decoding, and also supports customizations (for advanced users).
+<<<<<<< HEAD
 
 This animated image solution is available for `iOS`/`tvOS`/`macOS`. The `SDAnimatedImage` is subclass of `UIImage/NSImage`, and `SDAnimatedImageView` is subclass of `UIImageView/NSImageView`, to make them compatible with the common frameworks APIs.
 
@@ -183,17 +251,27 @@ let imageView = SDAnimatedImageView()
 let animatedImage = SDAnimatedImage(named: "image.gif")
 imageView.image = animatedImage
 ```
+=======
+This animated image solution is available for `iOS`/`tvOS`/`macOS`. The `SDAnimatedImage` is subclass of `UIImage/NSImage`, and `SDAnimatedImageView` is subclass of `UIImageView/NSImageView`, to make them compatible with the common frameworks APIs. See [Animated Image](https://github.com/SDWebImage/SDWebImage/wiki/Advanced-Usage#animated-image-50) for more detailed information.
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 #### FLAnimatedImage integration has its own dedicated repo
 In order to clean up things and make our core project do less things, we decided that the `FLAnimatedImage` integration does not belong here. From 5.0, this will still be available, but under a dedicated repo [SDWebImageFLPlugin](https://github.com/SDWebImage/SDWebImageFLPlugin).
 
 ## Installation
 
+<<<<<<< HEAD
 There are four ways to use SDWebImage in your project:
 - using CocoaPods
 - using Carthage
 - using Swift Package Manager
 - manual install (build frameworks or embed Xcode Project)
+=======
+There are three ways to use SDWebImage in your project:
+- using CocoaPods
+- using Carthage
+- by cloning the project into your repository
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 ### Installation with CocoaPods
 
@@ -233,7 +311,10 @@ pod 'SDWebImage'
 There are 2 subspecs available now: `Core` and `MapKit` (this means you can install only some of the SDWebImage modules. By default, you get just `Core`, so if you need `MapKit`, you need to specify it). 
 
 Podfile example:
+<<<<<<< HEAD
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 ```
 pod 'SDWebImage/MapKit'
 ```
@@ -252,6 +333,7 @@ If this is your first time using Carthage in the project, you'll need to go thro
 
 > NOTE: At this time, Carthage does not provide a way to build only specific repository subcomponents (or equivalent of CocoaPods's subspecs). All components and their dependencies will be built with the above command. However, you don't need to copy frameworks you aren't using into your project. For instance, if you aren't using `SDWebImageMapKit`, feel free to delete that framework from the Carthage Build directory after `carthage update` completes.
 
+<<<<<<< HEAD
 ### Installation with Swift Package Manager (Xcode 11+)
 
 [Swift Package Manager](https://swift.org/package-manager/) (SwiftPM) is a tool for managing the distribution of Swift code as well as C-family dependency. From Xcode 11, SwiftPM got natively integrated with Xcode.
@@ -275,6 +357,10 @@ let package = Package(
 ### Manual Installation Guide
 
 See more on [Manual install Guide](https://github.com/SDWebImage/SDWebImage/wiki/Installation-Guide#manual-installation-guide)
+=======
+### Installation by cloning the repository
+- see [Manual install](https://raw.githubusercontent.com/SDWebImage/SDWebImage/master/Docs/ManualInstallation.md)
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 ### Import headers in your source files
 
@@ -284,12 +370,15 @@ In the source files where you need to use the library, import the umbrella heade
 #import <SDWebImage/SDWebImage.h>
 ```
 
+<<<<<<< HEAD
 It's also recommend to use the module import syntax, available for CocoaPods(enable `modular_headers`)/Carthage/SwiftPM.
 
 ```objecitivec
 @import SDWebImage;
 ```
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 ### Build Project
 
 At this point your workspace should build without error. If you are having problem, post to the Issue and the
@@ -305,6 +394,7 @@ community can help you solve it.
 - [DreamPiggy](https://github.com/dreampiggy)
 - [Wu Zhong](https://github.com/zhongwuzw)
 
+<<<<<<< HEAD
 ## Credits
 
 Thank you to all the people who have already contributed to SDWebImage.
@@ -319,6 +409,14 @@ All source code is licensed under the [MIT License](https://github.com/SDWebImag
 
 To learn about SDWebImage's architecture design for contribution, read [The Core of SDWebImage v5.6 Architecture](https://github.com/SDWebImage/SDWebImage/wiki/5.6-Code-Architecture-Analysis). Thanks @looseyi for the post and translation.
 
+=======
+## Licenses
+
+All source code is licensed under the [MIT License](https://raw.github.com/SDWebImage/SDWebImage/master/LICENSE).
+
+## Architecture
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 #### High Level Diagram
 <p align="center" >
     <img src="https://raw.githubusercontent.com/SDWebImage/SDWebImage/master/Docs/Diagrams/SDWebImageHighLevelDiagram.jpeg" title="SDWebImage high level diagram">
@@ -344,4 +442,7 @@ To learn about SDWebImage's architecture design for contribution, read [The Core
 - [Coders API Diagram](https://raw.githubusercontent.com/SDWebImage/SDWebImage/master/Docs/Diagrams/SDWebImageCodersClassDiagram.png)
 - [Loader API Diagram](https://raw.githubusercontent.com/SDWebImage/SDWebImage/master/Docs/Diagrams/SDWebImageLoaderClassDiagram.png)
 - [Cache API Diagram](https://raw.githubusercontent.com/SDWebImage/SDWebImage/master/Docs/Diagrams/SDWebImageCacheClassDiagram.png)
+<<<<<<< HEAD
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28

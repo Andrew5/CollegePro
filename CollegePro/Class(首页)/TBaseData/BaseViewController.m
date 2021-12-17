@@ -9,12 +9,16 @@
 #import "BaseViewController.h"
 
 @interface BaseViewController ()
+<<<<<<< HEAD
 //导航栏左边按钮
 @property(nonatomic,strong) UIButton *buttonBack;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 @end
 
 @implementation BaseViewController
+<<<<<<< HEAD
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -37,6 +41,13 @@
 }
 - (void)goDengLu:(NSNotification *)notification {
     NSLog(@"通知事件 %@",[notification object]);
+=======
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+	self.view.backgroundColor = [UIColor whiteColor];
+    // Do any additional setup after loading the view.
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 - (void)setBackItem {
 	[self setBackItemAction:nil];
@@ -55,7 +66,11 @@
 }
 -(void)dh_setBackItem
 {
+<<<<<<< HEAD
     [self buttonBack];
+=======
+	
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 -(void)dh_setNavbarBackgroundHidden:(BOOL)hidden{
 	
@@ -75,12 +90,21 @@
 
 -(UIBarButtonItem *)dh_tbarBackButtonWhiteAndPopView
 {
+<<<<<<< HEAD
 	UIButton *buttonBack = [UIButton buttonWithType:UIButtonTypeCustom];
 	buttonBack.frame = CGRectMake(0, 0, 20, 22);
 	[buttonBack setImage:[UIImage imageNamed:@"title_back"] forState:UIControlStateNormal];
 	[buttonBack setImageEdgeInsets:UIEdgeInsetsMake(4,17,5,19)];
 	[buttonBack addTarget:self action:@selector(popBack) forControlEvents:UIControlEventTouchUpInside];
 	UIBarButtonItem *leftBarBtnItem = [[UIBarButtonItem alloc]initWithCustomView:buttonBack];
+=======
+	UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+	leftBtn.frame = CGRectMake(0, 0, 20, 22);
+	[leftBtn setImage:[UIImage imageNamed:@"title_back"] forState:UIControlStateNormal];
+	[leftBtn setImageEdgeInsets:UIEdgeInsetsMake(4,17,5,19)];
+	[leftBtn addTarget:self action:@selector(popBack) forControlEvents:UIControlEventTouchUpInside];
+	UIBarButtonItem *leftBarBtnItem = [[UIBarButtonItem alloc]initWithCustomView:leftBtn];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 	return leftBarBtnItem;
 }
 -(UIBarButtonItem *)dh_tBarIconButtonItem:(NSString *)text action:(SEL)selctor
@@ -103,6 +127,7 @@
 	UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
 	return backItem;
 }
+<<<<<<< HEAD
 //左右按钮
 - (void)setupNaviBtnWithTitle:(NSString *)rightStr rightImgStr:(NSString *)rightImgStr rightTextColor:(UIColor *)rightTextColor rightBlock:(void(^)(UIButton * _Nonnull btn))rightBlock
 {
@@ -213,10 +238,14 @@
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
+=======
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 -(void)popBack{
 	
 	[self.navigationController popViewControllerAnimated:YES];
 }
+<<<<<<< HEAD
 #pragma mark - system watches
 
 - (void)dealloc
@@ -225,6 +254,8 @@
     NSLog(@"%@  dealloc",NSStringFromClass(self.class));
 #endif
 }
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

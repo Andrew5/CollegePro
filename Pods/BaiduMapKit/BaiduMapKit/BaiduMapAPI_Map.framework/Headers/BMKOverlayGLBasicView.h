@@ -17,6 +17,7 @@
 /// 填充颜色
 /// 注：请使用 - (UIColor *)initWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha; 初始化UIColor，使用[UIColor ***Color]初始化时，个别case转换成RGB后会有问题
 @property (strong, nonatomic) UIColor *fillColor;
+<<<<<<< HEAD
 
 /// 画笔颜色
 /// 注：请使用 - (UIColor *)initWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha; 初始化UIColor，使用[UIColor ***Color]初始化时，个别case转换成RGB后会有问题
@@ -45,4 +46,20 @@
 
 /// 虚线类型, since 5.0.0，默认kBMKLineDashTypeNone(仅支持颜色虚线)
 @property(assign,nonatomic)BMKLineDashType lineDashType;
+=======
+/// 画笔颜色
+/// 注：请使用 - (UIColor *)initWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha; 初始化UIColor，使用[UIColor ***Color]初始化时，个别case转换成RGB后会有问题
+@property (strong, nonatomic) UIColor *strokeColor;
+/// 画笔宽度，默认为0
+@property  (nonatomic) CGFloat lineWidth;
+/// path对象
+@property CGPathRef path;
+/// 是否为虚线样式，默认NO
+@property (nonatomic) BOOL lineDash;
+/// 是否纹理图片平铺绘制，默认NO
+@property (assign, nonatomic) BOOL tileTexture;
+/// 纹理图片是否缩放（tileTexture为YES时生效），默认NO
+@property (assign, nonatomic) BOOL keepScale;
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @end

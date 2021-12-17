@@ -125,6 +125,7 @@
     
     if (modal)
     {
+<<<<<<< HEAD
         UITextField *textField = (UITextField*)view;
 
         if ([view respondsToSelector:@selector(setReturnKeyType:)])
@@ -135,6 +136,19 @@
         if ([view respondsToSelector:@selector(setDelegate:)])
         {
             textField.delegate = modal.textFieldDelegate;
+=======
+        if ([view isKindOfClass:[UITextField class]])
+        {
+            UITextField *textField = (UITextField*)view;
+            textField.returnKeyType = modal.originalReturnKeyType;
+            textField.delegate = modal.textFieldDelegate;
+        }
+        else if ([view isKindOfClass:[UITextView class]])
+        {
+            UITextView *textView = (UITextView*)view;
+            textView.returnKeyType = modal.originalReturnKeyType;
+            textView.delegate = modal.textViewDelegate;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         }
         
         [textFieldInfoCache removeObject:modal];
@@ -145,6 +159,7 @@
 {
     IQTextFieldViewInfoModal *modal = [[IQTextFieldViewInfoModal alloc] initWithTextFieldView:view textFieldDelegate:nil textViewDelegate:nil originalReturnKey:UIReturnKeyDefault];
     
+<<<<<<< HEAD
     UITextField *textField = (UITextField*)view;
 
     if ([view respondsToSelector:@selector(setReturnKeyType:)])
@@ -157,6 +172,22 @@
         modal.textFieldDelegate = textField.delegate;
         [textField setDelegate:self];
     }
+=======
+    if ([view isKindOfClass:[UITextField class]])
+    {
+        UITextField *textField = (UITextField*)view;
+        modal.originalReturnKeyType = textField.returnKeyType;
+        modal.textFieldDelegate = textField.delegate;
+        [textField setDelegate:self];
+    }
+    else if ([view isKindOfClass:[UITextView class]])
+    {
+        UITextView *textView = (UITextView*)view;
+        modal.originalReturnKeyType = textView.returnKeyType;
+        modal.textViewDelegate = textView.delegate;
+        [textView setDelegate:self];
+    }
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
     [textFieldInfoCache addObject:modal];
 }
@@ -342,10 +373,21 @@
         delegate = modal.textFieldDelegate;
     }
     
+<<<<<<< HEAD
     if (@available(iOS 10.0, *)) {
         if ([delegate respondsToSelector:@selector(textFieldDidEndEditing:reason:)])
             [delegate textFieldDidEndEditing:textField reason:reason];
     }
+=======
+#ifdef __IPHONE_11_0
+    if (@available(iOS 10.0, *)) {
+#endif
+        if ([delegate respondsToSelector:@selector(textFieldDidEndEditing:reason:)])
+            [delegate textFieldDidEndEditing:textField reason:reason];
+#ifdef __IPHONE_11_0
+    }
+#endif
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -532,10 +574,21 @@
         delegate = modal.textViewDelegate;
     }
     
+<<<<<<< HEAD
     if (@available(iOS 10.0, *)) {
         if ([delegate respondsToSelector:@selector(textView:shouldInteractWithURL:inRange:interaction:)])
             return [delegate textView:textView shouldInteractWithURL:URL inRange:characterRange interaction:interaction];
     }
+=======
+#ifdef __IPHONE_11_0
+    if (@available(iOS 10.0, *)) {
+#endif
+        if ([delegate respondsToSelector:@selector(textView:shouldInteractWithURL:inRange:interaction:)])
+            return [delegate textView:textView shouldInteractWithURL:URL inRange:characterRange interaction:interaction];
+#ifdef __IPHONE_11_0
+    }
+#endif
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
     return YES;
 }
@@ -550,15 +603,29 @@
         delegate = modal.textViewDelegate;
     }
     
+<<<<<<< HEAD
     if (@available(iOS 10.0, *)) {
     if ([delegate respondsToSelector:@selector(textView:shouldInteractWithTextAttachment:inRange:interaction:)])
         return [delegate textView:textView shouldInteractWithTextAttachment:textAttachment inRange:characterRange interaction:interaction];
     }
+=======
+#ifdef __IPHONE_11_0
+    if (@available(iOS 10.0, *)) {
+#endif
+    if ([delegate respondsToSelector:@selector(textView:shouldInteractWithTextAttachment:inRange:interaction:)])
+        return [delegate textView:textView shouldInteractWithTextAttachment:textAttachment inRange:characterRange interaction:interaction];
+#ifdef __IPHONE_11_0
+    }
+#endif
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
     return YES;
 }
 
+<<<<<<< HEAD
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < 100000
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 - (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange
 {
     id<UITextViewDelegate> delegate = self.delegate;
@@ -569,8 +636,16 @@
         delegate = modal.textViewDelegate;
     }
     
+<<<<<<< HEAD
     if ([delegate respondsToSelector:@selector(textView:shouldInteractWithURL:inRange:)])
         return [delegate textView:textView shouldInteractWithURL:URL inRange:characterRange];
+=======
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    if ([delegate respondsToSelector:@selector(textView:shouldInteractWithURL:inRange:)])
+        return [delegate textView:textView shouldInteractWithURL:URL inRange:characterRange];
+#pragma clang diagnostic pop
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     else
         return YES;
 }
@@ -585,17 +660,29 @@
         delegate = modal.textViewDelegate;
     }
     
+<<<<<<< HEAD
     if ([delegate respondsToSelector:@selector(textView:shouldInteractWithTextAttachment:inRange:)])
         return [delegate textView:textView shouldInteractWithTextAttachment:textAttachment inRange:characterRange];
     else
         return YES;
 }
 #endif
+=======
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    if ([delegate respondsToSelector:@selector(textView:shouldInteractWithTextAttachment:inRange:)])
+        return [delegate textView:textView shouldInteractWithTextAttachment:textAttachment inRange:characterRange];
+#pragma clang diagnostic pop
+    else
+        return YES;
+}
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 -(void)dealloc
 {
     for (IQTextFieldViewInfoModal *modal in textFieldInfoCache)
     {
+<<<<<<< HEAD
         UITextField *textField = (UITextField*)modal.textFieldView;
 
         if ([textField respondsToSelector:@selector(setReturnKeyType:)])
@@ -606,6 +693,21 @@
         if ([textField respondsToSelector:@selector(setDelegate:)])
         {
             textField.delegate = modal.textFieldDelegate;
+=======
+        UIView *textFieldView = modal.textFieldView;
+        if ([textFieldView isKindOfClass:[UITextField class]])
+        {
+            UITextField *textField = (UITextField*)textFieldView;
+            textField.returnKeyType = modal.originalReturnKeyType;
+            textField.delegate = modal.textFieldDelegate
+            ;
+        }
+        else if ([textFieldView isKindOfClass:[UITextView class]])
+        {
+            UITextView *textView = (UITextView*)textFieldView;
+            textView.returnKeyType = modal.originalReturnKeyType;
+            textView.delegate = modal.textViewDelegate;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         }
     }
 

@@ -17,6 +17,7 @@ typedef enum {
     BMKMapModuleTile = 0,   //瓦片图模块
 } BMKMapModule;
 
+<<<<<<< HEAD
 //天气服务类型枚举
 typedef enum {
     BMKWeatherServerTypeDefault = 0,   // 国内
@@ -39,6 +40,8 @@ typedef enum {
     BMKWeatherDataTypeAll // 以上全部，高级字段获取对应权限后可返回
 } BMKWeatherDataType;
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 /**
  坐标类型
@@ -113,8 +116,11 @@ typedef enum{
     BMK_SEARCH_INDOOR_ROUTE_NO_IN_SAME_BUILDING,///起终点不在同一个室内
     BMK_SEARCH_PARAMETER_ERROR,///参数错误
     BMK_SEARCH_SERVER_ERROR,//服务器错误
+<<<<<<< HEAD
     BMK_SEARCH_SERVER_DISTRICT_ID_ERROR,// 天气服务查询的区域编码与约定的编码不符
     BMK_SEARCH_SERVER_NO_PERMISSIONS,// 用户需开通高级权限功能
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }BMKSearchErrorCode;
 
 //调起百度地图结果状态码
@@ -360,4 +366,8 @@ UIKIT_EXTERN const BMKMapRect BMKMapRectNull;
 // 相对当前坐标点的距离，当有门牌号的时候返回数据
 @property (nonatomic, copy) NSString *distance;
 @end
+<<<<<<< HEAD
+=======
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 #endif

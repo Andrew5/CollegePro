@@ -67,7 +67,11 @@ typedef NS_ENUM(NSInteger, AFImageDownloadPrioritization) {
 /**
  Defines the order prioritization of incoming download requests being inserted into the queue. `AFImageDownloadPrioritizationFIFO` by default.
  */
+<<<<<<< HEAD
 @property (nonatomic, assign) AFImageDownloadPrioritization downloadPrioritization;
+=======
+@property (nonatomic, assign) AFImageDownloadPrioritization downloadPrioritizaton;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 /**
  The shared default instance of `AFImageDownloader` initialized with default values.

@@ -29,14 +29,22 @@
 
 @interface IQTextView ()
 
+<<<<<<< HEAD
 @property(nullable, nonatomic, strong) UILabel *IQ_PlaceholderLabel;
+=======
+@property(nonnull, nonatomic, strong) UILabel *placeholderLabel;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 @end
 
 @implementation IQTextView
 
 @synthesize placeholder = _placeholder;
+<<<<<<< HEAD
 @synthesize IQ_PlaceholderLabel = _IQ_PlaceholderLabel;
+=======
+@synthesize placeholderLabel = _placeholderLabel;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @synthesize placeholderTextColor = _placeholderTextColor;
 
 -(void)initialize
@@ -46,8 +54,13 @@
 
 -(void)dealloc
 {
+<<<<<<< HEAD
     [_IQ_PlaceholderLabel removeFromSuperview];
     _IQ_PlaceholderLabel = nil;
+=======
+    [_placeholderLabel removeFromSuperview];
+    _placeholderLabel = nil;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -70,11 +83,19 @@
 {
     if([[self text] length] || [[self attributedText] length])
     {
+<<<<<<< HEAD
         [self.IQ_PlaceholderLabel setAlpha:0];
     }
     else
     {
         [self.IQ_PlaceholderLabel setAlpha:1];
+=======
+        [_placeholderLabel setAlpha:0];
+    }
+    else
+    {
+        [_placeholderLabel setAlpha:1];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     }
     
     [self setNeedsLayout];
@@ -96,7 +117,11 @@
 -(void)setFont:(UIFont *)font
 {
     [super setFont:font];
+<<<<<<< HEAD
     self.IQ_PlaceholderLabel.font = self.font;
+=======
+    self.placeholderLabel.font = self.font;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     
     [self setNeedsLayout];
     [self layoutIfNeeded];
@@ -105,7 +130,11 @@
 -(void)setTextAlignment:(NSTextAlignment)textAlignment
 {
     [super setTextAlignment:textAlignment];
+<<<<<<< HEAD
     self.IQ_PlaceholderLabel.textAlignment = textAlignment;
+=======
+    self.placeholderLabel.textAlignment = textAlignment;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     
     [self setNeedsLayout];
     [self layoutIfNeeded];
@@ -114,14 +143,22 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
+<<<<<<< HEAD
     self.IQ_PlaceholderLabel.frame = [self placeholderExpectedFrame];
+=======
+    self.placeholderLabel.frame = [self placeholderExpectedFrame];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 
 -(void)setPlaceholder:(NSString *)placeholder
 {
     _placeholder = placeholder;
     
+<<<<<<< HEAD
     self.IQ_PlaceholderLabel.text = placeholder;
+=======
+    self.placeholderLabel.text = placeholder;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     [self refreshPlaceholder];
 }
 
@@ -129,14 +166,22 @@
 {
     _attributedPlaceholder = attributedPlaceholder;
     
+<<<<<<< HEAD
     self.IQ_PlaceholderLabel.attributedText = attributedPlaceholder;
+=======
+    self.placeholderLabel.attributedText = attributedPlaceholder;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     [self refreshPlaceholder];
 }
 
 -(void)setPlaceholderTextColor:(UIColor*)placeholderTextColor
 {
     _placeholderTextColor = placeholderTextColor;
+<<<<<<< HEAD
     self.IQ_PlaceholderLabel.textColor = placeholderTextColor;
+=======
+    self.placeholderLabel.textColor = placeholderTextColor;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 
 -(UIEdgeInsets)placeholderInsets
@@ -149,11 +194,16 @@
     UIEdgeInsets placeholderInsets = [self placeholderInsets];
     CGFloat maxWidth = CGRectGetWidth(self.frame)-placeholderInsets.left-placeholderInsets.right;
     
+<<<<<<< HEAD
     CGSize expectedSize = [self.IQ_PlaceholderLabel sizeThatFits:CGSizeMake(maxWidth, CGRectGetHeight(self.frame)-placeholderInsets.top-placeholderInsets.bottom)];
+=======
+    CGSize expectedSize = [self.placeholderLabel sizeThatFits:CGSizeMake(maxWidth, CGRectGetHeight(self.frame)-placeholderInsets.top-placeholderInsets.bottom)];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     
     return CGRectMake(placeholderInsets.left, placeholderInsets.top, maxWidth, expectedSize.height);
 }
 
+<<<<<<< HEAD
 -(UILabel*)IQ_PlaceholderLabel
 {
     if (_IQ_PlaceholderLabel == nil)
@@ -180,6 +230,25 @@
     }
     
     return _IQ_PlaceholderLabel;
+=======
+-(UILabel*)placeholderLabel
+{
+    if (_placeholderLabel == nil)
+    {
+        _placeholderLabel = [[UILabel alloc] init];
+        _placeholderLabel.autoresizingMask = (UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight);
+        _placeholderLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        _placeholderLabel.numberOfLines = 0;
+        _placeholderLabel.font = self.font;
+        _placeholderLabel.textAlignment = self.textAlignment;
+        _placeholderLabel.backgroundColor = [UIColor clearColor];
+        _placeholderLabel.textColor = [UIColor colorWithWhite:0.7 alpha:1.0];
+        _placeholderLabel.alpha = 0;
+        [self addSubview:_placeholderLabel];
+    }
+    
+    return _placeholderLabel;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 
 //When any text changes on textField, the delegate getter is called. At this time we refresh the textView's placeholder

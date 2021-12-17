@@ -46,6 +46,7 @@
     self = [super init];
     if (self) {
         UITabBarItem *apperrance = [UITabBarItem appearance];
+<<<<<<< HEAD
         //设置字体颜色
         [apperrance setTitleTextAttributes:@{NSForegroundColorAttributeName:kRGBA(251, 74, 74, 1)} forState:UIControlStateSelected];
         [apperrance setTitleTextAttributes:@{NSForegroundColorAttributeName : kRGBA(133, 133, 133, 1)} forState:UIControlStateNormal];
@@ -53,6 +54,10 @@
 //        [apperrance setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Bold" size:12.0f],NSForegroundColorAttributeName :[UIColor blackColor] } forState:UIControlStateNormal];
 //        [apperrance setTitleTextAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Bold" size:12.0f], NSForegroundColorAttributeName : [UIColor redColor] } forState:UIControlStateSelected];
         
+=======
+        [apperrance setTitleTextAttributes:@{NSForegroundColorAttributeName:kRGBA(251, 74, 74, 1)} forState:UIControlStateSelected];
+        [apperrance setTitleTextAttributes:@{NSForegroundColorAttributeName : kRGBA(133, 133, 133, 1)} forState:UIControlStateNormal];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     }
     return self;
 }

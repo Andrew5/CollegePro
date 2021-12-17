@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 typedef void (^MyReturnTextBlock)(NSString *showText);
+<<<<<<< HEAD
 typedef void (^receiveNoti)(NSString *showText);
 @interface LabelNilMethodBlockViewController : BaseViewController
 extern NSString *lhString;//这里由于带有extern所以会被认为是全局变量
@@ -26,4 +27,10 @@ extern NSString *lhString;//这里由于带有extern所以会被认为是全局�
 - (void)textValueFunction:(void(^)(NSString * infor))inforBlock;
 // 防止多次调用
 - (void)getShouldPrevent:(int)seconds;
+=======
+
+@interface LabelNilMethodBlockViewController : UIViewController
+@property (nonatomic, copy) MyReturnTextBlock myReturnTextBlock;
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @end

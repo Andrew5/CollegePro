@@ -43,7 +43,11 @@
 ///**
 // Override Enable/disable managing distance between keyboard and textField behaviour for this particular textField.
 // */
+<<<<<<< HEAD
 @property(nonatomic, assign) IQEnableMode enableMode;
+=======
+//@property(nonatomic, assign) IQEnableMode enableMode;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 /**
  Override resigns Keyboard on touching outside of UITextField/View behaviour for this particular textField.

@@ -139,6 +139,7 @@
 	[self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18],NSForegroundColorAttributeName:[UIColor whiteColor]}];
 	
 }
+<<<<<<< HEAD
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
@@ -150,6 +151,15 @@
     CGRect frame = self.tabBarController.tabBar.frame;
     frame.origin.y = [UIScreen mainScreen].bounds.size.height - frame.size.height;
     self.tabBarController.tabBar.frame = frame;
+=======
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+	if (self.viewControllers.count)
+	{
+		viewController.hidesBottomBarWhenPushed = YES;
+	}
+	[super pushViewController:viewController animated:animated];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

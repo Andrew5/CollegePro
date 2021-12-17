@@ -8,6 +8,7 @@
 
 #import "MJRefreshStateHeader.h"
 
+<<<<<<< HEAD
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MJRefreshNormalHeader : MJRefreshStateHeader
@@ -20,3 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+=======
+@interface MJRefreshNormalHeader : MJRefreshStateHeader
+@property (weak, nonatomic, readonly) UIImageView *arrowView;
+/** 菊花的样式 */
+@property (assign, nonatomic) UIActivityIndicatorViewStyle activityIndicatorViewStyle;
+@end
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28

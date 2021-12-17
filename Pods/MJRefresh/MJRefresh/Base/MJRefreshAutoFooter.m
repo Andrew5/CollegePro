@@ -10,8 +10,12 @@
 
 @interface MJRefreshAutoFooter()
 /** 一个新的拖拽 */
+<<<<<<< HEAD
 @property (nonatomic) BOOL triggerByDrag;
 @property (nonatomic) NSInteger leftTriggerTimes;
+=======
+@property (assign, nonatomic, getter=isOneNewPan) BOOL oneNewPan;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @end
 
 @implementation MJRefreshAutoFooter
@@ -57,7 +61,12 @@
     // 设置为默认状态
     self.automaticallyRefresh = YES;
     
+<<<<<<< HEAD
     self.autoTriggerTimes = 1;
+=======
+    // 默认是当offset达到条件就发送请求（可连续）
+    self.onlyRefreshPerDrag = NO;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 
 - (void)scrollViewContentSizeDidChange:(NSDictionary *)change
@@ -65,7 +74,11 @@
     [super scrollViewContentSizeDidChange:change];
     
     // 设置位置
+<<<<<<< HEAD
     self.mj_y = self.scrollView.mj_contentH + self.ignoredScrollViewContentInsetBottom;
+=======
+    self.mj_y = self.scrollView.mj_contentH;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 
 - (void)scrollViewContentOffsetDidChange:(NSDictionary *)change
@@ -82,9 +95,12 @@
             CGPoint new = [change[@"new"] CGPointValue];
             if (new.y <= old.y) return;
             
+<<<<<<< HEAD
             if (_scrollView.isDragging) {
                 self.triggerByDrag = YES;
             }
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
             // 当底部刷新控件完全出现时，才刷新
             [self beginRefreshing];
         }
@@ -98,6 +114,7 @@
     if (self.state != MJRefreshStateIdle) return;
     
     UIGestureRecognizerState panState = _scrollView.panGestureRecognizer.state;
+<<<<<<< HEAD
     
     switch (panState) {
         // 手松开
@@ -137,6 +154,30 @@
     }
     
     [super beginRefreshing];
+=======
+    if (panState == UIGestureRecognizerStateEnded) {// 手松开
+        if (_scrollView.mj_insetT + _scrollView.mj_contentH <= _scrollView.mj_h) {  // 不够一个屏幕
+            if (_scrollView.mj_offsetY >= - _scrollView.mj_insetT) { // 向上拽
+                [self beginRefreshing];
+            }
+        } else { // 超出一个屏幕
+            if (_scrollView.mj_offsetY >= _scrollView.mj_contentH + _scrollView.mj_insetB - _scrollView.mj_h) {
+                [self beginRefreshing];
+            }
+        }
+    } else if (panState == UIGestureRecognizerStateBegan) {
+        self.oneNewPan = YES;
+    }
+}
+
+- (void)beginRefreshing
+{
+    if (!self.isOneNewPan && self.isOnlyRefreshPerDrag) return;
+    
+    [super beginRefreshing];
+    
+    self.oneNewPan = NO;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 
 - (void)setState:(MJRefreshState)state
@@ -146,6 +187,7 @@
     if (state == MJRefreshStateRefreshing) {
         [self executeRefreshingCallback];
     } else if (state == MJRefreshStateNoMoreData || state == MJRefreshStateIdle) {
+<<<<<<< HEAD
         if (self.triggerByDrag) {
             if (!self.unlimitedTrigger) {
                 self.leftTriggerTimes -= 1;
@@ -171,6 +213,9 @@
                 return;
             }
             
+=======
+        if (MJRefreshStateRefreshing == oldState) {
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
             if (self.endRefreshingCompletionBlock) {
                 self.endRefreshingCompletionBlock();
             }
@@ -178,10 +223,13 @@
     }
 }
 
+<<<<<<< HEAD
 - (void)resetTriggerTimes {
     self.leftTriggerTimes = self.autoTriggerTimes;
 }
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 - (void)setHidden:(BOOL)hidden
 {
     BOOL lastHidden = self.isHidden;
@@ -199,9 +247,12 @@
         self.mj_y = _scrollView.mj_contentH;
     }
 }
+<<<<<<< HEAD
 
 - (void)setAutoTriggerTimes:(NSInteger)autoTriggerTimes {
     _autoTriggerTimes = autoTriggerTimes;
     self.leftTriggerTimes = autoTriggerTimes;
 }
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @end

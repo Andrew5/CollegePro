@@ -5,7 +5,10 @@
 const CGFloat MJRefreshLabelLeftInset = 25;
 const CGFloat MJRefreshHeaderHeight = 54.0;
 const CGFloat MJRefreshFooterHeight = 44.0;
+<<<<<<< HEAD
 const CGFloat MJRefreshTrailWidth = 60.0;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 const CGFloat MJRefreshFastAnimationDuration = 0.25;
 const CGFloat MJRefreshSlowAnimationDuration = 0.4;
 
@@ -20,9 +23,12 @@ NSString *const MJRefreshHeaderIdleText = @"MJRefreshHeaderIdleText";
 NSString *const MJRefreshHeaderPullingText = @"MJRefreshHeaderPullingText";
 NSString *const MJRefreshHeaderRefreshingText = @"MJRefreshHeaderRefreshingText";
 
+<<<<<<< HEAD
 NSString *const MJRefreshTrailerIdleText = @"MJRefreshTrailerIdleText";
 NSString *const MJRefreshTrailerPullingText = @"MJRefreshTrailerPullingText";
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 NSString *const MJRefreshAutoFooterIdleText = @"MJRefreshAutoFooterIdleText";
 NSString *const MJRefreshAutoFooterRefreshingText = @"MJRefreshAutoFooterRefreshingText";
 NSString *const MJRefreshAutoFooterNoMoreDataText = @"MJRefreshAutoFooterNoMoreDataText";
@@ -34,4 +40,8 @@ NSString *const MJRefreshBackFooterNoMoreDataText = @"MJRefreshBackFooterNoMoreD
 
 NSString *const MJRefreshHeaderLastTimeText = @"MJRefreshHeaderLastTimeText";
 NSString *const MJRefreshHeaderDateTodayText = @"MJRefreshHeaderDateTodayText";
+<<<<<<< HEAD
 NSString *const MJRefreshHeaderNoneLastDateText = @"MJRefreshHeaderNoneLastDateText";
+=======
+NSString *const MJRefreshHeaderNoneLastDateText = @"MJRefreshHeaderNoneLastDateText";
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28

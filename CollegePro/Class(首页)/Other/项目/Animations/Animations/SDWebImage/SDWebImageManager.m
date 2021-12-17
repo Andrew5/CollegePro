@@ -342,7 +342,11 @@
     if (self.cancelBlock) {
         self.cancelBlock();
         
+<<<<<<< HEAD
         ///TODO: this is a temporary fix to #809.
+=======
+        // TODO: this is a temporary fix to #809.
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         // Until we can figure the exact cause of the crash, going with the ivar instead of the setter
 //        self.cancelBlock = nil;
         _cancelBlock = nil;

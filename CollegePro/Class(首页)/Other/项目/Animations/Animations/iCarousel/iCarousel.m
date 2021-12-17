@@ -976,7 +976,11 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
         case iCarouselTypeInvertedRotary:
         case iCarouselTypeInvertedCylinder:
         {
+<<<<<<< HEAD
             ///TODO: improve this
+=======
+            //TODO: improve this
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
             _numberOfVisibleItems = ceil([self circularCarouselItemCount] / 2.0);
             break;
         }

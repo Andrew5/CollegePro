@@ -60,10 +60,14 @@ static id AFPublicKeyForCertificate(NSData *certificate) {
 
     policy = SecPolicyCreateBasicX509();
     __Require_noErr_Quiet(SecTrustCreateWithCertificates(allowedCertificate, policy, &allowedTrust), _out);
+<<<<<<< HEAD
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     __Require_noErr_Quiet(SecTrustEvaluate(allowedTrust, &result), _out);
 #pragma clang diagnostic pop
+=======
+    __Require_noErr_Quiet(SecTrustEvaluate(allowedTrust, &result), _out);
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
     allowedPublicKey = (__bridge_transfer id)SecTrustCopyPublicKey(allowedTrust);
 
@@ -86,10 +90,14 @@ _out:
 static BOOL AFServerTrustIsValid(SecTrustRef serverTrust) {
     BOOL isValid = NO;
     SecTrustResultType result;
+<<<<<<< HEAD
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     __Require_noErr_Quiet(SecTrustEvaluate(serverTrust, &result), _out);
 #pragma clang diagnostic pop
+=======
+    __Require_noErr_Quiet(SecTrustEvaluate(serverTrust, &result), _out);
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
     isValid = (result == kSecTrustResultUnspecified || result == kSecTrustResultProceed);
 
@@ -121,11 +129,18 @@ static NSArray * AFPublicKeyTrustChainForServerTrust(SecTrustRef serverTrust) {
 
         SecTrustRef trust;
         __Require_noErr_Quiet(SecTrustCreateWithCertificates(certificates, policy, &trust), _out);
+<<<<<<< HEAD
         SecTrustResultType result;
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
         __Require_noErr_Quiet(SecTrustEvaluate(trust, &result), _out);
 #pragma clang diagnostic pop
+=======
+
+        SecTrustResultType result;
+        __Require_noErr_Quiet(SecTrustEvaluate(trust, &result), _out);
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         [trustChain addObject:(__bridge_transfer id)SecTrustCopyPublicKey(trust)];
 
     _out:
@@ -165,6 +180,20 @@ static NSArray * AFPublicKeyTrustChainForServerTrust(SecTrustRef serverTrust) {
     return [NSSet setWithSet:certificates];
 }
 
+<<<<<<< HEAD
+=======
++ (NSSet *)defaultPinnedCertificates {
+    static NSSet *_defaultPinnedCertificates = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+        _defaultPinnedCertificates = [self certificatesInBundle:bundle];
+    });
+
+    return _defaultPinnedCertificates;
+}
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 + (instancetype)defaultPolicy {
     AFSecurityPolicy *securityPolicy = [[self alloc] init];
     securityPolicy.SSLPinningMode = AFSSLPinningModeNone;
@@ -173,8 +202,12 @@ static NSArray * AFPublicKeyTrustChainForServerTrust(SecTrustRef serverTrust) {
 }
 
 + (instancetype)policyWithPinningMode:(AFSSLPinningMode)pinningMode {
+<<<<<<< HEAD
     NSSet <NSData *> *defaultPinnedCertificates = [self certificatesInBundle:[NSBundle mainBundle]];
     return [self policyWithPinningMode:pinningMode withPinnedCertificates:defaultPinnedCertificates];
+=======
+    return [self policyWithPinningMode:pinningMode withPinnedCertificates:[self defaultPinnedCertificates]];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 
 + (instancetype)policyWithPinningMode:(AFSSLPinningMode)pinningMode withPinnedCertificates:(NSSet *)pinnedCertificates {
@@ -244,11 +277,21 @@ static NSArray * AFPublicKeyTrustChainForServerTrust(SecTrustRef serverTrust) {
 
     if (self.SSLPinningMode == AFSSLPinningModeNone) {
         return self.allowInvalidCertificates || AFServerTrustIsValid(serverTrust);
+<<<<<<< HEAD
     } else if (!self.allowInvalidCertificates && !AFServerTrustIsValid(serverTrust)) {
+=======
+    } else if (!AFServerTrustIsValid(serverTrust) && !self.allowInvalidCertificates) {
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         return NO;
     }
 
     switch (self.SSLPinningMode) {
+<<<<<<< HEAD
+=======
+        case AFSSLPinningModeNone:
+        default:
+            return NO;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         case AFSSLPinningModeCertificate: {
             NSMutableArray *pinnedCertificates = [NSMutableArray array];
             for (NSData *certificateData in self.pinnedCertificates) {
@@ -284,9 +327,12 @@ static NSArray * AFPublicKeyTrustChainForServerTrust(SecTrustRef serverTrust) {
             }
             return trustedPublicKeyCount > 0;
         }
+<<<<<<< HEAD
             
         default:
             return NO;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     }
     
     return NO;
@@ -314,7 +360,11 @@ static NSArray * AFPublicKeyTrustChainForServerTrust(SecTrustRef serverTrust) {
     self.SSLPinningMode = [[decoder decodeObjectOfClass:[NSNumber class] forKey:NSStringFromSelector(@selector(SSLPinningMode))] unsignedIntegerValue];
     self.allowInvalidCertificates = [decoder decodeBoolForKey:NSStringFromSelector(@selector(allowInvalidCertificates))];
     self.validatesDomainName = [decoder decodeBoolForKey:NSStringFromSelector(@selector(validatesDomainName))];
+<<<<<<< HEAD
     self.pinnedCertificates = [decoder decodeObjectOfClass:[NSSet class] forKey:NSStringFromSelector(@selector(pinnedCertificates))];
+=======
+    self.pinnedCertificates = [decoder decodeObjectOfClass:[NSArray class] forKey:NSStringFromSelector(@selector(pinnedCertificates))];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
     return self;
 }

@@ -32,7 +32,10 @@ NSString * const AFNetworkingReachabilityDidChangeNotification = @"com.alamofire
 NSString * const AFNetworkingReachabilityNotificationStatusItem = @"AFNetworkingReachabilityNotificationStatusItem";
 
 typedef void (^AFNetworkReachabilityStatusBlock)(AFNetworkReachabilityStatus status);
+<<<<<<< HEAD
 typedef AFNetworkReachabilityManager * (^AFNetworkReachabilityStatusCallback)(AFNetworkReachabilityStatus status);
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 NSString * AFStringFromNetworkReachabilityStatus(AFNetworkReachabilityStatus status) {
     switch (status) {
@@ -79,6 +82,7 @@ static AFNetworkReachabilityStatus AFNetworkReachabilityStatusForFlags(SCNetwork
  * a queued notification (for an earlier status condition) is processed after
  * the later update, resulting in the listener being left in the wrong state.
  */
+<<<<<<< HEAD
 static void AFPostReachabilityStatusChange(SCNetworkReachabilityFlags flags, AFNetworkReachabilityStatusCallback block) {
     AFNetworkReachabilityStatus status = AFNetworkReachabilityStatusForFlags(flags);
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -89,11 +93,26 @@ static void AFPostReachabilityStatusChange(SCNetworkReachabilityFlags flags, AFN
         NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
         NSDictionary *userInfo = @{ AFNetworkingReachabilityNotificationStatusItem: @(status) };
         [notificationCenter postNotificationName:AFNetworkingReachabilityDidChangeNotification object:manager userInfo:userInfo];
+=======
+static void AFPostReachabilityStatusChange(SCNetworkReachabilityFlags flags, AFNetworkReachabilityStatusBlock block) {
+    AFNetworkReachabilityStatus status = AFNetworkReachabilityStatusForFlags(flags);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (block) {
+            block(status);
+        }
+        NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+        NSDictionary *userInfo = @{ AFNetworkingReachabilityNotificationStatusItem: @(status) };
+        [notificationCenter postNotificationName:AFNetworkingReachabilityDidChangeNotification object:nil userInfo:userInfo];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     });
 }
 
 static void AFNetworkReachabilityCallback(SCNetworkReachabilityRef __unused target, SCNetworkReachabilityFlags flags, void *info) {
+<<<<<<< HEAD
     AFPostReachabilityStatusChange(flags, (__bridge AFNetworkReachabilityStatusCallback)info);
+=======
+    AFPostReachabilityStatusChange(flags, (__bridge AFNetworkReachabilityStatusBlock)info);
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 
 
@@ -212,15 +231,23 @@ static void AFNetworkReachabilityReleaseCallback(const void *info) {
     }
 
     __weak __typeof(self)weakSelf = self;
+<<<<<<< HEAD
     AFNetworkReachabilityStatusCallback callback = ^(AFNetworkReachabilityStatus status) {
+=======
+    AFNetworkReachabilityStatusBlock callback = ^(AFNetworkReachabilityStatus status) {
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         __strong __typeof(weakSelf)strongSelf = weakSelf;
 
         strongSelf.networkReachabilityStatus = status;
         if (strongSelf.networkReachabilityStatusBlock) {
             strongSelf.networkReachabilityStatusBlock(status);
         }
+<<<<<<< HEAD
         
         return strongSelf;
+=======
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     };
 
     SCNetworkReachabilityContext context = {0, (__bridge void *)callback, AFNetworkReachabilityRetainCallback, AFNetworkReachabilityReleaseCallback, NULL};

@@ -27,8 +27,11 @@
     UIStatusBarStyle _originStatusBarStyle;
 }
 @property (assign, nonatomic) BOOL needShowStatusBar;
+<<<<<<< HEAD
 // iCloud无法同步提示UI
 @property (nonatomic, strong) UIView *iCloudErrorView;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @end
 
 #pragma clang diagnostic push
@@ -56,16 +59,22 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+<<<<<<< HEAD
     if (self.needShowStatusBar) {
         [UIApplication sharedApplication].statusBarHidden = NO;
     }
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     [UIApplication sharedApplication].statusBarStyle = _originStatusBarStyle;
 }
 
 - (void)configMoviePlayer {
     [[TZImageManager manager] getPhotoWithAsset:_model.asset completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
+<<<<<<< HEAD
         BOOL iCloudSyncFailed = !photo && [TZCommonTools isICloudSyncError:info[PHImageErrorKey]];
         self.iCloudErrorView.hidden = !iCloudSyncFailed;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         if (!isDegraded && photo) {
             self->_cover = photo;
             self->_doneButton.enabled = YES;
@@ -147,8 +156,12 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
+<<<<<<< HEAD
     BOOL isFullScreen = self.view.tz_height == [UIScreen mainScreen].bounds.size.height;
     CGFloat statusBarHeight = isFullScreen ? [TZCommonTools tz_statusBarHeight] : 0;
+=======
+    CGFloat statusBarHeight = [TZCommonTools tz_statusBarHeight];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     CGFloat statusBarAndNaviBarHeight = statusBarHeight + self.navigationController.navigationBar.tz_height;
     _playerLayer.frame = self.view.bounds;
     CGFloat toolBarHeight = [TZCommonTools tz_isIPhoneX] ? 44 + (83 - 49) : 44;
@@ -219,6 +232,7 @@
     }
 }
 
+<<<<<<< HEAD
 #pragma mark - lazy
 - (UIView *)iCloudErrorView{
     if (!_iCloudErrorView) {
@@ -239,6 +253,8 @@
     return _iCloudErrorView;
 }
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }

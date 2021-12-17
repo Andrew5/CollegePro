@@ -109,9 +109,17 @@ typedef void (^AFNetworkActivityActionBlock)(BOOL networkActivityIndicatorVisibl
 
 - (void)setNetworkActivityIndicatorVisible:(BOOL)networkActivityIndicatorVisible {
     if (_networkActivityIndicatorVisible != networkActivityIndicatorVisible) {
+<<<<<<< HEAD
         @synchronized(self) {
             _networkActivityIndicatorVisible = networkActivityIndicatorVisible;
         }
+=======
+        [self willChangeValueForKey:@"networkActivityIndicatorVisible"];
+        @synchronized(self) {
+             _networkActivityIndicatorVisible = networkActivityIndicatorVisible;
+        }
+        [self didChangeValueForKey:@"networkActivityIndicatorVisible"];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         if (self.networkActivityActionBlock) {
             self.networkActivityActionBlock(networkActivityIndicatorVisible);
         } else {
@@ -120,20 +128,49 @@ typedef void (^AFNetworkActivityActionBlock)(BOOL networkActivityIndicatorVisibl
     }
 }
 
+<<<<<<< HEAD
 
 - (void)incrementActivityCount {
     @synchronized(self) {
         self.activityCount++;
     }
+=======
+- (void)setActivityCount:(NSInteger)activityCount {
+	@synchronized(self) {
+		_activityCount = activityCount;
+	}
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self updateCurrentStateForNetworkActivityChange];
+    });
+}
+
+- (void)incrementActivityCount {
+    [self willChangeValueForKey:@"activityCount"];
+	@synchronized(self) {
+		_activityCount++;
+	}
+    [self didChangeValueForKey:@"activityCount"];
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     dispatch_async(dispatch_get_main_queue(), ^{
         [self updateCurrentStateForNetworkActivityChange];
     });
 }
 
 - (void)decrementActivityCount {
+<<<<<<< HEAD
     @synchronized(self) {
         self.activityCount = MAX(_activityCount - 1, 0);
     }
+=======
+    [self willChangeValueForKey:@"activityCount"];
+	@synchronized(self) {
+		_activityCount = MAX(_activityCount - 1, 0);
+	}
+    [self didChangeValueForKey:@"activityCount"];
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     dispatch_async(dispatch_get_main_queue(), ^{
         [self updateCurrentStateForNetworkActivityChange];
     });
@@ -155,6 +192,10 @@ typedef void (^AFNetworkActivityActionBlock)(BOOL networkActivityIndicatorVisibl
 - (void)setCurrentState:(AFNetworkActivityManagerState)currentState {
     @synchronized(self) {
         if (_currentState != currentState) {
+<<<<<<< HEAD
+=======
+            [self willChangeValueForKey:@"currentState"];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
             _currentState = currentState;
             switch (currentState) {
                 case AFNetworkActivityManagerStateNotActive:
@@ -173,7 +214,13 @@ typedef void (^AFNetworkActivityActionBlock)(BOOL networkActivityIndicatorVisibl
                     [self startCompletionDelayTimer];
                     break;
             }
+<<<<<<< HEAD
         }
+=======
+            [self didChangeValueForKey:@"currentState"];
+        }
+        
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     }
 }
 

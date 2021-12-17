@@ -66,7 +66,11 @@ enum {
 @property (nonatomic, copy) NSString *area;
 /// POI对应的街景图ID
 @property (nonatomic, copy) NSString *streetID;
+<<<<<<< HEAD
 /// POI类别  注：逆地理编码检索会返回此值，其他检索可能返回为空，请参考detailInfo中的tag值。
+=======
+/// POI类别
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @property (nonatomic, copy) NSString *tag;
 /// POI是否有详情信息
 @property (nonatomic, assign) BOOL hasDetailInfo;

@@ -1130,7 +1130,10 @@
 		10EFE2111D01874900159779 /* SpringScaleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpringScaleViewController.m; sourceTree = "<group>"; };
 		10FDF9CA1CA50AED00871B45 /* UIView+AnimationsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AnimationsListViewController.h"; sourceTree = "<group>"; };
 		10FDF9CB1CA50AED00871B45 /* UIView+AnimationsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AnimationsListViewController.m"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		38AAAF0B22C58B9100B333A0 /* Animations.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Animations.entitlements; sourceTree = "<group>"; };
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 		B5D0118C1C0BE1B30075BC2E /* HeaderViewTapAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderViewTapAnimationController.h; sourceTree = "<group>"; };
 		B5D0118D1C0BE1B30075BC2E /* HeaderViewTapAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderViewTapAnimationController.m; sourceTree = "<group>"; };
 		B5D0118F1C0BE2410075BC2E /* RotateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotateView.h; sourceTree = "<group>"; };
@@ -2203,7 +2206,10 @@
 		10381F4F1BF9B44A00E5E476 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				38AAAF0B22C58B9100B333A0 /* Animations.entitlements */,
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 				10381F531BF9B44A00E5E476 /* AppDelegate.h */,
 				10381F541BF9B44A00E5E476 /* AppDelegate.m */,
 				10381F731BF9B47400E5E476 /* RootController */,
@@ -4378,11 +4384,16 @@
 		10381F451BF9B44A00E5E476 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+<<<<<<< HEAD
 				LastUpgradeCheck = 1020;
+=======
+				LastUpgradeCheck = 0900;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 				ORGANIZATIONNAME = YouXianMing;
 				TargetAttributes = {
 					10381F4C1BF9B44A00E5E476 = {
 						CreatedOnToolsVersion = 7.1;
+<<<<<<< HEAD
 						DevelopmentTeam = ZV477U5U2X;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
@@ -4391,12 +4402,21 @@
 								enabled = 1;
 							};
 						};
+=======
+						DevelopmentTeam = 74W795UZRB;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 					};
 				};
 			};
 			buildConfigurationList = 10381F481BF9B44A00E5E476 /* Build configuration list for PBXProject "Animations" */;
 			compatibilityVersion = "Xcode 3.2";
+<<<<<<< HEAD
 			developmentRegion = en;
+=======
+			developmentRegion = English;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -4957,7 +4977,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+<<<<<<< HEAD
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -4966,14 +4989,20 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+<<<<<<< HEAD
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+<<<<<<< HEAD
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -5011,7 +5040,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+<<<<<<< HEAD
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -5020,14 +5052,20 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+<<<<<<< HEAD
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+<<<<<<< HEAD
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -5062,16 +5100,27 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+<<<<<<< HEAD
 				CODE_SIGN_ENTITLEMENTS = Animations/Animations.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZV477U5U2X;
+=======
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 74W795UZRB;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/Animations.pch";
 				INFOPLIST_FILE = Animations/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = com.wx.approve;
+=======
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhpro.Animations;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5088,16 +5137,27 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+<<<<<<< HEAD
 				CODE_SIGN_ENTITLEMENTS = Animations/Animations.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZV477U5U2X;
+=======
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 74W795UZRB;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/Animations.pch";
 				INFOPLIST_FILE = Animations/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = com.wx.approve;
+=======
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhpro.Animations;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Animations/Animations-Bridging-Header.h";

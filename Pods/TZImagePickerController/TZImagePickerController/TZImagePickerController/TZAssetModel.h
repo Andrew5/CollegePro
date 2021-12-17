@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+<<<<<<< HEAD
 #import <Photos/Photos.h>
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 typedef enum : NSUInteger {
     TZAssetModelMediaTypePhoto = 0,
@@ -25,7 +28,10 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) BOOL isSelected;      ///< The select status of a photo, default is No
 @property (nonatomic, assign) TZAssetModelMediaType type;
 @property (nonatomic, copy) NSString *timeLength;
+<<<<<<< HEAD
 @property (nonatomic, assign) BOOL iCloudFailed;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 /// Init a photo dataModel With a PHAsset
 /// 用一个PHAsset实例，初始化一个照片模型
@@ -41,8 +47,11 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) NSString *name;        ///< The album name
 @property (nonatomic, assign) NSInteger count;       ///< Count of photos the album contain
 @property (nonatomic, strong) PHFetchResult *result;
+<<<<<<< HEAD
 @property (nonatomic, strong) PHAssetCollection *collection;
 @property (nonatomic, strong) PHFetchOptions *options;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 @property (nonatomic, strong) NSArray *models;
 @property (nonatomic, strong) NSArray *selectedModels;
@@ -51,6 +60,9 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) BOOL isCameraRoll;
 
 - (void)setResult:(PHFetchResult *)result needFetchAssets:(BOOL)needFetchAssets;
+<<<<<<< HEAD
 - (void)refreshFetchResult;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 @end

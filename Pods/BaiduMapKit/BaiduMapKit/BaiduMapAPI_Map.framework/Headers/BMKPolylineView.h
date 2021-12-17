@@ -26,7 +26,13 @@
 
 
 #pragma mark - 以下方法和属性只适用于分段纹理绘制/分段颜色绘制
+<<<<<<< HEAD
 /// 是否分段纹理/分段颜色绘制（突出显示），默认YES，YES:使用分段纹理绘制 NO:使用默认的灰色纹理绘制
 @property (nonatomic, assign) BOOL isFocus __deprecated_msg("已废弃since 5.0.0");
+=======
+
+/// 是否分段纹理/分段颜色绘制（突出显示），默认YES，YES:使用分段纹理绘制 NO:使用默认的灰色纹理绘制
+@property (nonatomic, assign) BOOL isFocus;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 @end

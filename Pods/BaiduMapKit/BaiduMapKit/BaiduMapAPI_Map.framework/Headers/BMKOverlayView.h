@@ -7,7 +7,10 @@
  */
 #import <UIKit/UIKit.h>
 #import "BMKOverlay.h"
+<<<<<<< HEAD
 #import "BMKLineDrawType.h"
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 /// 该类是地图覆盖物View的基类，提供绘制overlay的接口但本身并无实现，所有地图覆盖物View需要继承自此类
 @interface BMKOverlayView : UIView
@@ -99,13 +102,18 @@
 - (void)setNeedsDisplayInMapRect:(BMKMapRect)mapRect;     
 
 /**
+<<<<<<< HEAD
  *使用OpenGLES 指定颜色绘制线
+=======
+ *使用OpenGLES 绘制线
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
  @param points 直角坐标点
  @param pointCount 点个数
  @param strokeColor 线颜色
  @param lineWidth OpenGLES支持线宽尺寸
  @param looped 是否闭合, 如polyline会设置NO, polygon会设置YES.
  */
+<<<<<<< HEAD
 
 - (void)renderLinesWithPoints:(BMKMapPoint *)points pointCount:(NSUInteger)pointCount strokeColor:(UIColor *)strokeColor lineWidth:(CGFloat)lineWidth looped:(BOOL)looped;
 /**
@@ -220,6 +228,74 @@
  */
 -(void)renderMultiDashPolyLineWithPartPoints:(NSArray*)partPt lineWidth:(CGFloat)lineWidth textureIndexs:(NSArray<NSNumber *> *)textureIndexs lineDashType:(BMKLineDashType)lineDashType isThined:(BOOL)isThined;
 /**
+=======
+- (void)renderLinesWithPoints:(BMKMapPoint *)points pointCount:(NSUInteger)pointCount strokeColor:(UIColor *)strokeColor lineWidth:(CGFloat)lineWidth looped:(BOOL)looped;
+/**
+ *使用OpenGLES 绘制线
+ @param points 直角坐标点
+ @param pointCount 点个数
+ @param strokeColor 线颜色
+ @param lineWidth OpenGLES支持线宽尺寸
+ @param looped 是否闭合, 如polyline会设置NO, polygon会设置YES.
+ @param lineDash 是否虚线样式
+ */
+- (void)renderLinesWithPoints:(BMKMapPoint *)points pointCount:(NSUInteger)pointCount strokeColor:(UIColor *)strokeColor lineWidth:(CGFloat)lineWidth looped:(BOOL)looped lineDash:(BOOL)lineDash;
+
+/**
+ *使用OpenGLES 按指定纹理绘制线
+ @param points 直角坐标点
+ @param pointCount 点个数
+ @param lineWidth OpenGLES支持线宽尺寸
+ @param textureID 纹理ID,使用- (void)loadStrokeTextureImage:(UIImage *)textureImage;加载
+ @param looped 是否闭合, 如polyline会设置NO, polygon会设置YES.
+ */
+- (void)renderTexturedLinesWithPoints:(BMKMapPoint *)points pointCount:(NSUInteger)pointCount lineWidth:(CGFloat)lineWidth textureID:(GLuint)textureID looped:(BOOL)looped;
+
+/**
+ *使用OpenGLES 按指定纹理绘制线
+ @param points 直角坐标点
+ @param pointCount 点个数
+ @param lineWidth OpenGLES支持线宽尺寸
+ @param textureID 纹理ID,使用- (void)loadStrokeTextureImage:(UIImage *)textureImage;加载
+ @param looped 是否闭合, 如polyline会设置NO, polygon会设置YES.
+ @param tileTexture 是否纹理图片平铺绘制
+ @param keepScale 纹理图片是否缩放（tileTexture为YES时生效）
+ */
+- (void)renderTexturedLinesWithPoints:(BMKMapPoint *)points pointCount:(NSUInteger)pointCount lineWidth:(CGFloat)lineWidth textureID:(GLuint)textureID strokeColor:(UIColor *)strokeColor  looped:(BOOL)looped tileTexture:(BOOL) tileTexture keepScale:(BOOL) keepScale;
+
+/**
+ *使用OpenGLES 按指定纹理绘制多边形，适配坐标数量过多产生飞线bug
+ @param points 直角坐标点
+ @param pointCount 点个数
+ @param lineWidth OpenGLES支持线宽尺寸
+ @param textureID 纹理ID,使用- (void)loadStrokeTextureImage:(UIImage *)textureImage;加载
+ @param tileTexture 是否纹理图片平铺绘制
+ @param keepScale 纹理图片是否缩放（tileTexture为YES时生效）
+ */
+//- (void)renderTexturedLinesWithPoints:(BMKMapPoint *)points pointCount:(NSUInteger)pointCount lineWidth:(CGFloat)lineWidth textureID:(GLuint)textureID strokeColor:(UIColor *)strokeColor tileTexture:(BOOL) tileTexture keepScale:(BOOL) keepscale;
+
+/**
+ *使用OpenGLES 分段纹理绘制线
+ @param partPt 分段直角坐标点
+ @param lineWidth OpenGLES支持线宽尺寸
+ @param textureIndexs 分段纹理索引,使用- (void)loadStrokeTextureImage:(UIImage *)textureImage;加载
+ @param isFoucs 是否使用分段纹理绘制
+ */
+-(void)renderTexturedLinesWithPartPoints:(NSArray*)partPt lineWidth:(CGFloat)lineWidth textureIndexs:(NSArray*)textureIndexs isFocus:(BOOL) isFoucs;
+
+/**
+ *使用OpenGLES 分段纹理绘制线/分段颜色绘制线
+ @param partPt 分段直角坐标点
+ @param lineWidth OpenGLES支持线宽尺寸
+ @param textureIndexs 分段纹理索引,使用- (BOOL)loadStrokeTextureImages:(UIImage *)textureImage;加载
+ @param isFoucs 是否使用分段纹理绘制
+ @param tileTexture 是否纹理图片平铺绘制
+ @param keepScale 纹理图片是否缩放（tileTexture为YES时生效）
+ */
+-(void)renderTexturedLinesWithPartPoints:(NSArray*)partPt lineWidth:(CGFloat)lineWidth textureIndexs:(NSArray*)textureIndexs isFocus:(BOOL) isFoucs tileTexture:(BOOL) tileTexture keepScale:(BOOL) keepScale;
+
+/**
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
  *使用OpenGLES 绘制区域
  @param points 直角坐标点
  @param pointCount 点个数
@@ -227,7 +303,10 @@
  @param usingTriangleFan YES对应GL_TRIANGLE_FAN, NO对应GL_TRIANGLES
  */
 - (void)renderRegionWithPoints:(BMKMapPoint *)points pointCount:(NSUInteger)pointCount fillColor:(UIColor *)fillColor usingTriangleFan:(BOOL)usingTriangleFan;
+<<<<<<< HEAD
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 /**
  *使用OpenGLES 绘制区域（支持凹多边形）
  @param points 直角坐标点
@@ -238,6 +317,7 @@
 - (void)renderATRegionWithPoint:(BMKMapPoint *)points pointCount:(NSUInteger)pointCount fillColor:(UIColor *)fillColor usingTriangleFan:(BOOL)usingTriangleFan;
 
 /**
+<<<<<<< HEAD
  使用OpenGLES 绘制圆
  @param points 直角坐标点
  @param pointCount 点个数
@@ -258,6 +338,8 @@
 - (void)rendePolygonWithPoints:(BMKMapPoint *)points pointCount:(NSUInteger)pointCount lineWidth:(CGFloat)lineWidth fillColor:(UIColor *)fillColor strokeColor:(UIColor *)strokeColor;
 
 /**
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
  *绘制函数(子类需要重载来实现)
  */
 - (void)glRender;
@@ -277,11 +359,19 @@
  @param textureImages 必须UIImage数组，opengl要求图片宽高必须是2的n次幂，否则，返回NO，无法分段纹理绘制
  @return 是否成功
  */
+<<<<<<< HEAD
 - (BOOL)loadStrokeTextureImages:(NSArray <UIImage *>*)textureImages;
 
 /// 使用分段颜色绘制时，必须设置（内容必须为UIColor）
 /// 注：请使用 - (UIColor *)initWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha; 初始化UIColor。使用[UIColor ***Color]初始化时，个别case转换成RGB后会有问题
 @property (nonatomic, strong) NSArray<UIColor *> *colors;
+=======
+- (BOOL)loadStrokeTextureImages:(NSArray *)textureImages;
+
+/// 使用分段颜色绘制时，必须设置（内容必须为UIColor）
+/// 注：请使用 - (UIColor *)initWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha; 初始化UIColor。使用[UIColor ***Color]初始化时，个别case转换成RGB后会有问题
+@property (nonatomic, strong) NSArray *colors;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 @end
 

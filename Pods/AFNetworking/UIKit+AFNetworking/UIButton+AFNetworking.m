@@ -103,11 +103,19 @@ static const char * af_backgroundImageDownloadReceiptKeyForState(UIControlState 
 
 + (AFImageDownloader *)sharedImageDownloader {
 
+<<<<<<< HEAD
     return objc_getAssociatedObject([UIButton class], @selector(sharedImageDownloader)) ?: [AFImageDownloader defaultInstance];
 }
 
 + (void)setSharedImageDownloader:(AFImageDownloader *)imageDownloader {
     objc_setAssociatedObject([UIButton class], @selector(sharedImageDownloader), imageDownloader, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+=======
+    return objc_getAssociatedObject(self, @selector(sharedImageDownloader)) ?: [AFImageDownloader defaultInstance];
+}
+
++ (void)setSharedImageDownloader:(AFImageDownloader *)imageDownloader {
+    objc_setAssociatedObject(self, @selector(sharedImageDownloader), imageDownloader, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 
 #pragma mark -
@@ -168,7 +176,11 @@ static const char * af_backgroundImageDownloadReceiptKeyForState(UIControlState 
                        if ([[strongSelf af_imageDownloadReceiptForState:state].receiptID isEqual:downloadID]) {
                            if (success) {
                                success(request, response, responseObject);
+<<<<<<< HEAD
                            } else if (responseObject) {
+=======
+                           } else if(responseObject) {
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
                                [strongSelf setImage:responseObject forState:state];
                            }
                            [strongSelf af_setImageDownloadReceipt:nil forState:state];
@@ -247,7 +259,11 @@ static const char * af_backgroundImageDownloadReceiptKeyForState(UIControlState 
                        if ([[strongSelf af_backgroundImageDownloadReceiptForState:state].receiptID isEqual:downloadID]) {
                            if (success) {
                                success(request, response, responseObject);
+<<<<<<< HEAD
                            } else if (responseObject) {
+=======
+                           } else if(responseObject) {
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
                                [strongSelf setBackgroundImage:responseObject forState:state];
                            }
                            [strongSelf af_setBackgroundImageDownloadReceipt:nil forState:state];

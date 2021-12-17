@@ -29,6 +29,15 @@
 #import <UIKit/UIAccessibility.h>
 #import <UIKit/UIViewController.h>
 
+<<<<<<< HEAD
+=======
+@interface IQTitleBarButtonItem (PrivateAccessor)
+
+@property(nonnull, nonatomic, strong) UIButton *titleButton;
+
+@end
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @implementation IQToolbar
 @synthesize previousBarButton = _previousBarButton;
 @synthesize nextBarButton = _nextBarButton;
@@ -90,6 +99,10 @@
     if (_previousBarButton == nil)
     {
         _previousBarButton = [[IQBarButtonItem alloc] initWithImage:nil style:UIBarButtonItemStylePlain target:nil action:nil];
+<<<<<<< HEAD
+=======
+        _previousBarButton.accessibilityLabel = @"Previous";
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     }
     
     return _previousBarButton;
@@ -100,6 +113,10 @@
     if (_nextBarButton == nil)
     {
         _nextBarButton = [[IQBarButtonItem alloc] initWithImage:nil style:UIBarButtonItemStylePlain target:nil action:nil];
+<<<<<<< HEAD
+=======
+        _nextBarButton.accessibilityLabel = @"Next";
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     }
     
     return _nextBarButton;
@@ -121,6 +138,10 @@
     if (_doneBarButton == nil)
     {
         _doneBarButton = [[IQBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:nil action:nil];
+<<<<<<< HEAD
+=======
+        _doneBarButton.accessibilityLabel = @"Done";
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     }
     
     return _doneBarButton;
@@ -131,6 +152,7 @@
     if (_fixedSpaceBarButton == nil)
     {
         _fixedSpaceBarButton = [[IQBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+<<<<<<< HEAD
         if (@available(iOS 10.0, *))
         {
             [_fixedSpaceBarButton setWidth:6];
@@ -139,6 +161,20 @@
         {
             [_fixedSpaceBarButton setWidth:20];
         }
+=======
+#ifdef __IPHONE_11_0
+        if (@available(iOS 10.0, *))
+#else
+            if (IQ_IS_IOS10_OR_GREATER)
+#endif
+            {
+                [_fixedSpaceBarButton setWidth:6];
+            }
+            else
+            {
+                [_fixedSpaceBarButton setWidth:20];
+            }
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     }
     
     return _fixedSpaceBarButton;
@@ -153,6 +189,26 @@
     return sizeThatFit;
 }
 
+<<<<<<< HEAD
+=======
+-(void)setBarStyle:(UIBarStyle)barStyle
+{
+    [super setBarStyle:barStyle];
+    
+    if (self.titleBarButton.selectableTitleColor == nil)
+    {
+        if (barStyle == UIBarStyleDefault)
+        {
+            [self.titleBarButton.titleButton setTitleColor:[UIColor colorWithRed:0.0 green:0.5 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+        }
+        else
+        {
+            [self.titleBarButton.titleButton setTitleColor:[UIColor yellowColor] forState:UIControlStateNormal];
+        }
+    }
+}
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 -(void)setTintColor:(UIColor *)tintColor
 {
     [super setTintColor:tintColor];
@@ -167,8 +223,17 @@
 {
     [super layoutSubviews];
 
+<<<<<<< HEAD
     if (@available(iOS 11.0, *)) {}
     else {
+=======
+    //If running on Xcode9 (iOS11) only then we'll validate for iOS version, otherwise for older versions of Xcode (iOS10 and below) we'll just execute the tweak
+#ifdef __IPHONE_11_0
+    if (@available(iOS 11.0, *)) {}
+    else
+#endif
+    {
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         CGRect leftRect = CGRectNull;
         CGRect rightRect = CGRectNull;
         

@@ -7,7 +7,10 @@
  */
 
 #import "SDImageAssetManager.h"
+<<<<<<< HEAD
 #import "SDInternalMacros.h"
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 static NSArray *SDBundlePreferredScales() {
     static NSArray *scales;

@@ -5,7 +5,11 @@
 //  Created by Daniel Bey on 2018年07月05日.
 //  Copyright © 2018 Baidu. All rights reserved.
 //
+<<<<<<< HEAD
 #define BMKMapManagerInstance [BMKMapManager sharedInstance]
+=======
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 #import "BMKGeneralDelegate.h"
 #import <UIKit/UIKit.h>
 #import "BMKTypes.h"
@@ -13,8 +17,11 @@
 ///主引擎类
 @interface BMKMapManager : NSObject
 
+<<<<<<< HEAD
 //获得实例对象
 + (BMKMapManager*) sharedInstance;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 /**
  全局设置地图SDK与开发者交互时的坐标类型。不调用此方法时，
  

@@ -23,7 +23,10 @@
 
 #import "IQUIView+Hierarchy.h"
 #import "IQUITextFieldView+Additions.h"
+<<<<<<< HEAD
 #import "IQUIViewController+Additions.h"
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 
 #import <UIKit/UICollectionView.h>
 #import <UIKit/UIAlertController.h>
@@ -157,12 +160,16 @@
     return finalController;
 }
 
+<<<<<<< HEAD
 -(UIView*)superviewOfClassType:(nonnull Class)classType
 {
     return [self superviewOfClassType:classType belowView:nil];
 }
 
 -(nullable __kindof UIView*)superviewOfClassType:(nonnull Class)classType belowView:(nullable UIView*)belowView
+=======
+-(UIView*)superviewOfClassType:(Class)classType
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 {
     UIView *superview = self.superview;
     
@@ -190,10 +197,13 @@
                 return superview;
             }
         }
+<<<<<<< HEAD
         else if (belowView == superview)
         {
             return nil;
         }
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         
         superview = superview.superview;
     }
@@ -205,6 +215,7 @@
 {
     BOOL _IQcanBecomeFirstResponder = NO;
     
+<<<<<<< HEAD
     if ([self conformsToProtocol:@protocol(UITextInput)]) {
         if ([self respondsToSelector:@selector(isEditable)] && [self isKindOfClass:[UIScrollView class]])
         {
@@ -216,6 +227,17 @@
         }
     }
     
+=======
+    if ([self isKindOfClass:[UITextField class]])
+    {
+        _IQcanBecomeFirstResponder = [(UITextField*)self isEnabled];
+    }
+    else if ([self isKindOfClass:[UITextView class]])
+    {
+        _IQcanBecomeFirstResponder = [(UITextView*)self isEditable];
+    }
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     if (_IQcanBecomeFirstResponder == YES)
     {
         _IQcanBecomeFirstResponder = ([self isUserInteractionEnabled] && ![self isHidden] && [self alpha]!=0.0 && ![self isAlertViewTextField]  && !self.textFieldSearchBar);
@@ -249,9 +271,16 @@
         {
             [textFields addObject:textField];
         }
+<<<<<<< HEAD
         //Sometimes there are hidden or disabled views and textField inside them still recorded, so we added some more validations here (Bug ID: #458)
         //Uncommented else (Bug ID: #625)
         else if (textField.subviews.count && [textField isUserInteractionEnabled] && ![textField isHidden] && [textField alpha]!=0.0)
+=======
+        
+        //Sometimes there are hidden or disabled views and textField inside them still recorded, so we added some more validations here (Bug ID: #458)
+        //Uncommented else (Bug ID: #625)
+        if (textField.subviews.count && [textField isUserInteractionEnabled] && ![textField isHidden] && [textField alpha]!=0.0)
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         {
             [textFields addObjectsFromArray:[textField deepResponderViews]];
         }
@@ -429,6 +458,18 @@
 
 @end
 
+<<<<<<< HEAD
+=======
+@implementation UIViewController (IQ_UIView_Hierarchy)
+
+-(nullable UIViewController*)parentIQContainerViewController
+{
+    return self;
+}
+
+@end
+
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @implementation NSObject (IQ_Logging)
 
 -(NSString *)_IQDescription

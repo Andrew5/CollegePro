@@ -26,6 +26,7 @@
 
 - (void)start {
     self.executing = YES;
+<<<<<<< HEAD
     [[TZImageManager manager] getPhotoWithAsset:self.asset completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!isDegraded) {
@@ -44,6 +45,28 @@
             }
         });
     } networkAccessAllowed:YES];
+=======
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        [[TZImageManager manager] getPhotoWithAsset:self.asset completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (!isDegraded) {
+                    if (self.completedBlock) {
+                        self.completedBlock(photo, info, isDegraded);
+                    }
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [self done];
+                    });
+                }
+            });
+        } progressHandler:^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (self.progressBlock) {
+                    self.progressBlock(progress, error, stop, info);
+                }
+            });
+        } networkAccessAllowed:YES];
+    });
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 
 - (void)done {

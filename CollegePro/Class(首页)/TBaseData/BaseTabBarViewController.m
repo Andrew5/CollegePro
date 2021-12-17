@@ -20,7 +20,10 @@
 @interface BaseTabBarViewController ()<UITabBarControllerDelegate>
 {
     UILabel *_redLab;
+<<<<<<< HEAD
     UILabel *_bottomAdLB;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 
 @end
@@ -29,6 +32,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+<<<<<<< HEAD
     //解决hidesBottomBarWhenPushed 跳转闪屏问题
     [[UITabBar appearance] setTranslucent:NO];
     [self myTabbar];
@@ -60,6 +64,11 @@
     _bottomAdLB.layer.borderColor = [UIColor redColor].CGColor;
     _bottomAdLB.layer.borderWidth = 1.0;
 }
+=======
+    [self myTabbar];
+    // Do any additional setup after loading the view.
+}
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 - (void)myTabbar
 {  
  
@@ -107,6 +116,7 @@
 	self.selectedIndex = 0;
 
 }
+<<<<<<< HEAD
 //#define iPhoneX (IS_IOS_11 && IS_IPHONE && (MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) >= 375 && MAX([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) >= 812))
 #define isIPhone        [[UIDevice currentDevice].model isEqualToString:@"iPhone"]
 
@@ -201,6 +211,8 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"eLLToLoginViewController" object:@{@"eLLToLoginViewController" : @"1"}];
 
 }
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 //- (void)addOneChildVC:(UIViewController *)childVC title:(NSString *)title backgroundColor:(UIColor *)color imageName:(NSString *)imageName selectedName:(NSString *)selectImageName
 //{
 //    childVC.navigationItem.title = title;

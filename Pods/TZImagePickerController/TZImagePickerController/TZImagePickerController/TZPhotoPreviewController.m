@@ -42,7 +42,10 @@
 
 @property (nonatomic, assign) double progress;
 @property (strong, nonatomic) UIAlertController *alertView;
+<<<<<<< HEAD
 @property (nonatomic, strong) UIView *iCloudErrorView;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 @end
 
 @implementation TZPhotoPreviewController
@@ -87,11 +90,18 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+<<<<<<< HEAD
+=======
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     TZImagePickerController *tzImagePickerVc = (TZImagePickerController *)self.navigationController;
     if (tzImagePickerVc.needShowStatusBar) {
         [UIApplication sharedApplication].statusBarHidden = NO;
     }
+<<<<<<< HEAD
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     [TZImageManager manager].shouldFixOrientation = NO;
 }
 
@@ -120,7 +130,10 @@
     _selectButton.hidden = !tzImagePickerVc.showSelectBtn;
     
     _indexLabel = [[UILabel alloc] init];
+<<<<<<< HEAD
     _indexLabel.adjustsFontSizeToFitWidth = YES;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     _indexLabel.font = [UIFont systemFontOfSize:14];
     _indexLabel.textColor = [UIColor whiteColor];
     _indexLabel.textAlignment = NSTextAlignmentCenter;
@@ -172,7 +185,10 @@
     
     _numberLabel = [[UILabel alloc] init];
     _numberLabel.font = [UIFont systemFontOfSize:15];
+<<<<<<< HEAD
     _numberLabel.adjustsFontSizeToFitWidth = YES;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     _numberLabel.textColor = [UIColor whiteColor];
     _numberLabel.textAlignment = NSTextAlignmentCenter;
     _numberLabel.text = [NSString stringWithFormat:@"%zd",_tzImagePickerVc.selectedModels.count];
@@ -248,9 +264,14 @@
     [super viewDidLayoutSubviews];
     TZImagePickerController *_tzImagePickerVc = (TZImagePickerController *)self.navigationController;
     
+<<<<<<< HEAD
     BOOL isFullScreen = self.view.tz_height == [UIScreen mainScreen].bounds.size.height;
     CGFloat statusBarHeight = isFullScreen ? [TZCommonTools tz_statusBarHeight] : 0;
     CGFloat statusBarHeightInterval = isFullScreen ? (statusBarHeight - 20) : 0;
+=======
+    CGFloat statusBarHeight = [TZCommonTools tz_statusBarHeight];
+    CGFloat statusBarHeightInterval = statusBarHeight - 20;
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     CGFloat naviBarHeight = statusBarHeight + _tzImagePickerVc.navigationBar.tz_height;
     _naviBar.frame = CGRectMake(0, 0, self.view.tz_width, naviBarHeight);
     _backButton.frame = CGRectMake(10, 10 + statusBarHeightInterval, 44, 44);
@@ -383,8 +404,14 @@
     }
     
     // 如果没有选中过照片 点击确定时选中当前预览的照片
+<<<<<<< HEAD
     if (_tzImagePickerVc.selectedModels.count == 0 && _tzImagePickerVc.minImagesCount <= 0 && _tzImagePickerVc.autoSelectCurrentWhenDone) {
         [self select:_selectButton];
+=======
+    if (_tzImagePickerVc.selectedModels.count == 0 && _tzImagePickerVc.minImagesCount <= 0) {
+        TZAssetModel *model = _models[self.currentIndex];
+        [_tzImagePickerVc addSelectedModel:model];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     }
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:self.currentIndex inSection:0];
     TZPhotoPreviewCell *cell = (TZPhotoPreviewCell *)[_collectionView cellForItemAtIndexPath:indexPath];
@@ -442,6 +469,10 @@
         _currentIndex = currentIndex;
         [self refreshNaviBarAndBottomBarState];
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     [[NSNotificationCenter defaultCenter] postNotificationName:@"photoPreviewCollectionViewDidScroll" object:nil];
 }
 
@@ -459,6 +490,7 @@
     __weak typeof(self) weakSelf = self;
     if (_tzImagePickerVc.allowPickingMultipleVideo && model.type == TZAssetModelMediaTypeVideo) {
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TZVideoPreviewCell" forIndexPath:indexPath];
+<<<<<<< HEAD
         TZVideoPreviewCell *currentCell = (TZVideoPreviewCell *)cell;
         currentCell.iCloudSyncFailedHandle = ^(id asset, BOOL isSyncFailed) {
             model.iCloudFailed = isSyncFailed;
@@ -473,12 +505,19 @@
             [weakSelf didICloudSyncStatusChanged:model];
             [weakSelf.models replaceObjectAtIndex:indexPath.item withObject:model];
         };
+=======
+    } else if (_tzImagePickerVc.allowPickingMultipleVideo && model.type == TZAssetModelMediaTypePhotoGif && _tzImagePickerVc.allowPickingGif) {
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TZGifPreviewCell" forIndexPath:indexPath];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     } else {
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TZPhotoPreviewCell" forIndexPath:indexPath];
         TZPhotoPreviewCell *photoPreviewCell = (TZPhotoPreviewCell *)cell;
         photoPreviewCell.cropRect = _tzImagePickerVc.cropRect;
         photoPreviewCell.allowCrop = _tzImagePickerVc.allowCrop;
+<<<<<<< HEAD
         photoPreviewCell.scaleAspectFillCrop = _tzImagePickerVc.scaleAspectFillCrop;
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
         __weak typeof(_tzImagePickerVc) weakTzImagePickerVc = _tzImagePickerVc;
         __weak typeof(_collectionView) weakCollectionView = _collectionView;
         __weak typeof(photoPreviewCell) weakCell = photoPreviewCell;
@@ -497,11 +536,14 @@
                 }
             }
         }];
+<<<<<<< HEAD
         photoPreviewCell.previewView.iCloudSyncFailedHandle = ^(id asset, BOOL isSyncFailed) {
             model.iCloudFailed = isSyncFailed;
             [weakSelf didICloudSyncStatusChanged:model];
             [weakSelf.models replaceObjectAtIndex:indexPath.item withObject:model];
         };
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     }
     
     cell.model = model;
@@ -509,7 +551,10 @@
         __strong typeof(weakSelf) strongSelf = weakSelf;
         [strongSelf didTapPreviewCell];
     }];
+<<<<<<< HEAD
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     return cell;
 }
 
@@ -533,7 +578,10 @@
 #pragma mark - Private Method
 
 - (void)dealloc {
+<<<<<<< HEAD
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     // NSLog(@"%@ dealloc",NSStringFromClass(self.class));
 }
 
@@ -580,11 +628,14 @@
         _originalPhotoLabel.hidden = YES;
         _doneButton.hidden = YES;
     }
+<<<<<<< HEAD
     // iCloud同步失败的UI刷新
     [self didICloudSyncStatusChanged:model];
     if (_tzImagePickerVc.photoPreviewPageDidRefreshStateBlock) {
         _tzImagePickerVc.photoPreviewPageDidRefreshStateBlock(_collectionView, _naviBar, _backButton, _selectButton, _indexLabel, _toolBar, _originalPhotoButton, _originalPhotoLabel, _doneButton, _numberImageView, _numberLabel);
     }
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 }
 
 - (void)refreshSelectButtonImageViewContentMode {
@@ -597,6 +648,7 @@
     });
 }
 
+<<<<<<< HEAD
 - (void)didICloudSyncStatusChanged:(TZAssetModel *)model{
     dispatch_async(dispatch_get_main_queue(), ^{
         TZImagePickerController *_tzImagePickerVc = (TZImagePickerController *)self.navigationController;
@@ -616,6 +668,8 @@
     });
 }
 
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 - (void)showPhotoBytes {
     [[TZImageManager manager] getPhotosBytesWithArray:@[_models[self.currentIndex]] completion:^(NSString *totalBytes) {
         self->_originalPhotoLabel.text = [NSString stringWithFormat:@"(%@)",totalBytes];

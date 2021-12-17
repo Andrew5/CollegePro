@@ -22,6 +22,7 @@
     dispatch_once(&onceToken, ^{
         // 集合中没有NSObject，因为几乎所有的类都是继承自NSObject，具体是不是NSObject需要特殊判断
         foundationClasses = [NSSet setWithObjects:
+<<<<<<< HEAD
                              [NSURL class],
                              [NSDate class],
                              [NSValue class],
@@ -31,6 +32,17 @@
                              [NSDictionary class],
                              [NSString class],
                              [NSAttributedString class], nil];
+=======
+                              [NSURL class],
+                              [NSDate class],
+                              [NSValue class],
+                              [NSData class],
+                              [NSError class],
+                              [NSArray class],
+                              [NSDictionary class],
+                              [NSString class],
+                              [NSAttributedString class], nil];
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
     });
     
     __block BOOL result = NO;

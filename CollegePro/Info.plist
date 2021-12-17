@@ -2,12 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+<<<<<<< HEAD
 	<key>CFBundleAllowMixedLocalizations</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
 	<string>综合项目</string>
+=======
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -18,6 +23,7 @@
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+<<<<<<< HEAD
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleURLTypes</key>
@@ -45,6 +51,24 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>241</string>
+=======
+	<key>LSApplicationCategoryType</key>
+	<string></string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<key>NSMotionUsageDescription</key>
+	<string>允许</string>
+	<key>CFBundleAllowMixedLocalizations</key>
+	<true/>
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>Identification</string>
@@ -53,6 +77,7 @@
 		<string>mqqOpensdkSSoLogin</string>
 		<string>mqzoneshare</string>
 	</array>
+<<<<<<< HEAD
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MPMediaItemPropertyAlbumTitle</key>
@@ -69,10 +94,15 @@
 	<string>当前播放的item所消逝的时间(歌曲当前时间), 单位为秒</string>
 	<key>MPNowPlayingInfoPropertyPlaybackRate</key>
 	<string>当前播放的item的播放速率, value为1.0表示正常的播放速率</string>
+=======
+	<key>CFBundleDisplayName</key>
+	<string>综合项目</string>
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
+<<<<<<< HEAD
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>jpush.cn</key>
@@ -90,12 +120,18 @@
 	<string>App需要您的同意,才能访问日历</string>
 	<key>NSCameraUsageDescription</key>
 	<string>App需要您的同意,才能访问相机权限</string>
+=======
+	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera Usage Description</string>
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 	<key>NSContactsUsageDescription</key>
 	<string>Contacts Usage Description</string>
 	<key>NSHealthShareUsageDescription</key>
 	<string>访问健康分享</string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>访问健康更新</string>
+<<<<<<< HEAD
 	<key>NSInternalInconsistencyException</key>
 	<string></string>
 	<key>NSLocationWhenInUseUsageDescription</key>
@@ -108,6 +144,16 @@
 	<string>访问运动与健身</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>动画工具"需要访问您的相册</string>
+=======
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<true/>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone Usage Description</string>
+	<key>NSMotionUsageDescription - 2</key>
+	<string>访问运动与健身</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>允许</string>
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Photo Library Usage Description</string>
 	<key>NSPhotoLibraryUsageDescription - 2</key>
@@ -115,6 +161,7 @@
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
+<<<<<<< HEAD
 		<string>fetch</string>
 		<string>processing</string>
 		<string>remote-notification</string>
@@ -138,6 +185,19 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+=======
+		<string>voip</string>
+	</array>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -146,7 +206,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+<<<<<<< HEAD
 	<key>UIUserInterfaceStyle</key>
 	<string>UIUserInterfaceStyleLight</string>
+=======
+>>>>>>> f011fde2c3ac1dc4a3ea7c25fab0872df69a2c28
 </dict>
 </plist>
